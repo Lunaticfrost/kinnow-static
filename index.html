@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,8 +74,9 @@
             padding: 60px 20px;
             background-color: #FFF4E6;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             color: #000;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -198,6 +200,32 @@
             right: 5%;
         }
 
+        .background-image-1 {
+            position: absolute;
+            top: 100px;
+            width: 600px;
+            height: 800px;
+            background-image: url('images/breakfast-bowl.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+            margin-left: -20px;
+        }
+
+        .background-image-2 {
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            width: 600px;
+            height: 600px;
+            background-image: url('images/blueberries.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 1;
+            z-index: 0;
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -236,6 +264,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container header-container">
@@ -247,6 +276,8 @@
     </header>
 
     <section class="hero">
+        <div class="background-image-1"></div>
+        <div class="background-image-2"></div>
         <div class="decoration decoration-1">
             <svg width="150" height="150" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20,50 Q35,20 50,50 T80,50" stroke="#ffffff" stroke-width="2" fill="none" />
@@ -254,7 +285,8 @@
         </div>
         <div class="container">
             <h1>Healthy Breakfast,<br>Delivered Every Morning</h1>
-            <p>Kinnow is reinventing the way India does breakfast - fresh, nutritious meals delivered to your door, daily.</p>
+            <p>Kinnow is reinventing the way India does breakfast - fresh, nutritious meals delivered to your door,
+                daily.</p>
             <div class="app-buttons">
                 <button class="app-button">Download on App Store</button>
                 <button class="app-button">Get it on Google Play</button>
@@ -277,15 +309,16 @@
             </div>
             <div class="feature-card">
                 <h3>Nutrition Transparency</h3>
-                <p>Every meal includes complete nutritional info — calories, macros, and more — so you can track your health.</p>
+                <p>Every meal includes complete nutritional info — calories, macros, and more — so you can track your
+                    health.</p>
             </div>
             <div class="feature-card">
                 <h3>No Repeat for 30 Days</h3>
                 <p>A unique breakfast every day — our menu rotation ensures variety, excitement, and zero boredom.</p>
             </div>
             <div class="feature-card">
-                <h3>Coconut Water Plan</h3>
-                <p>Opt for our special plan that includes a fresh, chilled coconut water with your morning meal, daily.</p>
+                <h3>Skip the daily ordering</h3>
+                <p>Just subscribe once and your healthy breakfast shows up daily - no clicks needed.</p>
             </div>
         </div>
     </section>
@@ -293,26 +326,32 @@
     <section class="menu-section">
         <div class="container">
             <h2>A Taste of What We Deliver</h2>
-            <p>Smoothie bowls, creamy power oats, loaded chia puddings, Nutritious salad bowl, fresh coconut and many more — healthy mornings made exciting.</p>
-            
+            <p>Smoothie bowls, creamy power oats, loaded chia puddings, Nutritious salad bowl, fresh coconut and many
+                more — healthy mornings made exciting.</p>
+
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Dry+Fruits+Smoothie+Bowl.png" alt="Smoothie bowl with fruits and granola">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Dry+Fruits+Smoothie+Bowl.png"
+                        alt="Smoothie bowl with fruits and granola">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/PeanutButter+Banana+Toast+%2B+Fresh+Fruit+Cut.png" alt="Peanut Butter Banana toast">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/PeanutButter+Banana+Toast+%2B+Fresh+Fruit+Cut.png"
+                        alt="Peanut Butter Banana toast">
                 </div>
                 <div class="menu-item">
                     <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Avacado+Toast.png" alt="Avocado toast">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Strawberry+Smoothie+Chia+Pudding.png" alt="Strawberry chia pudding with fruits">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Strawberry+Smoothie+Chia+Pudding.png"
+                        alt="Strawberry chia pudding with fruits">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Berry+Bliss+Smoothie+bowl.png" alt="Berry Bliss Smoothie Bowl">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Berry+Bliss+Smoothie+bowl.png"
+                        alt="Berry Bliss Smoothie Bowl">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Tofu+Breakfast+Bowl.png" alt="Tofu Breakfast Bowl">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Tofu+Breakfast+Bowl.png"
+                        alt="Tofu Breakfast Bowl">
                 </div>
             </div>
         </div>
@@ -325,4 +364,5 @@
         </div>
     </footer>
 </body>
+
 </html>
