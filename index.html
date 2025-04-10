@@ -18,6 +18,8 @@
             background-color: #fffbf5;
             color: #222;
             line-height: 1.6;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .container {
@@ -46,6 +48,52 @@
             margin-top: -50px;
         }
 
+        .store-buttons {
+            display: flex;
+            flex-direction: column;
+            /* <-- this stacks them vertically */
+            gap: 12px;
+        }
+
+        .store-button {
+            display: flex;
+            align-items: center;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .store-button:hover {
+            background-color: #333;
+        }
+
+        .store-button img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .button-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .small-text {
+            font-size: 10px;
+        }
+
+        .big-text {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -64,6 +112,13 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
+        }
+
+        .get-app-btn,
+        .app-button {
+            padding: 14px 28px;
+            font-size: 16px;
+            border-radius: 12px;
         }
 
         .get-app-btn:hover {
@@ -232,8 +287,10 @@
             justify-content: space-between;
             align-items: flex-start;
             flex-wrap: wrap;
-            margin-left: 100px;
-            margin-right: 100px;
+            /* margin-left: 100px;
+            margin-right: 100px; */
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .footer-left {
@@ -262,10 +319,24 @@
             height: 30px;
             width: 140px;
             border-radius: 5px;
-            margin-bottom: -10px;
+        }
+
+        footer {
+            text-align: left;
+            padding: 20px 60px;
+            background-color: #FFF4E6;
+            border-top: 1px solid #f0f0f0;
         }
 
         @media (max-width: 768px) {
+
+            footer {
+                text-align: left;
+                padding: 40px 0px;
+                background-color: #FFF4E6;
+                border-top: 1px solid #f0f0f0
+            }
+
             .footer-content {
                 flex-direction: column;
                 align-items: center;
@@ -280,16 +351,21 @@
             .download-buttons {
                 align-items: center;
             }
+
+            .background-image-1,
+            .background-image-2 {
+                width: 300px;
+                height: auto;
+            }
+
+            .store-button {
+                width: 300px;
+                justify-content: center;
+            }
+
         }
 
-        footer {
-            text-align: left;
-            padding: 40px 0;
-            background-color: #FFF4E6;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        footer img {
+        .kinnow-footer {
             height: 100px;
             margin-bottom: -30px;
             margin-top: -40px;
@@ -374,8 +450,8 @@
                 <p>A unique breakfast every day — our menu rotation ensures variety, excitement, and zero boredom.</p>
             </div>
             <div class="feature-card">
-                <h3>Skip the daily ordering</h3>
-                <p>Just subscribe once and your healthy breakfast shows up daily - no clicks needed.</p>
+                <h3>Forget daily ordering</h3>
+                <p>Just subscribe once and wake up to your breakfast, already delivered.</p>
             </div>
         </div>
     </section>
@@ -418,19 +494,28 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <img src="images/kinnow-logo.png" alt="Kinnow Logo">
+                    <img src="images/kinnow-logo.png" class="kinnow-footer" alt="Kinnow Logo">
                     <p style="margin-bottom: 5px;">Contact us: <span style="color: #000;">support@kinnowdaily.com</span>
                     </p>
                     <p>© 2025 KinnowDaily. All rights reserved.</p>
                 </div>
                 <div class="footer-right">
                     <p class="download-text">Download app</p>
-                    <div class="download-buttons">
-                        <a href="#" class="download-btn">
-                            <img src="images/google-play-button.png" alt="Get it on Google Play">
+                    <div class="store-buttons">
+                        <a href="#" class="store-button">
+                            <img src="images/play-store.svg" alt="Google Play">
+                            <div class="button-text">
+                                <span class="small-text">GET IT ON</span>
+                                <span class="big-text">Google Play</span>
+                            </div>
                         </a>
-                        <a href="#" class="download-btn">
-                            <img src="images/app-store-button.png" alt="Download on App Store">
+
+                        <a href="#" class="store-button">
+                            <img src="images/app-store.svg" alt="App Store">
+                            <div class="button-text">
+                                <span class="small-text">Download on the</span>
+                                <span class="big-text">App Store</span>
+                            </div>
                         </a>
                     </div>
                 </div>
