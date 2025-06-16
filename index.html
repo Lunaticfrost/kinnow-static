@@ -689,6 +689,243 @@
                 align-items: center;
             }
         }
+
+        .pricing-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pricing-header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .pricing-header p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan-card.popular {
+            border-color: #fda63a;
+            background: linear-gradient(135deg, #fff 0%, #fffbf5 100%);
+        }
+
+        .launch-offer {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 8px;
+            margin-top: 10px;
+        }
+
+        .plan-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .price-section {
+            margin-bottom: 30px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #222;
+            line-height: 1;
+        }
+
+        .price-currency {
+            font-size: 28px;
+            vertical-align: top;
+        }
+
+        .price-period {
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 16px;
+            margin-right: 12px;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: linear-gradient(135deg, #fda63a 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #f7931e 0%, #e89832 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(253, 166, 58, 0.4);
+        }
+
+        .popular .cta-button {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .popular .cta-button:hover {
+            background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .guarantee-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            /* background: rgba(255, 255, 255, 0.7); */
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .guarantee-section h3 {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .guarantee-section p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin: 20px
+            }
+
+            .pricing-header h1 {
+                font-size: 32px;
+            }
+
+            .plan-card {
+                padding: 30px 25px;
+            }
+
+            .price {
+                font-size: 40px;
+            }
+
+            .plan-name {
+                font-size: 24px;
+            }
+
+            .popular-badge {
+                position: absolute;
+                top: -15px;
+                right: 20px;
+                background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 25px;
+                font-weight: 600;
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+        }
     </style>
 </head>
 
@@ -814,6 +1051,73 @@
             </div>
         </div>
     </section>
+
+    <div class="pricing-container">
+        <div class="pricing-header">
+            <h1>Choose Your Wellness Journey</h1>
+            <p>Zero added sugar. Only whole, natural goodness in every meal</p>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Good Morning Plan -->
+            <div class="plan-card">
+                <div class="launch-offer">Launch Offer</div>
+                <h2 class="plan-name">Good Morning Plan</h2>
+                <p class="plan-description">Includes daily fresh breakfast — nutrient packed and delicious</p>
+
+                <div class="price-section">
+                    <div class="price">
+                        <span class="price-currency">₹</span>188<span class="price-period">/day</span>
+                    </div>
+                    <p class="price-note">Starting with 4-week subscription</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>Daily fresh breakfast delivery</li>
+                    <li>Wholesome and filling servings</li>
+                    <li>Dietary preferences respected - user curated meals</li>
+                    <li>Option to skip meals</li>
+                    <li>30 days no repeat menu</li>
+                    <li>Free delivery</li>
+                </ul>
+
+                <!-- <button class="cta-button">Get Good Morning Plan</button> -->
+            </div>
+
+            <!-- Power Morning Plan -->
+            <div class="plan-card popular">
+                <div class="launch-offer">Launch Offer</div>
+                <div class="popular-badge">Most Popular</div>
+                <h2 class="plan-name">Power Morning Plan</h2>
+                <p class="plan-description">Includes daily fresh breakfast + tender coconut combo</p>
+
+                <div class="price-section">
+                    <div class="price">
+                        <span class="price-currency">₹</span>238<span class="price-period">/day</span>
+                    </div>
+                    <p class="price-note">Starting with 4-week subscription</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>Daily fresh breakfast delivery</li>
+                    <li>Fresh tender coconut included</li>
+                    <li>Wholesome and filling servings</li>
+                    <li>Dietary preferences respected - user curated meals</li>
+                    <li>Option to skip meals</li>
+                    <li>30 days no repeat menu</li>
+                    <li>Free delivery</li>
+                </ul>
+
+                <!-- <button class="cta-button">Get Power Morning Plan</button> -->
+            </div>
+        </div>
+
+        <div class="guarantee-section">
+            <h3>🌱 Fresh & Healthy Guarantee</h3>
+            <p>We're committed to delivering the freshest, most nutritious breakfasts to fuel your mornings. Quality
+                ingredients, no compromises.</p>
+        </div>
+    </div>
 
     <section class="coconut-section">
         <div class="container coconut-container">
