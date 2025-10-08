@@ -150,7 +150,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 30%, rgba(230, 126, 34, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(230, 126, 34, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, rgba(230, 126, 34, 0.02) 0%, transparent 50%);
@@ -208,7 +208,7 @@
             border-radius: 18px;
             padding: 20px;
             margin-bottom: 10px;
-            box-shadow: 0 4px 32px rgba(60,60,60,0.07), 0 1.5px 4px rgba(230,126,34,0.04);
+            box-shadow: 0 4px 32px rgba(60, 60, 60, 0.07), 0 1.5px 4px rgba(230, 126, 34, 0.04);
             border: 1px solid #f3f3f3;
             transition: box-shadow 0.22s, transform 0.22s, background 0.22s;
         }
@@ -233,7 +233,7 @@
         }
 
         .feature-card:hover {
-            box-shadow: 0 8px 40px rgba(60,60,60,0.13), 0 2px 8px rgba(230,126,34,0.08);
+            box-shadow: 0 8px 40px rgba(60, 60, 60, 0.13), 0 2px 8px rgba(230, 126, 34, 0.08);
             background: #fff7ef;
             transform: translateY(-6px) scale(1.012);
         }
@@ -277,20 +277,20 @@
             overflow: hidden;
             border-radius: 16px;
             background: #fff;
-            box-shadow: 0 2px 10px rgba(60,60,60,0.04);
+            box-shadow: 0 2px 10px rgba(60, 60, 60, 0.04);
             transition: box-shadow 0.18s, background 0.18s, transform 0.18s;
         }
 
         .menu-item:hover {
             background: #fff7ef;
-            box-shadow: 0 6px 24px rgba(230,126,34,0.10);
+            box-shadow: 0 6px 24px rgba(230, 126, 34, 0.10);
             transform: scale(1.025);
         }
 
         .menu-item img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%;
+            /* object-fit: cover; */
             border-radius: 12px;
         }
 
@@ -339,8 +339,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(0deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(0deg);
+            }
         }
 
         .footer-content {
@@ -804,7 +811,7 @@
             background: white;
             border-radius: 18px;
             padding: 40px 30px;
-            box-shadow: 0 4px 32px rgba(60,60,60,0.07), 0 1.5px 4px rgba(230,126,34,0.04);
+            box-shadow: 0 4px 32px rgba(60, 60, 60, 0.07), 0 1.5px 4px rgba(230, 126, 34, 0.04);
             position: relative;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #f3f3f3;
@@ -812,7 +819,7 @@
 
         .plan-card:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 40px rgba(60,60,60,0.13), 0 2px 8px rgba(230,126,34,0.08);
+            box-shadow: 0 8px 40px rgba(60, 60, 60, 0.13), 0 2px 8px rgba(230, 126, 34, 0.08);
         }
 
         .plan-card.popular {
@@ -929,12 +936,12 @@
             transition: box-shadow 0.18s, background 0.18s, transform 0.18s;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 2px 12px rgba(230,126,34,0.10);
+            box-shadow: 0 2px 12px rgba(230, 126, 34, 0.10);
         }
 
         .cta-button:hover {
             background: linear-gradient(90deg, #f39c12 0%, #E67E22 100%);
-            box-shadow: 0 6px 24px rgba(230,126,34,0.18);
+            box-shadow: 0 6px 24px rgba(230, 126, 34, 0.18);
             transform: translateY(-2px) scale(1.03);
         }
 
@@ -1008,47 +1015,59 @@
 
         /* --- Modern Soft Glass Look --- */
         /* Feature & Pricing Cards */
-        .feature-card, .plan-card {
+        .feature-card,
+        .plan-card {
             border-radius: 18px;
             background: #fff;
-            box-shadow: 0 4px 32px rgba(60,60,60,0.07), 0 1.5px 4px rgba(230,126,34,0.04);
+            box-shadow: 0 4px 32px rgba(60, 60, 60, 0.07), 0 1.5px 4px rgba(230, 126, 34, 0.04);
             border: 1px solid #f3f3f3;
             transition: box-shadow 0.22s, transform 0.22s, background 0.22s;
         }
-        .feature-card:hover, .plan-card:hover {
-            box-shadow: 0 8px 40px rgba(60,60,60,0.13), 0 2px 8px rgba(230,126,34,0.08);
+
+        .feature-card:hover,
+        .plan-card:hover {
+            box-shadow: 0 8px 40px rgba(60, 60, 60, 0.13), 0 2px 8px rgba(230, 126, 34, 0.08);
             background: #fff7ef;
             transform: translateY(-6px) scale(1.012);
         }
+
         /* Remove accent bar from feature card */
-        .feature-card { border-top: none !important; }
+        .feature-card {
+            border-top: none !important;
+        }
 
         /* Menu Items */
         .menu-item {
             border-radius: 16px;
             background: #fff;
-            box-shadow: 0 2px 10px rgba(60,60,60,0.04);
+            box-shadow: 0 2px 10px rgba(60, 60, 60, 0.04);
             transition: box-shadow 0.18s, background 0.18s, transform 0.18s;
         }
+
         .menu-item:hover {
             background: #fff7ef;
-            box-shadow: 0 6px 24px rgba(230,126,34,0.10);
+            box-shadow: 0 6px 24px rgba(230, 126, 34, 0.10);
             transform: scale(1.025);
         }
 
         /* Buttons: Pill, Gradient, Shadow */
-        .get-app-btn, .app-button, .cta-button {
+        .get-app-btn,
+        .app-button,
+        .cta-button {
             border-radius: 999px;
             background: linear-gradient(90deg, #E67E22 0%, #f39c12 100%);
             color: #fff;
             font-weight: 700;
-            box-shadow: 0 2px 12px rgba(230,126,34,0.10);
+            box-shadow: 0 2px 12px rgba(230, 126, 34, 0.10);
             border: none;
             transition: box-shadow 0.18s, background 0.18s, transform 0.18s;
         }
-        .get-app-btn:hover, .app-button:hover, .cta-button:hover {
+
+        .get-app-btn:hover,
+        .app-button:hover,
+        .cta-button:hover {
             background: linear-gradient(90deg, #f39c12 0%, #E67E22 100%);
-            box-shadow: 0 6px 24px rgba(230,126,34,0.18);
+            box-shadow: 0 6px 24px rgba(230, 126, 34, 0.18);
             transform: translateY(-2px) scale(1.03);
         }
 
@@ -1057,10 +1076,12 @@
             border-top: 1px solid #f3f3f3;
             background: #fff;
         }
+
         .social-links img {
             filter: grayscale(1) brightness(0.7);
             transition: filter 0.2s, transform 0.2s;
         }
+
         .social-links img:hover {
             filter: none;
             transform: scale(1.18);
@@ -1097,12 +1118,13 @@
         </div>
         <div class="container">
             <h1>Nutrient-Rich Breakfast,<br>Delivered Fresh, Every Morning</h1>
-            <p>Kinnow delivers protein-packed, nutrient-dense breakfasts — fresh, <br> ready-to-eat, and perfectly
+            <p>Kinnow delivers protein-packed, nutrient-dense breakfasts - fresh, <br> ready-to-eat, and perfectly
                 crafted to
                 fuel your day.</p>
             <div class="app-buttons">
                 <a href="https://apps.apple.com/app/kinnow/id6747724751" class="app-button">Download on App Store</a>
-                <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh" class="app-button">Get it on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh" class="app-button">Get it on
+                    Google Play</a>
             </div>
         </div>
         <div class="decoration decoration-2">
@@ -1118,16 +1140,16 @@
         <div class="features">
             <div class="feature-card">
                 <h3>Full Serving Size</h3>
-                <p>Every Kinnow meal is a fulfilling, nutrition-packed serving — not a snack-sized bite</p>
+                <p>Every Kinnow meal is a fulfilling, nutrition-packed serving - not a snack-sized bite</p>
             </div>
             <div class="feature-card">
                 <h3>Nutrition Transparency</h3>
-                <p>Every meal includes complete nutritional info — calories, macros, and more — so you can track your
+                <p>Every meal includes complete nutritional info - calories, macros, and more - so you can track your
                     health.</p>
             </div>
             <div class="feature-card">
                 <h3>No Repeat for 30 Days</h3>
-                <p>A unique breakfast every day — our menu rotation ensures variety, excitement, and zero boredom.</p>
+                <p>A unique breakfast every day - our menu rotation ensures variety, excitement, and zero boredom.</p>
             </div>
             <div class="feature-card">
                 <h3>Forget daily ordering</h3>
@@ -1135,12 +1157,12 @@
             </div>
             <div class="feature-card">
                 <h3>Handpicked quality ingredients</h3>
-                <p>No shortcuts — just thoughtfully chosen, high-quality ingredients.</p>
+                <p>No shortcuts - just thoughtfully chosen, high-quality ingredients.</p>
             </div>
             <div class="feature-card add-on-card">
                 <div class="add-on-label">Optional Add-On</div>
                 <h3>Soaked Dry Fruits Mix</h3>
-                <p>A mix of premium soaked almonds, cashews, walnuts, figs & more — for daily vitality and better
+                <p>A mix of premium soaked almonds, cashews, walnuts, figs & more - for daily vitality and better
                     digestion. Only ₹88/day.</p>
             </div>
         </div>
@@ -1153,7 +1175,7 @@
             </div>
             <div class="bulk-order-content">
                 <h2>Need more Quantity?</h2>
-                <p>For bulk meal plans, office breakfasts, or event catering — Kinnow has got you covered.</p>
+                <p>For bulk meal plans, office breakfasts, or event catering - Kinnow has got you covered.</p>
                 <div class="bulk-contact">
                     <div class="contact-icon">📩</div>
                     <p>Reach out at <a href="mailto:hello@kinnowdaily.com"
@@ -1170,30 +1192,31 @@
         <div class="container">
             <h2>A Taste of What We Deliver</h2>
             <p>Smoothie bowls, creamy power oats, loaded chia puddings, Nutritious salad bowl, fresh coconut and many
-                more — healthy mornings made exciting.</p>
+                more - healthy mornings made exciting.</p>
 
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Chocolate+Power+Oats.png"
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/mealImages/chocolate+power+oats.webp"
                         alt="Chocolate Power Oats">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/PeanutButter+Banana+Toast+%2B+Fresh+Fruit+Cut.png"
-                        alt="Peanut Butter Banana toast">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/mealImages/mango+coconut+bowl.webp"
+                        alt="Mango Coconut Smoothie Bowl">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Avacado+Toast.png" alt="Avocado toast">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/mealImages/rainbow+fruit+salad.webp"
+                        alt="Rainbow Fruit Bowl + Sprouts Salad">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Very+Berry+Chia+Pudding.png"
-                        alt="Strawberry chia pudding with fruits">
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/mealImages/kinnow+creamsicle+chia+pudding.webp"
+                        alt="Kinnow Creamsicle chia pudding">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Berry+Bliss+Smoothie+bowl.png"
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/mealImages/berry+bliss+smoothie.webp"
                         alt="Berry Bliss Smoothie Bowl">
                 </div>
                 <div class="menu-item">
-                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/Meals/Tofu+Breakfast+Bowl.png"
+                    <img src="https://kinnow.s3.ap-south-1.amazonaws.com/mealImages/tofu+breakfast+bowl.webp"
                         alt="Tofu Breakfast Bowl">
                 </div>
             </div>
@@ -1211,7 +1234,7 @@
             <div class="plan-card">
                 <div class="launch-offer">Launch Offer</div>
                 <h2 class="plan-name">Good Morning Plan</h2>
-                <p class="plan-description">Includes daily fresh breakfast — nutrient packed and delicious</p>
+                <p class="plan-description">Includes daily fresh breakfast - nutrient packed and delicious</p>
 
                 <div class="price-section">
                     <div class="price">
@@ -1273,9 +1296,9 @@
                 <img src="images/fresh-coconut.png" alt="Fresh Tender Coconut" class="coconut-img">
             </div>
             <div class="coconut-content">
-                <h2>Not just breakfast — Add a fresh <span class="highlight-text">tender coconut</span> to power up your
+                <h2>Not just breakfast - Add a fresh <span class="highlight-text">tender coconut</span> to power up your
                     morning.</h2>
-                <p>Hydrating, refreshing, and packed with essential electrolytes — the perfect addition to your
+                <p>Hydrating, refreshing, and packed with essential electrolytes - the perfect addition to your
                     nutritious breakfast.</p>
             </div>
         </div>
@@ -1292,13 +1315,18 @@
                         <a href="terms-of-service/" class="footer-link">Terms of Service</a>
                     </p>
                     <p>© 2025 Kinnow Daily Foods LLP. All rights reserved.</p>
-                    <div class="social-links" >
+                    <div class="social-links">
                         <span style="margin-right: 10px;">Follow us on :</span>
-                        <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" style="margin-right: 15px; text-decoration: none;">
-                            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="height: 24px; width: 24px;">
+                        <!--LinkedIn -->
+                        <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank"
+                            style="margin-right: 15px; text-decoration: none;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"
+                                style="height: 24px; width: 24px;">
                         </a>
+                        <!--Instagram -->
                         <a href="https://www.instagram.com/kinnowdaily" target="_blank" style="text-decoration: none;">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="height: 24px; width: 24px;">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"
+                                style="height: 24px; width: 24px;">
                         </a>
                     </div>
                 </div>
@@ -1322,9 +1350,11 @@
                     </div>
                 </div>
                 <div class="footer-right">
-                    <p style="margin-bottom: 5px;">Contact us: <span style="color: #000;">support@kinnowdaily.com</span></p>
+                    <p style="margin-bottom: 5px;">Contact us: <span style="color: #000;">support@kinnowdaily.com</span>
+                    </p>
                     <p style="margin-bottom: 5px; width: 300px; word-wrap: break-word;">
-                        Address: <span style="color: #000;">Kinnow Daily foods LLP, Khewat 2794, Khatoni 3546, Property Id: 3GTVC2H7 - (125033)</span>
+                        Address: <span style="color: #000;">Kinnow Daily foods LLP, Khewat 2794, Khatoni 3546, Property
+                            Id: 3GTVC2H7 - (125033)</span>
                     </p>
                 </div>
             </div>
