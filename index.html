@@ -34,6 +34,12 @@
             padding: 0;
         }
 
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: "Outfit", "Segoe UI", sans-serif;
             background: linear-gradient(225deg, #ffd6b0 0%, #ffbd73 52%, #f8810a 100%);
@@ -1185,20 +1191,22 @@
             background: #f97a00;
             width: 100%;
             position: relative;
-            overflow: hidden;
+            /* Allow the straw to overflow the top */
+            overflow: visible;
         }
 
         .coconut-inner {
             display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.60fr);
             align-items: center;
-            gap: 40px 48px;
-            min-height: 400px;
-            padding: 56px 0 48px;
+            gap: 5px 2px;
+            min-height: 200px;
+            padding-top: 52px;
+            padding-bottom: 52px;
         }
 
         .coconut-copy {
-            padding: 0 24px 0 0;
+            padding: 0 0px 0 0;
             position: relative;
             z-index: 1;
         }
@@ -1207,8 +1215,7 @@
             font-family: "Sora", "Outfit", sans-serif;
             font-size: clamp(32px, 3.2vw, 46px);
             line-height: 1.15;
-            max-width: 50ch;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .coconut-copy p {
@@ -1219,37 +1226,34 @@
         }
 
         .coconut-media {
+            position: absolute;
+            right: 0;
+            top: 40%;
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 12px;
+            width: 45vw;
+            /* Allow it to span right side of the screen */
+            pointer-events: none;
+            z-index: 2;
         }
 
         .coconut-media img {
-            width: min(480px, 100%);
-            transform: 270deg;
-        }
-
-        .coconut-swiggle {
-            position: absolute;
-            left: 54%;
-            top: 38%;
-            width: 150px;
-            height: 140px;
-            background: url("images/hero-swiggle.png") center/contain no-repeat;
-            transform: scaleX(-1) translateY(-50%);
-            z-index: 2;
-            opacity: 0.95;
-            pointer-events: none;
+            width: 50%;
+            max-width: 540px;
+            object-fit: contain;
+            transform: rotate(-33.18deg) rotateY(180deg) scale(1.2) translateY(-20px);
+            pointer-events: auto;
         }
 
         .coconut-vector {
             position: absolute;
-            left: 48px;
-            bottom: 48px;
-            width: 36px;
-            height: 64px;
-            background: url("images/vector-5.png") center/contain no-repeat;
+            left: 20px;
+            bottom: 0px;
+            width: 80px;
+            height: 80px;
+            background: url("images/vector-5.png") left bottom/contain no-repeat;
             z-index: 2;
             pointer-events: none;
         }
@@ -1817,8 +1821,8 @@
             }
 
             .coconut-inner {
-                padding: 40px 0 32px;
-                gap: 20px;
+                padding: 20px 0 0px !important;
+                /* gap: 20px; */
                 min-height: auto;
             }
 
@@ -1840,10 +1844,29 @@
             }
 
             .coconut-media {
-                justify-content: center;
-                padding: 0;
-                max-width: 320px;
-                margin: 0 auto;
+                position: relative !important;
+                left: 55% !important;
+                right: auto !important;
+                bottom: auto !important;
+                top: 40% !important;
+                margin-left: -50vw !important;
+                margin-bottom: -140px !important;
+                width: 100vw !important;
+                display: flex !important;
+                justify-content: flex-end !important;
+                align-items: flex-end !important;
+                padding: 0 !important;
+                max-width: none !important;
+                overflow: visible !important;
+                pointer-events: none !important;
+                z-index: 5 !important;
+            }
+
+            .coconut-media img {
+                width: 60vw !important;
+                max-width: 240px !important;
+                transform: rotate(-33.18deg) rotateY(180deg) translate(20px, 10px) !important;
+                pointer-events: auto !important;
             }
 
             .coconut-swiggle {
@@ -2604,20 +2627,19 @@
             </section>
 
             <section class="coconut-section">
-                <!-- <div class="coconut-band">
-                    <div class="coconut-swiggle" aria-hidden="true"></div>
+                <div class="coconut-band">
                     <div class="coconut-vector" aria-hidden="true"></div>
                     <div class="container coconut-inner">
                         <div class="coconut-copy">
                             <h2>Not just breakfast! Add a fresh tender coconut to refresh and power your morning.</h2>
-                            <p>Hydrating, refreshing, and packed with essential electrolytes — the perfect addition to your nutritious breakfast.</p>
+                            <p>Hydrating, refreshing, and packed with essential electrolytes<br>the perfect addition to
+                                your nutritious breakfast.</p>
                         </div>
                         <div class="coconut-media">
                             <img src="images/fresh-coconut.png" alt="Fresh tender coconut">
                         </div>
                     </div>
-                </div> -->
-                <img src="images/Coconut-section.png" alt="" srcset="">
+                </div>
             </section>
 
             <section class="stories-section">
