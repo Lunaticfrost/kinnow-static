@@ -167,7 +167,7 @@
             right: 0;
             width: 46%;
             height: 100%;
-            background: url("images/hero-rectangle.svg") left bottom / 150% 110% repeat;
+            background: url("images/hero-rectangle.svg") left top / cover no-repeat;
             z-index: 0;
         }
 
@@ -705,16 +705,11 @@
         }
 
         .deliver-slider {
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
+            overflow: hidden;
+            /* Changed from auto to hidden for transform-based slider */
             width: 100%;
             /* Hide scrollbar */
             scrollbar-width: none;
-        }
-
-        .deliver-slider::-webkit-scrollbar {
-            display: none;
         }
 
         .deliver-track {
@@ -741,20 +736,20 @@
         }
 
         /* Staggered cards (alternating height) */
-        .meal-card:nth-child(even) {
+        .meal-card.is-even {
             transform: translateY(-40px);
         }
 
-        .meal-card:nth-child(odd) {
+        .meal-card.is-odd {
             transform: translateY(40px);
         }
 
-        .meal-card:nth-child(even):hover {
+        .meal-card.is-even:hover {
             transform: translateY(-48px) scale(1.02);
             box-shadow: 0 20px 40px rgba(248, 129, 10, 0.25);
         }
 
-        .meal-card:nth-child(odd):hover {
+        .meal-card.is-odd:hover {
             transform: translateY(32px) scale(1.02);
             box-shadow: 0 20px 40px rgba(248, 129, 10, 0.25);
         }
@@ -1891,7 +1886,8 @@
 
             .hero::before {
                 width: min(62%, 520px);
-                background: url("images/hero-rectangle.svg") left center / cover no-repeat;
+                background: url("images/hero-rectangle.svg") left top / cover no-repeat;
+                /* Anchored to top to prevent gaps */
             }
 
             .hero-grid {
@@ -1902,11 +1898,30 @@
             .hero-copy {
                 padding-top: 0;
                 max-width: 620px;
+                display: flex;
+                flex-direction: column;
+                height: auto;
             }
 
             .hero-copy h1 {
-                max-width: 8ch;
-                font-size: clamp(50px, 8vw, 72px);
+                max-width: 10ch;
+                font-size: clamp(38px, 9vw, 56px);
+                /* Fixed clamp to allow shrinking */
+                order: 1;
+                margin-bottom: 16px;
+            }
+
+            .hero-rating {
+                order: 2;
+                transform: scale(0.55);
+                transform-origin: left;
+                width: fit-content;
+                margin-bottom: 0px;
+            }
+
+            .store-row {
+                order: 3;
+                margin-top: 10px;
             }
 
             .hero-visual {
@@ -1984,7 +1999,8 @@
                 width: 64%;
                 /* top: 4px; */
                 height: 100%;
-                background: url("images/hero-rectangle.svg") left center / cover no-repeat;
+                background: url("images/hero-rectangle.svg") left top / cover no-repeat;
+                /* Anchored to top */
             }
 
             .hero::after {
@@ -2178,6 +2194,7 @@
 
             .hero::before {
                 width: 66%;
+                background: url("images/hero-rectangle.svg") left top / cover no-repeat;
             }
 
             .hero-visual {
@@ -3042,60 +3059,195 @@
         </footer>
     </div>
     <script>
-        const deliverSlider = document.getElementById("deliverSlider");
-
-        document.querySelector(".deliver-next").addEventListener("click", () => {
-            deliverSlider.scrollBy({
-                left: 300,
-                behavior: "smooth"
-            });
-        });
-
-        document.querySelector(".deliver-prev").addEventListener("click", () => {
-            deliverSlider.scrollBy({
-                left: -300,
-                behavior: "smooth"
-            });
-        });
-    </script>
-    <script>
-
         (function () {
-            const viewport = document.getElementById("deliver-viewport");
-            const track = document.getElementById("deliver-track");
-            const prev = document.querySelector(".deliver-prev");
-            const next = document.querySelector(".deliver-next");
-            if (!viewport || !track || !prev || !next) return;
+            const slider = document.getElementById("deliverSlider");
+            const track = document.querySelector(".deliver-track");
+            const leftBtn = document.querySelector(".deliver-prev");
+            const rightBtn = document.querySelector(".deliver-next");
+            if (!slider || !track || !leftBtn || !rightBtn) return;
 
-            function cardStep() {
-                const card = track.querySelector(".meal-card");
-                if (!card) return 0;
-                const cardStyles = window.getComputedStyle(card);
-                const trackStyles = window.getComputedStyle(track);
-                const cardWidth = card.getBoundingClientRect().width;
-                const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || "0");
-                const marginRight = parseFloat(cardStyles.marginRight || "0");
-                return cardWidth + gap + marginRight;
+            let realCards = Array.from(track.querySelectorAll('.meal-card'));
+
+            // If we have an odd number of cards, the zig-zag pattern will break at the loop boundary
+            // (e.g. Card 9 and Card 1 will both be odd).
+            // To fix this, we duplicate the core set of cards to make it even length before building the loop.
+            if (realCards.length % 2 !== 0) {
+                realCards.forEach(card => {
+                    track.appendChild(card.cloneNode(true));
+                });
+                // Re-query the real cards now that we've doubled them
+                realCards = Array.from(track.querySelectorAll('.meal-card'));
             }
 
-            function isDesktopCarousel() {
-                return window.innerWidth > 1040;
-            }
-
-            function scrollTrack(direction) {
-                const step = cardStep();
-                if (!step) return;
-                viewport.scrollBy({ left: direction * step, behavior: "smooth" });
-            }
-
-            prev.addEventListener("click", function () {
-                if (!isDesktopCarousel()) return;
-                scrollTrack(-1);
+            // Assign explicit odd/even classes so clones maintain the correct zig-zag state
+            realCards.forEach((card, idx) => {
+                if (idx % 2 === 0) {
+                    card.classList.add('is-odd'); // 1st element (index 0) is odd
+                } else {
+                    card.classList.add('is-even'); // 2nd element (index 1) is even
+                }
             });
 
-            next.addEventListener("click", function () {
-                if (!isDesktopCarousel()) return;
-                scrollTrack(1);
+            const totalReal = realCards.length;
+            let currentIdx = 0;
+            let isTransitioning = false;
+
+            // Build clones: [clone set] [real set] [clone set]
+            const fragment1 = document.createDocumentFragment();
+            const fragment2 = document.createDocumentFragment();
+            realCards.forEach(card => {
+                fragment1.appendChild(card.cloneNode(true));
+                fragment2.appendChild(card.cloneNode(true));
+            });
+            track.appendChild(fragment2);
+            track.insertBefore(fragment1, track.firstChild);
+
+            const allCards = track.querySelectorAll('.meal-card');
+
+            function getStep() {
+                if (allCards.length === 0) return 0;
+                const cardWidth = allCards[0].offsetWidth;
+                const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+                return cardWidth + gap;
+            }
+
+            // Calculate translateX so the active item is left-aligned in the slider
+            // If you want it centered like stories, add "+ (slider.offsetWidth - allCards[0].offsetWidth) / 2"
+            function getTranslateForDomIndex(domIdx) {
+                const step = getStep();
+                // We align the item to the left with a tiny offset or perfectly left
+                return -(domIdx * step);
+            }
+
+            function goTo(realIdx, animate) {
+                currentIdx = realIdx;
+                // DOM index of the target real card is totalReal + realIdx
+                const domIdx = totalReal + realIdx;
+                const tx = getTranslateForDomIndex(domIdx);
+
+                if (animate) {
+                    track.style.transition = 'transform 0.4s ease';
+                } else {
+                    track.style.transition = 'none';
+                }
+                track.style.transform = `translateX(${tx}px)`;
+            }
+
+            track.addEventListener('transitionend', (e) => {
+                if (e.target !== track) return;
+                isTransitioning = false;
+
+                // If we've scrolled into the clones, silently jump back to the real set
+                if (currentIdx < 0 || currentIdx >= totalReal) {
+                    const wrapped = ((currentIdx % totalReal) + totalReal) % totalReal;
+                    goTo(wrapped, false);
+                }
+            });
+
+            function goNext() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                goTo(currentIdx + 1, true);
+            }
+
+            function goPrev() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                goTo(currentIdx - 1, true);
+            }
+
+            leftBtn.addEventListener('click', goPrev);
+            rightBtn.addEventListener('click', goNext);
+
+            // Touch/swipe support
+            let touchStartX = 0, touchStartTx = 0, isSwiping = false;
+
+            function getCurrentTx() {
+                const st = window.getComputedStyle(track);
+                const matrix = new DOMMatrix(st.transform);
+                return matrix.m41;
+            }
+
+            slider.addEventListener('touchstart', (e) => {
+                if (isTransitioning) {
+                    const currentTx = getCurrentTx();
+                    track.style.transition = 'none';
+                    track.style.transform = `translateX(${currentTx}px)`;
+                    isTransitioning = false;
+                }
+                isSwiping = true;
+                touchStartX = e.touches[0].pageX;
+                touchStartTx = getCurrentTx();
+            }, { passive: true });
+
+            slider.addEventListener('touchmove', (e) => {
+                if (!isSwiping) return;
+                const dx = e.touches[0].pageX - touchStartX;
+                track.style.transition = 'none';
+                track.style.transform = `translateX(${touchStartTx + dx}px)`;
+            }, { passive: true });
+
+            slider.addEventListener('touchend', () => {
+                if (!isSwiping) return;
+                isSwiping = false;
+                const endTx = getCurrentTx();
+                const delta = endTx - touchStartTx;
+                const step = getStep();
+                if (Math.abs(delta) > step / 4) {
+                    if (delta < 0) goNext(); else goPrev();
+                } else {
+                    goTo(currentIdx, true);
+                }
+            });
+
+            // Mouse drag support (desktop)
+            let isDragging = false, dragStartX = 0, dragStartTx = 0;
+
+            slider.addEventListener('mousedown', (e) => {
+                if (isTransitioning) {
+                    const currentTx = getCurrentTx();
+                    track.style.transition = 'none';
+                    track.style.transform = `translateX(${currentTx}px)`;
+                    isTransitioning = false;
+                }
+                isDragging = true;
+                dragStartX = e.pageX;
+                dragStartTx = getCurrentTx();
+                slider.style.cursor = 'grabbing';
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const dx = e.pageX - dragStartX;
+                track.style.transition = 'none';
+                track.style.transform = `translateX(${dragStartTx + dx}px)`;
+            });
+
+            function endDrag() {
+                if (!isDragging) return;
+                isDragging = false;
+                slider.style.cursor = '';
+                const endTx = getCurrentTx();
+                const delta = endTx - dragStartTx;
+                const step = getStep();
+                if (Math.abs(delta) > step / 4) {
+                    if (delta < 0) goNext(); else goPrev();
+                } else {
+                    goTo(currentIdx, true);
+                }
+            }
+
+            slider.addEventListener('mouseup', endDrag);
+            slider.addEventListener('mouseleave', endDrag);
+
+            // Initialize position without animation
+            setTimeout(() => {
+                goTo(0, false);
+            }, 50);
+
+            window.addEventListener('resize', () => {
+                goTo(currentIdx, false);
             });
         })();
     </script>
