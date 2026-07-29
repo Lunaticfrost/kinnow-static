@@ -909,6 +909,26 @@
             display: block;
         }
 
+        @media (min-width: 1201px) {
+            .bulk-inner {
+                position: static;
+            }
+
+            .bulk-media {
+                position: static;
+                width: auto;
+                align-items: flex-end;
+                z-index: 2;
+            }
+
+            .bulk-media img {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: min(50vw, 780px);
+            }
+        }
+
         .bulk-copy {
             display: flex;
             flex-direction: column;
@@ -1476,7 +1496,16 @@
    TABLETS
 ========================= */
 
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
+
+            .bulk-media {
+                position: static;
+                width: auto;
+            }
+
+            .bulk-media img {
+                position: static;
+            }
 
             .bulk-inner {
                 grid-template-columns: 1fr;
@@ -2131,7 +2160,7 @@
 
             .order-button {
                 min-height: 52px;
-                min-width: 200px;
+                min-width: 150px;
                 font-size: 18px;
             }
 
@@ -2331,6 +2360,75 @@
 
             .coconut-media {
                 max-width: 240px;
+            }
+        }
+
+        /* Overrides to keep Bulk section horizontal and compact on all smaller screens */
+        @media (max-width: 1200px) {
+            .bulk-inner {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) !important;
+                align-items: center !important;
+                text-align: left !important;
+                column-gap: clamp(16px, 3.5vw, 40px) !important;
+                padding: clamp(20px, 3vw, 40px) 0 !important;
+                min-height: clamp(200px, 33vw, 522px) !important;
+                width: min(100%, calc(100% - 48px)) !important;
+                position: static !important;
+            }
+            .bulk-media {
+                position: static !important;
+                width: auto !important;
+                align-items: flex-end !important;
+                z-index: 2 !important;
+                display: flex !important;
+                justify-content: flex-start !important;
+                order: 1 !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+            .bulk-media img {
+                display: block !important;
+                position: absolute !important;
+                left: 0 !important;
+                bottom: 0 !important;
+                width: min(48vw, 780px) !important;
+                height: auto !important;
+                max-width: none !important;
+            }
+            .bulk-copy {
+                order: 2 !important;
+                align-items: flex-start !important;
+                padding: 0 !important;
+                text-align: left !important;
+            }
+            .bulk-copy h2 {
+                font-size: clamp(16px, 3.8vw, 40px) !important;
+                margin-bottom: clamp(8px, 1.5vw, 14px) !important;
+                line-height: 1.1 !important;
+                width: auto !important;
+            }
+            .bulk-copy h2::before {
+                display: none !important;
+            }
+            .bulk-copy p {
+                font-size: clamp(10px, 1.8vw, 18px) !important;
+                margin-bottom: clamp(14px, 2vw, 24px) !important;
+                max-width: none !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                line-height: 1.4 !important;
+            }
+            .order-button {
+                min-height: clamp(40px, 5vw, 50px) !important;
+                padding: 0 clamp(12px, 2.5vw, 30px) !important;
+                font-size: clamp(14px, 1.8vw, 18px) !important;
+                /* width: auto !important; */
+                /* max-width: none !important; */
+            }
+            .bulk-accent,
+            .bulk-accent-2 {
+                display: none !important;
             }
         }
     </style>
