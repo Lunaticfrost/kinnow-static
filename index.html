@@ -909,6 +909,26 @@
             display: block;
         }
 
+        @media (min-width: 1201px) {
+            .bulk-inner {
+                position: static;
+            }
+
+            .bulk-media {
+                position: static;
+                width: auto;
+                align-items: flex-end;
+                z-index: 2;
+            }
+
+            .bulk-media img {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: min(50vw, 780px);
+            }
+        }
+
         .bulk-copy {
             display: flex;
             flex-direction: column;
@@ -1476,7 +1496,16 @@
    TABLETS
 ========================= */
 
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
+
+            .bulk-media {
+                position: static;
+                width: auto;
+            }
+
+            .bulk-media img {
+                position: static;
+            }
 
             .bulk-inner {
                 grid-template-columns: 1fr;
