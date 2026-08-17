@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "W8CZ83D23Y.com.kinnow.daily",
+        "paths": [ "*" ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [ "W8CZ83D23Y.com.kinnow.daily" ]
+  }
+}

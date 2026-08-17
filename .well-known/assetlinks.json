@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.kinnow.fresh",
+      "sha256_cert_fingerprints": [
+        "E5:C7:9A:98:0A:02:B7:A3:6D:5F:16:BA:3D:8E:A6:08:26:F2:53:66:A4:BB:1B:39:37:50:45:81:06:CE:B5:5D"
+      ]
+    }
+  }
+]
