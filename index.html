@@ -1709,85 +1709,197 @@
         }
 
 
+        /* FAQ CTA Section */
+        .faq-cta-section {
+            padding: 10px 0 10px 0;
+            position: relative;
+        }
+
+        .faq-cta-card {
+            /* background: #ffffff; */
+            border-radius: 32px;
+            padding: 30px 40px;
+            /* box-shadow: 0 20px 48px rgba(162, 78, 0, 0.12); */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            color: #222222;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* border: 1px solid rgba(255, 255, 255, 0.8); */
+        }
+
+        .faq-cta-content {
+            max-width: 650px;
+        }
+
+        .faq-cta-content h2 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(38px, 4vw, 32px);
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .faq-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #ff7318;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 6px 20px rgba(255, 115, 24, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .faq-cta-btn:hover {
+            background: #fffff3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 115, 24, 0.35);
+        }
+
+        @media (max-width: 850px) {
+            .faq-cta-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+                gap: 24px;
+            }
+            .faq-cta-btn {
+                width: 100%;
+            }
+        }
+
+
         footer {
             background: #F8AF6E;
-            padding: 52px 0 42px;
-            margin-top: 20px;
+            padding: 60px 0 40px;
+            margin-top: 40px;
             color: #ffffff !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr 1fr;
-            gap: 30px;
-            /* color: var(--text-dark); */
+            gap: 40px;
         }
 
         .footer-brand img {
-            width: 116px;
-            margin-bottom: 16px;
+            width: 130px;
+            margin-bottom: 20px;
         }
 
         .footer-brand p,
-        .footer-links a,
         .footer-download p {
-
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .footer-links {
-            display: grid;
-            gap: 10px;
-            align-content: start;
+        .footer-brand p {
+            margin-bottom: 20px;
         }
 
-        .footer-links a {
-            font-weight: 600;
-        }
-
-        .footer-store-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 14px;
-        }
-
-        .footer-store-row img {
-            height: 46px;
-            width: auto;
+        .footer-brand h4 {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
         }
 
         .social-row {
             display: flex;
-            gap: 10px;
+            gap: 16px;
             margin-top: 8px;
         }
 
-        /* .social-row a {
-            width: 38px;
-            height: 38px;
+        .social-row a {
+            display: block;
+            position: relative;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.72);
-            display: grid;
-            place-items: center;
-        } */
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .social-row a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.15);
+        }
 
         .social-row img {
-            width: 32px;
-            height: 32px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 600;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+
+        .footer-store-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .footer-store-row a {
+            transition: transform 0.2s ease;
+        }
+
+        .footer-store-row a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-store-row img {
+            height: 40px;
+            width: auto;
         }
 
         .footer-bottom {
-            margin-top: 22px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(118, 51, 0, 0.14);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
-            gap: 12px;
-            /* color: rgba(118, 51, 0, 0.74); */
-            font-size: 13px;
+            align-items: center;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         @media (max-width: 1280px) {
@@ -2914,6 +3026,18 @@
                     </div>
                 </div>
             </section>
+
+            <section class="faq-cta-section">
+                <div class="container">
+                    <div class="faq-cta-card">
+                        <div class="faq-cta-content">
+                            <h2 class="faq-cta-title">Got a question?</h2>
+                            <!-- <p>We're here to help! Check out our FAQs for common questions and answers.</p> -->
+                        </div>
+                        <a href="/faq/" class="faq-cta-btn">Explore FAQs</a>
+                    </div>
+                </div>
+            </section>
             <script>
                 (function () {
                     const track = document.querySelector('.stories-track');
@@ -3137,22 +3261,17 @@
                 <div class="footer-grid">
                     <div class="footer-brand">
                         <img src="images/kinnow-header-logo.png" alt="Kinnow logo">
-                        <p>Kinnow Daily Foods Private Limited delivers fresh, ready-to-eat breakfasts built for busy
+                        <p>Kinnow Daily delivers fresh, ready-to-eat breakfasts built for busy
                             mornings and healthier routines.</p>
                         <h4 style="margin-top: 12px;">FOLLOW US ON</h4>
                         <div class="social-row">
-                            <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer"
-                                aria-label="Kinnow on LinkedIn">
-                                <img src="images/linkedin.png" alt="LinkedIn">
-                            </a>
-                            <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer"
-                                aria-label="Kinnow on Instagram">
-                                <img src="images/instagram.png" alt="Instagram">
-                            </a>
+                            <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="images/linkedin.png" alt="LinkedIn"></a>
+                            <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="images/instagram.png" alt="Instagram"></a>
                         </div>
                     </div>
 
                     <div class="footer-links">
+                        <a href="/faq/">FAQs</a>
                         <a href="/privacy-policy/">Privacy Policy</a>
                         <a href="/terms-of-service/">Terms of Service</a>
                         <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>

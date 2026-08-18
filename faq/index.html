@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinnow FAQs: Swaps, Skips, Delivery & Subscriptions</title>
+    <meta name="description"
+        content="Have questions about Kinnow? Learn how to swap/skip meals, update delivery slots, change addresses, and how our 100% veg healthy food subscription works in Bangalore.">
+    <link rel="canonical" href="https://kinnowdaily.com/faq/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinnowdaily.com/faq/">
+    <meta property="og:title" content="Kinnow FAQs: Swaps, Skips, Delivery & Subscriptions">
+    <meta property="og:description"
+        content="Have questions about Kinnow? Learn how to swap/skip meals, update delivery slots, change addresses, and how our 100% veg healthy food subscription works in Bangalore.">
+    <meta property="og:image" content="https://kinnowdaily.com/images/kinnow-logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://kinnowdaily.com/faq/">
+    <meta name="twitter:title" content="Kinnow FAQs: Swaps, Skips, Delivery & Subscriptions">
+    <meta name="twitter:description"
+        content="Have questions about Kinnow? Learn how to swap/skip meals, update delivery slots, change addresses, and how our 100% veg healthy food subscription works in Bangalore.">
+    <meta name="twitter:image" content="https://kinnowdaily.com/images/kinnow-logo.png">
+
+    <link rel="icon" type="image/png" href="../images/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Sora:wght@600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --peach: #ffca94;
+            --peach-light: #ffd8b1;
+            --cream: #fff7ef;
+            --white: #ffffff;
+            --orange: #ff7318;
+            --orange-deep: #f05a00;
+            --orange-dark: #d85200;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --border-light: rgba(240, 90, 0, 0.15);
+            --shadow-soft: 0 18px 44px rgba(162, 78, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Outfit", "Segoe UI", sans-serif;
+            background-color: #fff2e6;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            z-index: 40;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(162, 78, 0, 0.06);
+            position: sticky;
+            top: 0;
+        }
+
+        .header-row {
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .logo img {
+            height: 150px;
+            width: auto;
+            margin: -50px 0;
+            display: block;
+        }
+
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: var(--orange);
+            color: var(--white);
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(240, 90, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .cta-pill:hover {
+            background: var(--orange-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(240, 90, 0, 0.3);
+        }
+
+        main {
+            flex: 1;
+            padding: 60px 24px 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Two-Column Split Layout */
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .faq-left {
+            position: sticky;
+            top: 120px;
+        }
+
+        h1 {
+            font-family: "Sora", "Outfit", sans-serif;
+            font-size: clamp(36px, 5vw, 54px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .subtitle a {
+            color: var(--orange-deep);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Accordion List (Minimalist Style) */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border-light);
+        }
+
+        .faq-header {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px 0;
+            text-align: left;
+            font-family: "Sora", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: color 0.2s ease;
+        }
+
+        .faq-header:hover {
+            color: var(--orange-deep);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--orange);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .faq-body-content {
+            padding: 0 0 24px 0;
+        }
+
+        .faq-body p {
+            margin-bottom: 12px;
+        }
+
+        .faq-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-body ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .faq-body ul:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            background: #F8AF6E;
+            padding: 60px 24px 40px 24px;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff !important;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 130px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p,
+        .footer-download p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h4 {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-row a {
+            display: block;
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .social-row a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.15);
+        }
+
+        .social-row img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 600;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+
+        .footer-store-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .footer-store-row a {
+            transition: transform 0.2s ease;
+        }
+
+        .footer-store-row a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-store-row img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 900px) {
+            main {
+                padding-top: 100px;
+            }
+            .faq-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .faq-left {
+                position: static;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .faq-header {
+                font-size: 16px;
+            }
+            .faq-body-content {
+                font-size: 15px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-row">
+            <a href="../" class="logo" aria-label="Kinnow home">
+                <img src="../images/kinnow-logo.png" alt="Kinnow logo">
+            </a>
+            <a href="../download" class="cta-pill">Get the App</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="faq-layout">
+            <!-- Left Sticky Panel -->
+            <div class="faq-left">
+                <h1>Your questions, answered</h1>
+                <p class="subtitle">Can't find what you're looking for? Reach out to our support team at <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>.</p>
+            </div>
+
+            <!-- Right Continuous Accordion List -->
+            <div class="faq-list">
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Is Kinnow strictly 100% vegetarian?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Yes. Kinnow operates strictly 100% vegetarian, pure veg kitchens. We cater to the highest standards of vegetarian food safety and integrity. Our kitchen facilities do not handle any meat, egg, or seafood products whatsoever.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        How does the daily subscription model work?
+                        <span class="faq-icon" aria-expanded="false">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Our subscription puts your healthy eating routine on autopilot. Once subscribed via the app, you will receive your selected meals daily without having to place manually recurring orders. Instead of paying on a rolling basis, you pay for the exact number of days you subscribe for. You can choose any duration from 1 to 180 days. Your plan is fully flexible, allowing you to skip or swap meals at any time.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        What does "No meal repeats" mean?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>To avoid palate fatigue, we run a rotating menu of over 50+ fresh, nutrient-rich meals like smoothie bowls, overnight soaked oats, chia puddings, gourmet toasts and many more. This ensures you never have to eat the same meal twice during a standard monthly plan cycle.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        How do I swap a meal if I don't want tomorrow's menu option?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Swapping is simple and fast. If you see an upcoming meal you want to change, open the Kinnow app, navigate to the "My Meals" tab, tap "Swap" on order card, and select from the available swap options for that day. This allows you to customize your menu to fit your taste. Please ensure you make any swaps before the 11:00 PM cut-off time the night before.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        How do I skip a delivery?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>If you're heading out, eating out, or just want to skip a day, tap the "Skip" button on your upcoming meal card in the app. There are no questions asked, no calls to make, and your subscription day rolls over automatically so you don't lose any money/order. Please ensure you submit your skip before the 11:00 PM cut-off time the night before.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        What is the cut-off time for skips and swaps?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>To ensure freshness and avoid food wastage, the cut-off time for skips and swaps is 11:00 PM on the night before your scheduled delivery.</p>
+                      
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Can I pause my subscription when going on vacation?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Instead of pausing, you can simply skip your meals for the days you are away. If you run out of skips, you can request additional skips on-demand by reaching out to our support team, and they will add them for you.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Where do you deliver in Bangalore?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>We currently serve the following areas in Bangalore:</p>
+                            <ul>
+                                <li>HSR Layout</li>
+                                <li>Koramangala</li>
+                                <li>BTM Layout</li>
+                                <li>JP Nagar &amp; Jayanagar (select parts)</li>
+                                <li>Bellandur, Kasavanahalli, Kudlu Gate, and Haralur</li>
+                            </ul>
+                            <p>We are constantly expanding our micro-kitchen network to cover more sectors in Bangalore.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        What delivery slots are available?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>We offer multiple preferred 1-hour breakfast delivery slots from 5:00 AM to 10:00 AM (e.g., 5:00 AM to 6:00 AM, 6:00 AM to 7:00 AM, etc.). You can choose and update your slot inside the app.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Is there a delivery fee?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>No. All subscription orders come with 100% free delivery inside our service zones. The price you see is the price you pay, with no hidden service fees, delivery charges, or convenience fees.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Can I update my delivery address or slot details?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Yes. You can update your delivery address and slot details directly from the app. Please make sure to save address or slot changes before the 11:00 PM cut-off time the night before.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Are your meals pre-cooked, frozen, or reheated?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Never. We do not use frozen meals or central commercial kitchens that pre-package food days in advance. All Kinnow breakfast bowls are prepared fresh in our hyperlocal micro-kitchens (serving a tight 2km radius). This ensures maximum nutritional integrity and zero compromise on taste.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        How large are the portion sizes?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Unlike snack-sized health boxes, Kinnow serves full, generous portions. Our average meal bowl is 500ml+ of nutrition-rich food, designed to keep you satiated and energized through your meetings and commutes without needing mid-morning snacks.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        How do you guarantee quality and trust?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Trust is built on clarity and quality. We guarantee this in two key ways. First, our full macros and ingredients list shows every single ingredient and the exact calorie and macronutrient breakdown in-app before you order, with no hidden junk or chemical preservatives. Second, we use only premium, raw, fresh ingredients sourced locally, prepared fresh every morning in our local kitchens.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Can I customize my meals for dietary preferences or allergies?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>Yes! You can select lactose-free, dairy-free, and gluten-free options inside the app during setup. If you have specific food allergies or custom requests, you can mention them in the additional notes section, and our kitchen team will ensure your meals are prepared safely.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="faq-item">
+                    <button class="faq-header" aria-expanded="false">
+                        Do your meals contain artificial preservatives?
+                        <span class="faq-icon" aria-hidden="true">&#43;</span>
+                    </button>
+                    <div class="faq-body">
+                        <div class="faq-body-content">
+                            <p>No. Because we prepare and deliver meals in real-time, we do not require or use artificial chemical preservatives, artificial colors, or additives. We use only premium, raw, fresh ingredients sourced locally.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../images/kinnow-header-logo.png" alt="Kinnow logo">
+                    <p>Kinnow Daily delivers fresh, ready-to-eat breakfasts built for busy
+                        mornings and healthier routines.</p>
+                    <h4>FOLLOW US ON</h4>
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="../images/linkedin.png" alt="LinkedIn"></a>
+                        <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="../images/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <a href="/faq/">FAQs</a>
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms-of-service/">Terms of Service</a>
+                    <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
+                    <a href="/download">Download App</a>
+                </div>
+
+                <div class="footer-download">
+                    <p>Download Kinnow and get the freshness delivered at your doorstep.</p>
+                    <div class="footer-store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh">
+                            <img src="../images/play-store-custom.png" alt="Get it on Google Play">
+                        </a>
+                        <a href="https://apps.apple.com/app/kinnow/id6747724751">
+                            <img src="../images/app-store-custom.png" alt="Download on App Store">
+                        </a>
+                    </div>
+                    <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni
+                        3546, Property Id: 3GTVC2H7 - (125033)</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
+                <span>Healthy breakfast, delivered every morning.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Accordion Toggles
+            const headers = document.querySelectorAll('.faq-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const body = header.nextElementSibling;
+                    const isOpen = item.classList.contains('open');
+
+                    // Close any other open items
+                    const openItems = document.querySelectorAll('.faq-item.open');
+                    openItems.forEach(openItem => {
+                        if (openItem !== item) {
+                            openItem.classList.remove('open');
+                            openItem.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
+                            openItem.querySelector('.faq-body').style.maxHeight = '0px';
+                        }
+                    });
+
+                    // Toggle current item
+                    if (isOpen) {
+                        item.classList.remove('open');
+                        header.setAttribute('aria-expanded', 'false');
+                        body.style.maxHeight = '0px';
+                    } else {
+                        item.classList.add('open');
+                        header.setAttribute('aria-expanded', 'true');
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
