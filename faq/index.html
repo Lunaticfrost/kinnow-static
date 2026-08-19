@@ -417,6 +417,12 @@
             .faq-body-content {
                 font-size: 15px;
             }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
@@ -430,16 +436,26 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: var(--cream);
-            border: none;
-            color: var(--orange);
+            background: #fff5ed;
+            border: 1px solid rgba(244, 122, 25, 0.2);
+            color: #f47a19;
             cursor: pointer;
             transition: all 0.2s ease;
+            padding: 0;
+        }
+
+        .menu-toggle svg {
+            stroke: #f47a19;
         }
 
         .menu-toggle:hover {
             transform: scale(1.05);
-            background: #ffe3d1;
+            background: #f47a19;
+            color: #ffffff;
+        }
+
+        .menu-toggle:hover svg {
+            stroke: #ffffff;
         }
 
         @media (max-width: 900px) {
