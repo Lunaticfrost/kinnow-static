@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How it Works | Kinnow Daily</title>
+    <meta name="description" content="Learn how Kinnow's daily breakfast subscription works in Bangalore. Build your plan for 1 to 180 days, add on protein boosts and dry fruits, set your delivery details, and enjoy fresh, non-reheated breakfast bowls.">
+    <link rel="canonical" href="https://kinnowdaily.com/how-it-works/">
+    <link rel="icon" type="image/png" href="../images/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #ff7318;
+            --orange-deep: #f05a00;
+            --white: #ffffff;
+            --text-dark: #222222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Outfit", "Segoe UI", sans-serif;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            width: 100%;
+            z-index: 40;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(162, 78, 0, 0.06);
+            position: sticky;
+            top: 0;
+        }
+
+        .header-row {
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .logo img {
+            height: 150px;
+            width: auto;
+            margin: -50px 0;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-left: auto;
+            margin-right: 28px;
+        }
+
+        .nav-link {
+            color: #333333;
+            font-size: 15.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--orange);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none !important;
+            }
+
+            .logo img {
+                width: 120px;
+                height: auto;
+            }
+
+            .cta-pill {
+                min-height: 40px;
+                padding: 0 16px;
+                font-size: 13.5px;
+            }
+
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: var(--orange);
+            color: var(--white);
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(240, 90, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .cta-pill:hover {
+            background: var(--orange-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(240, 90, 0, 0.3);
+        }
+
+        .menu-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff5ed;
+            color: #f47a19;
+            border: 1.5px solid rgba(244, 122, 25, 0.25);
+            box-shadow: 0 4px 14px rgba(240, 90, 0, 0.12);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-left: 16px;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.06);
+            background: #ffffff;
+            border-color: rgba(244, 122, 25, 0.5);
+            box-shadow: 0 8px 24px rgba(240, 90, 0, 0.22);
+        }
+
+        /* ─── Slide-Out Navigation Drawer ─── */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            max-width: 85vw;
+            background: #ffffff;
+            z-index: 10000;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .drawer-overlay.active .drawer-panel {
+            transform: translateX(0);
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .drawer-close {
+            background: #fff5ed;
+            border: 1px solid rgba(244, 122, 25, 0.2);
+            font-size: 18px;
+            font-weight: 700;
+            color: #f47a19;
+            cursor: pointer;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+
+        .drawer-close:hover {
+            color: #ffffff;
+            background: #f47a19;
+            transform: rotate(90deg);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .drawer-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222222;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .drawer-link:hover {
+            color: #f47a19;
+            padding-left: 6px;
+        }
+
+        .drawer-cta {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drawer-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(240, 90, 0, 0.25);
+        }
+
+        /* ─── HERO INTRO ─── */
+        .hero-intro {
+            text-align: center;
+            padding: 80px 24px 60px;
+            background: #ffffff;
+        }
+
+        .hero-intro h1 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-intro .subtitle {
+            font-size: clamp(16px, 2.2vw, 20px);
+            line-height: 1.6;
+            color: #555555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ─── FULL-BLEED STEP SECTIONS ─── */
+        .step-section {
+            width: 100%;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .step-section .step-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Watermark step number */
+        .step-section .step-watermark {
+            position: absolute;
+            font-family: "Sora", sans-serif;
+            font-size: clamp(180px, 25vw, 300px);
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.08);
+            line-height: 1;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Text column */
+        .step-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+        }
+
+        .step-text h2 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 32px;
+        }
+
+        .step-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .step-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: clamp(16px, 2vw, 19px);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.4;
+        }
+
+        .step-bullets li::before {
+            content: "";
+            flex-shrink: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .step-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 36px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.25s ease;
+        }
+
+        .step-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Screenshot column */
+        .step-screenshot {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .step-screenshot .phone-frame {
+            width: 290px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 36px;
+            border: 8px solid #ffffff;
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.28);
+            transition: transform 0.5s ease;
+            background: #ffffff;
+        }
+
+        /* ─── Color Themes (Shades of Kinnow Orange) ─── */
+        .step-orange-1 { background: linear-gradient(135deg, #ff7318 0%, #ff9a4e 100%); }
+        .step-orange-2 { background: linear-gradient(135deg, #f8810a 0%, #ffa347 100%); }
+        .step-orange-3 { background: linear-gradient(135deg, #ff6b00 0%, #ffa040 100%); }
+        .step-orange-4 { background: linear-gradient(135deg, #f05a00 0%, #ff7a1c 100%); }
+        .step-orange-5 { background: linear-gradient(135deg, #e65100 0%, #f47100 100%); }
+
+        /* ─── Scroll Reveal Animation (Card Rising Entrance) ─── */
+        .step-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-screenshot .phone-frame {
+            opacity: 0.75;
+            transform: translateY(80px) scale(0.93);
+            transition: opacity 0.7s ease, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            will-change: transform, opacity;
+        }
+
+        .step-section.revealed .step-screenshot .phone-frame {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .step-screenshot .phone-frame:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ─── SEAMLESS CITRUS GEN-Z FINAL CTA SECTION ─── */
+        .final-cta-section {
+            background: linear-gradient(180deg, #f47100 0%, #fff5ed 35%, #fff9f5 100%);
+            padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-dark);
+        }
+
+        .final-cta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            padding: 0;
+        }
+
+        .final-cta-content h2 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(32px, 4.5vw, 46px);
+            font-weight: 800;
+            line-height: 1.15;
+            color: #1c1917;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .text-orange-glow {
+            color: #ff7318;
+        }
+
+        .final-cta-content p {
+            font-size: clamp(16px, 2vw, 18.5px);
+            line-height: 1.6;
+            color: #57534e;
+            margin-bottom: 36px;
+            max-width: 560px;
+        }
+
+        .cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .citrus-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 60px;
+            padding: 0 44px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 18.5px;
+            text-decoration: none;
+            box-shadow: 0 12px 32px rgba(255, 115, 24, 0.38);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: fit-content;
+        }
+
+        .citrus-cta-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 18px 44px rgba(255, 115, 24, 0.5);
+            background: linear-gradient(135deg, #f05a00 0%, #e65100 100%);
+        }
+
+        .store-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .store-buttons a {
+            transition: transform 0.2s ease;
+        }
+
+        .store-buttons a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ─── FLOATING SIDE STEP TRACKER ─── */
+        .side-step-tracker {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: rgba(28, 25, 23, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 14px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .tracker-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .tracker-dot {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .tracker-dot:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.15);
+        }
+
+        .tracker-dot.active {
+            background: #ffffff;
+            color: #ff7318;
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
+            transform: scale(1.25);
+        }
+
+        .tracker-num {
+            font-family: "Sora", sans-serif;
+        }
+
+        .tracker-tooltip {
+            position: absolute;
+            right: 44px;
+            top: 50%;
+            transform: translateY(-50%) translateX(10px);
+            background: #1c1917;
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 11.5px;
+            font-weight: 700;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .tracker-dot:hover .tracker-tooltip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Overlapping Stacked Meal Images Collage (Bigger, Borderless) */
+        .final-cta-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 440px;
+        }
+
+        .stacked-meals-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .meal-card {
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: none;
+            border: none;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .meal-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .meal-card:hover {
+            z-index: 10 !important;
+        }
+
+        .meal-1 {
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+            transform: rotate(-6deg);
+        }
+        .meal-1:hover {
+            transform: rotate(-6deg) scale(1.12);
+        }
+
+        .meal-2 {
+            top: 5px;
+            right: 10px;
+            z-index: 2;
+            transform: rotate(8deg);
+        }
+        .meal-2:hover {
+            transform: rotate(8deg) scale(1.12);
+        }
+
+        .meal-3 {
+            bottom: 20px;
+            left: 35px;
+            z-index: 3;
+            transform: rotate(-4deg);
+        }
+        .meal-3:hover {
+            transform: rotate(-4deg) scale(1.12);
+        }
+
+        .meal-4 {
+            bottom: 10px;
+            right: 25px;
+            z-index: 4;
+            transform: rotate(6deg);
+        }
+        .meal-4:hover {
+            transform: rotate(6deg) scale(1.12);
+        }
+
+        .meal-5 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.18);
+            z-index: 5;
+            box-shadow: none;
+            border: none;
+        }
+        .meal-5:hover {
+            transform: translate(-50%, -50%) scale(1.26);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #F8AF6E;
+            padding: 60px 24px 40px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff !important;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 130px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p,
+        .footer-download p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h4 {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-row a {
+            display: block;
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .social-row a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.15);
+        }
+
+        .social-row img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 600;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+
+        .footer-store-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .footer-store-row a {
+            transition: transform 0.2s ease;
+        }
+
+        .footer-store-row a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-store-row img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .side-step-tracker {
+                display: none;
+            }
+
+            .step-section .step-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 0 24px;
+            }
+
+            .step-section {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .step-screenshot {
+                justify-content: center;
+            }
+
+            .step-screenshot .phone-frame {
+                width: 240px;
+            }
+
+            .step-section .step-watermark {
+                font-size: 120px;
+                right: 50%;
+                transform: translate(50%, -50%);
+                opacity: 0.5;
+            }
+
+            .step-text {
+                text-align: center;
+            }
+
+            .step-bullets li {
+                justify-content: center;
+            }
+
+            .final-cta-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                padding: 0;
+                text-align: center;
+            }
+
+            .final-cta-content p {
+                margin: 0 auto 36px auto;
+            }
+
+            .cta-actions {
+                align-items: center;
+            }
+
+            .citrus-cta-btn {
+                width: 100%;
+            }
+
+            .store-buttons {
+                justify-content: center;
+            }
+
+            .stacked-meals-wrapper {
+                max-width: 360px;
+                height: 320px;
+            }
+
+            .meal-card {
+                width: 155px;
+                height: 155px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-intro {
+                padding: 50px 20px 40px;
+            }
+
+            .hero-intro h1 {
+                font-size: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-row">
+            <a href="../" class="logo" aria-label="Kinnow home">
+                <img src="../images/kinnow-logo.png" alt="Kinnow logo">
+            </a>
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="../how-it-works/" class="nav-link active">How it Works</a>
+                <a href="../faq/" class="nav-link">FAQs</a>
+            </nav>
+            <div class="header-actions">
+                <a href="../download" class="cta-pill">Get the App</a>
+                <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle navigation menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-Out Navigation Drawer -->
+    <div class="drawer-overlay" id="navDrawerOverlay" aria-hidden="true">
+        <div class="drawer-panel">
+            <div class="drawer-header" style="justify-content: flex-end;">
+                <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+            </div>
+            <nav class="drawer-nav">
+                <a href="../how-it-works/" class="drawer-link">
+                    <span>How it Works</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="../faq/" class="drawer-link">
+                    <span>FAQs</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+            </nav>
+            <div class="drawer-cta">
+                <a href="../download" class="drawer-cta-btn">Get the App</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Side Step Progress Tracker -->
+    <nav class="side-step-tracker" aria-label="Step Progress Navigation">
+        <ul class="tracker-list">
+            <li>
+                <a href="#step-01" class="tracker-dot active" data-step="step-01" aria-label="Step 1: Pick plan">
+                    <span class="tracker-num">01</span>
+                    <span class="tracker-tooltip">Pick Plan</span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-02" class="tracker-dot" data-step="step-02" aria-label="Step 2: Customize">
+                    <span class="tracker-num">02</span>
+                    <span class="tracker-tooltip">Customize</span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-03" class="tracker-dot" data-step="step-03" aria-label="Step 3: Preferences">
+                    <span class="tracker-num">03</span>
+                    <span class="tracker-tooltip">Preferences</span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-04" class="tracker-dot" data-step="step-04" aria-label="Step 4: Delivery">
+                    <span class="tracker-num">04</span>
+                    <span class="tracker-tooltip">Delivery Slot</span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-05" class="tracker-dot" data-step="step-05" aria-label="Step 5: Macros & Swap">
+                    <span class="tracker-num">05</span>
+                    <span class="tracker-tooltip">Manage & Track</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Intro -->
+        <section class="hero-intro">
+            <h1>Healthy breakfast on autopilot</h1>
+            <p class="subtitle">See how easy it is to start your daily breakfast subscription on the Kinnow app.</p>
+        </section>
+
+        <!-- Step 01 — Pick your breakfast plan -->
+        <section class="step-section step-orange-1" id="step-01">
+            <span class="step-watermark">01</span>
+            <div class="step-inner">
+                <div class="step-text">
+                    <span class="step-label">Step 01</span>
+                    <h2>Pick your<br> breakfast plan</h2>
+                    <ul class="step-bullets">
+                        <li>Fresh, nutritious & delicious breakfast daily</li>
+                        <li>Flexible plans starting from ₹188/day</li>
+                        <li>No Stress, No Morning Chaos</li>
+                    </ul>
+                </div>
+                <div class="step-screenshot">
+                    <img class="phone-frame" src="../images/app-step1-build-plan.png" alt="Kinnow app screen showing Good Morning Plan selection and Build Plan button">
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 02 — Customize duration & extras -->
+        <section class="step-section step-orange-2" id="step-02">
+            <span class="step-watermark">02</span>
+            <div class="step-inner">
+                <div class="step-text">
+                    <span class="step-label">Step 02</span>
+                    <h2>Select duration<br>& add-ons</h2>
+                    <ul class="step-bullets">
+                        <li>1 to 180 days custom subscription duration</li>
+                        <li>Add tender coconut, dry fruits & protein shakes</li>
+                    </ul>
+                </div>
+                <div class="step-screenshot">
+                    <img class="phone-frame" src="../images/app-step2-customize.png" alt="Kinnow app screen showing plan length slider and morning essential add-ons">
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 03 — Set dietary preferences & start date -->
+        <section class="step-section step-orange-3" id="step-03">
+            <span class="step-watermark">03</span>
+            <div class="step-inner">
+                <div class="step-text">
+                    <span class="step-label">Step 03</span>
+                    <h2>Dietary preferences<br>& people count</h2>
+                    <ul class="step-bullets">
+                        <li>Gluten-free & lactose-free dietary options</li>
+                        <li>Subscribe for multiple people in a single plan</li>
+                        <li>Pick your exact subscription start date</li>
+                    </ul>
+                </div>
+                <div class="step-screenshot">
+                    <img class="phone-frame" src="../images/app-step3-preferences.png" alt="Kinnow app screen showing dietary preferences and start date selection">
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 04 — Choose address & delivery slot -->
+        <section class="step-section step-orange-4" id="step-04">
+            <span class="step-watermark">04</span>
+            <div class="step-inner">
+                <div class="step-text">
+                    <span class="step-label">Step 04</span>
+                    <h2>Choose address<br>& delivery slot</h2>
+                    <ul class="step-bullets">
+                        <li>Convenient morning slots (5 AM - 10 AM)</li>
+                        <li>On-time delivery straight to home or work</li>
+                        <li>Add delivery instructions for Hassle-Free deliveries</li>
+                        <li>Additional notes for kitchen team or delivery team</li>
+                    </ul>
+                </div>
+                <div class="step-screenshot">
+                    <img class="phone-frame" src="../images/app-step4-delivery.png" alt="Kinnow app screen showing delivery address and morning time slot picker">
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 05 — Swap, skip & track macros -->
+        <section class="step-section step-orange-5" id="step-05">
+            <span class="step-watermark">05</span>
+            <div class="step-inner">
+                <div class="step-text">
+                    <span class="step-label">Step 05</span>
+                    <h2>Subscribed? <br> swap, skip & track macros</h2>
+                    <ul class="step-bullets">
+                        <li>Going out? Skip the meal in single click</li>
+                        <li>Wanna eat something else? Swap according to your mood</li>
+                        <li>Full calories, protein, carbs & fiber info listed</li>
+                        <li>All ingredients listed for full transparency</li>
+                    </ul>
+                </div>
+                <div class="step-screenshot">
+                    <img class="phone-frame" src="../images/app-step5-meals-macros.png" alt="Kinnow app screen showing Apple Almond Oats with full macro breakdown and skip swap options">
+                </div>
+            </div>
+        </section>
+
+        <!-- Vibrant Citrus Glass Final CTA Banner (Option 2) -->
+        <section class="final-cta-section">
+            <div class="final-cta-container">
+                <div class="final-cta-content">
+                    <h2>Stop stressing breakfast. <br><span class="text-orange-glow">Bengaluru is on Kinnow.</span></h2>
+                    <p>Reclaim your mornings with chef-crafted, nutritious breakfast delivered fresh on autopilot every single day.</p>
+                    
+                    <div class="cta-actions">
+                        <a href="../download" class="citrus-cta-btn">
+                            <span>Let's get started</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="final-cta-visual">
+                    <div class="stacked-meals-wrapper">
+                        <div class="meal-card meal-1">
+                            <img src="../images/Mango Yogurt Bowl 1.png" alt="Fresh Mango Yogurt Bowl">
+                        </div>
+                        <div class="meal-card meal-2">
+                            <img src="../images/Avocado Smoothie bowl.png" alt="Fresh Avocado Smoothie Bowl">
+                        </div>
+                        <div class="meal-card meal-3">
+                            <img src="../images/Yogurt fruit bowl.png" alt="Fresh Yogurt Fruit Bowl">
+                        </div>
+                        <div class="meal-card meal-4">
+                            <img src="../images/Chocolate power oats.png" alt="Fresh Chocolate Power Oats">
+                        </div>
+                        <div class="meal-card meal-5">
+                            <img src="../images/Yogurt granola bowl.png" alt="Fresh Yogurt Granola Bowl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../images/kinnow-header-logo.png" alt="Kinnow logo">
+                    <p>Kinnow Daily Foods Private Limited delivers fresh, ready-to-eat breakfasts built for busy
+                        mornings and healthier routines.</p>
+                    <h4>FOLLOW US ON</h4>
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="../images/linkedin.png" alt="LinkedIn"></a>
+                        <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="../images/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <a href="/how-it-works/">How it Works</a>
+                    <a href="/faq/">FAQs</a>
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms-of-service/">Terms of Service</a>
+                    <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
+                    <a href="/download">Download App</a>
+                </div>
+
+                <div class="footer-download">
+                    <p>Download Kinnow and get the freshness delivered at your doorstep.</p>
+                    <div class="footer-store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh">
+                            <img src="../images/play-store-custom.png" alt="Get it on Google Play">
+                        </a>
+                        <a href="https://apps.apple.com/app/kinnow/id6747724751">
+                            <img src="../images/app-store-custom.png" alt="Download on App Store">
+                        </a>
+                    </div>
+                    <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni
+                        3546, Property Id: 3GTVC2H7 - (125033)</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
+                <span>Healthy breakfast, delivered every morning.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal & Side Tracker Observer Script -->
+    <script>
+        (function () {
+            const sections = document.querySelectorAll('.step-section');
+            const dots = document.querySelectorAll('.tracker-dot');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        const id = entry.target.getAttribute('id');
+                        dots.forEach(dot => {
+                            if (dot.getAttribute('data-step') === id) {
+                                dot.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            sections.forEach(s => observer.observe(s));
+        })();
+
+        // Drawer Toggle Script
+        (function () {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const overlay = document.getElementById('navDrawerOverlay');
+            const closeBtn = document.getElementById('drawerCloseBtn');
+
+            function openDrawer() {
+                if (overlay) overlay.classList.add('active');
+            }
+
+            function closeDrawer() {
+                if (overlay) overlay.classList.remove('active');
+            }
+
+            if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeDrawer();
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -87,6 +87,34 @@
             display: block;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-left: auto;
+            margin-right: 28px;
+        }
+
+        .nav-link {
+            color: #333333;
+            font-size: 15.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--orange);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none !important;
+            }
+        }
+
         .cta-pill {
             display: inline-flex;
             align-items: center;
@@ -403,6 +431,10 @@
             <a href="../" class="logo" aria-label="Kinnow home">
                 <img src="../images/kinnow-logo.png" alt="Kinnow logo">
             </a>
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="../how-it-works/" class="nav-link">How it Works</a>
+                <a href="../faq/" class="nav-link active">FAQs</a>
+            </nav>
             <a href="../download" class="cta-pill">Get the App</a>
         </div>
     </header>
@@ -636,6 +668,7 @@
                 </div>
 
                 <div class="footer-links">
+                    <a href="/how-it-works/">How it Works</a>
                     <a href="/faq/">FAQs</a>
                     <a href="/privacy-policy/">Privacy Policy</a>
                     <a href="/terms-of-service/">Terms of Service</a>
