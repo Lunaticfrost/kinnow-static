@@ -242,6 +242,55 @@
             height: auto;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-left: auto;
+            margin-right: 28px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            font-size: 15.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none !important;
+            }
+
+            .logo img {
+                width: 120px;
+                height: auto;
+            }
+
+            .cta-pill {
+                min-height: 40px;
+                padding: 0 16px;
+                font-size: 13.5px;
+            }
+
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
         .cta-pill {
             display: inline-flex;
             align-items: center;
@@ -256,15 +305,139 @@
         }
 
         .menu-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 28px;
-            font-weight: 300;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--cream);
+            color: #f47a19;
+            border: 1.5px solid rgba(244, 122, 25, 0.25);
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+            margin-left: 16px;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.06);
+            background: #ffffff;
+            border-color: rgba(244, 122, 25, 0.5);
+            box-shadow: 0 8px 24px rgba(240, 90, 0, 0.22);
+        }
+
+        /* ─── Slide-Out Navigation Drawer ─── */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            max-width: 85vw;
+            background: #ffffff;
+            z-index: 10000;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .drawer-overlay.active .drawer-panel {
+            transform: translateX(0);
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .drawer-close {
+            background: #fff5ed;
+            border: 1px solid rgba(244, 122, 25, 0.2);
+            font-size: 18px;
+            font-weight: 700;
+            color: #f47a19;
+            cursor: pointer;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+
+        .drawer-close:hover {
+            color: #ffffff;
+            background: #f47a19;
+            transform: rotate(90deg);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .drawer-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222222;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .drawer-link:hover {
+            color: #f47a19;
+            padding-left: 6px;
+        }
+
+        .drawer-cta {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drawer-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(240, 90, 0, 0.25);
         }
 
         .hero {
@@ -348,14 +521,14 @@
         .store-row {
             display: flex;
             flex-wrap: wrap;
-            gap:10px;
+            gap: 12px;
             align-items: center;
         }
 
         .store-row a {
             transition: transform 0.18s ease;
-            /* padding: 20px; */
             font-size: 12px;
+            display: block;
         }
 
         .store-row a:hover {
@@ -363,8 +536,9 @@
         }
 
         .store-row img {
-            height: 50px;
+            height: 48px;
             width: auto;
+            display: block;
         }
 
         .hero-visual {
@@ -502,6 +676,48 @@
             background: url("images/hero-swiggle.png") center/contain no-repeat;
             transform: none;
             opacity: 0.9;
+        }
+
+        .hero-secondary-cta {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 325px;
+        }
+
+        .how-it-works-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 52px;
+            gap: 10px;
+            padding: 0 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(240, 90, 0, 0.28);
+            border: 1.5px solid transparent;
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .how-it-works-hero-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 16px 36px rgba(216, 82, 0, 0.38);
+            background: linear-gradient(135deg, #f05a00 0%, #d85200 100%);
+            color: #ffffff;
+        }
+
+        .how-it-works-hero-btn svg {
+            transition: transform 0.2s ease;
+        }
+
+        .how-it-works-hero-btn:hover svg {
+            transform: translateX(4px);
         }
 
         .hero-squiggle::before,
@@ -2181,6 +2397,11 @@
                 margin-top: 10px;
             }
 
+            .hero-secondary-cta {
+                order: 4;
+                margin-top: 14px;
+            }
+
             .hero-visual {
                 order: -1;
                 min-height: 500px;
@@ -2245,7 +2466,10 @@
             }
 
             .menu-toggle {
-                display: none;
+                display: inline-flex !important;
+                width: 38px;
+                height: 38px;
+                margin-left: 8px;
             }
 
             .hero {
@@ -2676,10 +2900,44 @@
                 <a href="/" class="logo" aria-label="Kinnow home">
                     <img src="images/kinnow-header-logo.png" alt="Kinnow logo">
                 </a>
-                <a href="/download" class="cta-pill">Get the App</a>
-                <div class="menu-toggle" aria-hidden="true">&#8801;</div>
+                <nav class="nav-links" aria-label="Main Navigation">
+                    <a href="/how-it-works/" class="nav-link">How it Works</a>
+                    <a href="/faq/" class="nav-link">FAQs</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="/download" class="cta-pill">Get the App</a>
+                    <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle navigation menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </header>
+
+        <!-- Slide-Out Navigation Drawer -->
+        <div class="drawer-overlay" id="navDrawerOverlay" aria-hidden="true">
+            <div class="drawer-panel">
+                <div class="drawer-header" style="justify-content: flex-end;">
+                    <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+                </div>
+                <nav class="drawer-nav">
+                    <a href="/how-it-works/" class="drawer-link">
+                        <span>How it Works</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                    <a href="/faq/" class="drawer-link">
+                        <span>FAQs</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                </nav>
+                <div class="drawer-cta">
+                    <a href="/download" class="drawer-cta-btn">Get the App</a>
+                </div>
+            </div>
+        </div>
 
         <main>
             <section class="hero">
@@ -2705,11 +2963,18 @@
                         <h1>Prepared Fresh Delivered Fast</h1>
                         <div class="store-row">
                             <a href="https://apps.apple.com/app/kinnow/id6747724751" aria-label="Download on App Store">
-                                <img src="images/App-store.png" alt="Download on App Store">
+                                <img src="images/app-store-custom.png" alt="Download on App Store">
                             </a>
                             <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh"
                                 aria-label="Get it on Google Play">
-                                <img src="images/Play-store.png" alt="Get it on Google Play">
+                                <img src="images/play-store-custom.png" alt="Get it on Google Play">
+                            </a>
+                        </div>
+
+                        <div class="hero-secondary-cta">
+                            <a href="/how-it-works/" class="how-it-works-hero-btn">
+                                <span>See how Subscription works</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                             </a>
                         </div>
                     </div>
@@ -3369,6 +3634,7 @@
                     </div>
 
                     <div class="footer-links">
+                        <a href="/how-it-works/">How it Works</a>
                         <a href="/faq/">FAQs</a>
                         <a href="/privacy-policy/">Privacy Policy</a>
                         <a href="/terms-of-service/">Terms of Service</a>
@@ -3589,6 +3855,29 @@
             window.addEventListener('resize', () => {
                 goTo(currentIdx, false);
             });
+        })();
+
+        // Drawer Toggle Script
+        (function () {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const overlay = document.getElementById('navDrawerOverlay');
+            const closeBtn = document.getElementById('drawerCloseBtn');
+
+            function openDrawer() {
+                if (overlay) overlay.classList.add('active');
+            }
+
+            function closeDrawer() {
+                if (overlay) overlay.classList.remove('active');
+            }
+
+            if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeDrawer();
+                });
+            }
         })();
     </script>
 </body>
