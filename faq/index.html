@@ -417,10 +417,157 @@
             .faq-body-content {
                 font-size: 15px;
             }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-toggle {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: none;
+            color: var(--orange);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.05);
+            background: #ffe3d1;
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
             }
+        }
+
+        /* Slide-Out Navigation Drawer */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            max-width: 85vw;
+            background: #ffffff;
+            z-index: 10000;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .drawer-overlay.active .drawer-panel {
+            transform: translateX(0);
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .drawer-close {
+            background: #fff5ed;
+            border: 1px solid rgba(244, 122, 25, 0.2);
+            font-size: 18px;
+            font-weight: 700;
+            color: #f47a19;
+            cursor: pointer;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+
+        .drawer-close:hover {
+            color: #ffffff;
+            background: #f47a19;
+            transform: rotate(90deg);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .drawer-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222222;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .drawer-link:hover {
+            color: #f47a19;
+            padding-left: 6px;
+        }
+
+        .drawer-cta {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drawer-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(244, 122, 25, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .drawer-cta-btn:hover {
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -435,9 +582,40 @@
                 <a href="../how-it-works/" class="nav-link">How it Works</a>
                 <a href="../faq/" class="nav-link active">FAQs</a>
             </nav>
-            <a href="../download" class="cta-pill">Get the App</a>
+            <div class="header-actions">
+                <a href="../download" class="cta-pill">Get the App</a>
+                <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle navigation menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
+
+    <!-- Slide-Out Navigation Drawer -->
+    <div class="drawer-overlay" id="navDrawerOverlay" aria-hidden="true">
+        <div class="drawer-panel">
+            <div class="drawer-header" style="justify-content: flex-end;">
+                <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+            </div>
+            <nav class="drawer-nav">
+                <a href="../how-it-works/" class="drawer-link">
+                    <span>How it Works</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="../faq/" class="drawer-link">
+                    <span>FAQs</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+            </nav>
+            <div class="drawer-cta">
+                <a href="../download" class="drawer-cta-btn">Get the App</a>
+            </div>
+        </div>
+    </div>
 
     <main>
         <div class="faq-layout">
@@ -731,6 +909,27 @@
                     }
                 });
             });
+
+            // Drawer Toggle Script
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const overlay = document.getElementById('navDrawerOverlay');
+            const closeBtn = document.getElementById('drawerCloseBtn');
+
+            function openDrawer() {
+                if (overlay) overlay.classList.add('active');
+            }
+
+            function closeDrawer() {
+                if (overlay) overlay.classList.remove('active');
+            }
+
+            if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeDrawer();
+                });
+            }
         });
     </script>
 </body>
