@@ -124,9 +124,8 @@
     <link rel="icon" type="image/png" href="images/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Sora:wght@600;700;800&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <script src="/js/spa-router.js" defer></script>
     <style>
         :root {
             --peach: #ffca94;
@@ -1030,107 +1029,141 @@
 
         .deliver-wrapper {
             position: relative;
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 30px;
-            /* Space between arrows and slider */
+            justify-content: center;
+            margin-top: 30px;
         }
 
         .deliver-slider {
             overflow: hidden;
-            /* Changed from auto to hidden for transform-based slider */
             width: 100%;
-            /* Hide scrollbar */
             scrollbar-width: none;
+            padding: 30px 0 70px;
         }
 
         .deliver-track {
             display: flex;
-            gap: 40px;
-            padding: 60px 10px 60px;
-            /* Top padding to accommodate overlapping bowls, bottom for stagger */
+            gap: 48px;
+            padding: 30px 0 60px;
             width: max-content;
-            align-items: center;
+            align-items: flex-start;
+            will-change: transform;
         }
 
         .meal-card {
-            width: 250px;
-            min-width: 250px;
-            background: #f8810a;
-            height: 300px;
-            border-radius: 18px;
-            /* Flat bottom-right for tail */
-            /* padding: 0 24px 30px; */
-            text-align: center;
+            width: 325px;
+            min-width: 325px;
+            height: 390px;
+            border-radius: 24px;
+            overflow: hidden;
             position: relative;
-            box-shadow: 0 15px 35px rgba(248, 129, 10, 0.15);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease, box-shadow 0.45s ease;
+            background: #1a1a1a;
+            cursor: pointer;
+            transform-origin: center center;
         }
 
-        /* Staggered cards (alternating height) */
-        .meal-card.is-even {
-            transform: translateY(-40px);
-        }
-
-        .meal-card.is-odd {
-            transform: translateY(40px);
-        }
-
-        .meal-card.is-even:hover {
-            transform: translateY(-48px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(248, 129, 10, 0.25);
-        }
-
-        .meal-card.is-odd:hover {
-            transform: translateY(32px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(248, 129, 10, 0.25);
+        .meal-card:hover {
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
         }
 
         .meal-image {
-            margin-top: -20px;
-            /* pull image up heavily */
-            display: flex;
-            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
         }
 
         .meal-image img {
-            max-width: 270px;
-            max-height: 270px;
-            object-fit: contain;
-            filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.25));
-            /* realistic shadow for transparent bowls */
-            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .meal-card:hover .meal-image img {
+            transform: scale(1.08);
+        }
+
+        .meal-card .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px 20px 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+            text-align: left;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .meal-card .category-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #FFFFFF;
+            font-family: "Outfit", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .meal-card h3 {
-            color: white;
-            font-size: 21px;
-            line-height: 1.35;
-            font-weight: 600;
+            color: #FFFFFF;
+            font-family: "Sora", "Outfit", sans-serif;
+            font-size: 19px;
+            line-height: 1.3;
+            font-weight: 700;
             margin: 0;
-            margin-top: -20px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
         }
 
-        /* Arrows */
-
+        /* Floating Arrows */
         .deliver-arrow {
-            width: 58px;
-            height: 58px;
+            position: absolute;
+            top: 45%;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             border: none;
-            background: white;
-            color: #ff870f;
-            font-size: 28px;
+            background: #FFFFFF;
+            color: #ff7318;
+            font-size: 26px;
             cursor: pointer;
             flex-shrink: 0;
-            transition: 0.25s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            z-index: 2;
+            transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .deliver-arrow.deliver-prev {
+            left: 35px;
+        }
+
+        .deliver-arrow.deliver-next {
+            right: 35px;
         }
 
         .deliver-arrow:hover {
-            transform: scale(1.08);
+            transform: scale(1.12);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
         }
 
         /* Dots */
@@ -1167,17 +1200,24 @@
             }
 
             .meal-card {
-                width: 210px;
-                min-width: 210px;
+                width: 190px;
+                min-width: 190px;
+                height: 275px;
+                border-radius: 18px;
             }
 
-            /* .meal-image {
-        width: 150px;
-        height: 150px;
-    } */
+            .meal-card .image-overlay {
+                padding: 18px 12px 14px;
+            }
 
             .meal-card h3 {
-                font-size: 20px;
+                font-size: 15px;
+            }
+
+            .meal-card .category-badge {
+                font-size: 9px;
+                padding: 3px 7px;
+                margin-bottom: 4px;
             }
 
             /* Hide arrows on mobile */
@@ -1186,8 +1226,9 @@
             }
 
             .deliver-track {
-                padding-left: 20px;
-                padding-right: 20px;
+                gap: 16px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
         }
 
@@ -3063,11 +3104,12 @@
                     <span class="section-label">WHAT WE DELIVER</span>
 
                     <p class="section-copy">
-                        Smoothie bowls, power oats, chia puddings and more
-                        for exciting healthy mornings.
+                        Smoothies, power oats, chia puddings and more, just a taste of what’s on the menu. Discover many more in the app.
                     </p>
 
-                    <div class="deliver-wrapper">
+                </div>
+
+                <div class="deliver-wrapper">
 
                         <!-- Left Arrow -->
                         <button class="deliver-arrow deliver-prev" aria-label="Previous">
@@ -3079,81 +3121,234 @@
 
                             <div class="deliver-track">
 
-                                <!-- CARD -->
+                                <!-- CARD 1: Strawberry Chia Pudding -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Yogurt granola bowl.png" alt="Kinnow Yogurt Granola Bowl">
+                                        <img src="images/meals/strawberry+chia+pudding.webp" alt="Kinnow Strawberry Chia Pudding" loading="lazy">
                                     </div>
-
-                                    <h3>Yogurt Granola Bowl</h3>
+                                    <div class="image-overlay">
+                                        <h3>Strawberry Chia Pudding</h3>
+                                    </div>
                                 </article>
 
-                                <!-- CARD -->
-                                <article class="meal-card active">
-                                    <div class="meal-image">
-                                        <img src="images/Chocolate power oats.png" alt="Kinnow Chocolate Power Oats">
-                                    </div>
-
-                                    <h3>Chocolate Power Oats</h3>
-                                </article>
-
-                                <!-- CARD -->
+                                <!-- CARD 2: Avocado Smoothie Bowl -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Yogurt fruit bowl.png" alt="Kinnow Yogurt Fruit Bowl">
+                                        <img src="images/meals/avocado+smoothie.webp" alt="Kinnow Avocado Smoothie Bowl" loading="lazy">
                                     </div>
-
-                                    <h3>Yogurt Fruit Bowl</h3>
+                                    <div class="image-overlay">
+                                        <h3>Avocado Smoothie Bowl</h3>
+                                    </div>
                                 </article>
 
-                                <!-- CARD -->
+                                <!-- CARD 3: Mango Coconut Chia Pudding -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Avocado Smoothie bowl.png" alt="Kinnow Avocado Smoothie Bowl">
+                                        <img src="images/meals/mango+coconut+chia+pudding.webp" alt="Kinnow Mango Coconut Chia Pudding" loading="lazy">
                                     </div>
-
-                                    <h3>Avocado Smoothie Bowl</h3>
+                                    <div class="image-overlay">
+                                        <h3>Mango Coconut Chia Pudding</h3>
+                                    </div>
                                 </article>
+
+                                <!-- CARD 4: Green Goddess Sandwich -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Paneer 1.png" alt="Kinnow Paneer Chipotle Protein Bowl">
+                                        <img src="images/meals/Green+Goddess+Sandwich.png" alt="Kinnow Green Goddess Sandwich" loading="lazy">
                                     </div>
-
-                                    <h3>Paneer Chipotle Protein bowl</h3>
+                                    <div class="image-overlay">
+                                        <h3>Green Goddess Sandwich</h3>
+                                    </div>
                                 </article>
 
-                                <!-- CARD -->
-                                <article class="meal-card active">
-                                    <div class="meal-image">
-                                        <img src="images/CaesarSalad 1.png" alt="Kinnow Caesar Salad">
-                                    </div>
-
-                                    <h3>Caesar Salad</h3>
-                                </article>
-
-                                <!-- CARD -->
+                                <!-- CARD 5: Berry Bliss Smoothie -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Jalapeno 3.png" alt="Kinnow Jalapeno Salad Bowl">
+                                        <img src="images/meals/berry+bliss+smoothie.webp" alt="Kinnow Berry Bliss Smoothie Bowl" loading="lazy">
                                     </div>
-
-                                    <h3>Kinnow Jalapeno Salad Bowl</h3>
+                                    <div class="image-overlay">
+                                        <h3>Berry Bliss Smoothie</h3>
+                                    </div>
                                 </article>
 
-                                <!-- CARD -->
+                                <!-- CARD 6: Chipotle Paneer Protein Bowl -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Kinnow 51.png" alt="Kinnow Creamsicle Oatmeal Bowl">
+                                        <img src="images/meals/Chipotle+Paneer+Protein+Bowl.png" alt="Kinnow Chipotle Paneer Protein Bowl" loading="lazy">
                                     </div>
-
-                                    <h3>Kinnow Creamsicle Oatmeal Bowl</h3>
+                                    <div class="image-overlay">
+                                        <h3>Chipotle Paneer Protein Bowl</h3>
+                                    </div>
                                 </article>
+
+                                <!-- CARD 7: Kinnow Creamsicle Chia Pudding -->
                                 <article class="meal-card">
                                     <div class="meal-image">
-                                        <img src="images/Mango Yogurt Bowl 1.png" alt="Kinnow Mango Yogurt Bowl">
+                                        <img src="images/meals/kinnow+creamsicle+chia+pudding.webp" alt="Kinnow Creamsicle Chia Pudding" loading="lazy">
                                     </div>
+                                    <div class="image-overlay">
+                                        <h3>Kinnow Creamsicle Chia Pudding</h3>
+                                    </div>
+                                </article>
 
-                                    <h3>Mango Yogurt Bowl</h3>
+                                <!-- CARD 8: Overnight Berry Oats -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/overnight+berry+oats.webp" alt="Kinnow Overnight Berry Oats" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Overnight Soaked Berry Oats</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 9: Seasoned Chickpeas Multigrain Toast -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/Seasoned+ChickPeas+on+Multigrain+Toast.webp" alt="Kinnow Seasoned Chickpeas on Multigrain Toast" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Chickpeas Multigrain Toast</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 10: Mango Avocado Smoothie Bowl -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/mango+avocado+smoothie+bowl.webp" alt="Kinnow Mango Avocado Smoothie Bowl" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Mango Avocado Smoothie</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 11: Baked Falafel Salad Bowl -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/Baked+Falafel+Salad+Bowl.png" alt="Kinnow Baked Falafel Salad Bowl" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Baked Falafel Salad Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 12: Very Berry Chia Pudding -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/very+berry+chia+pudding.webp" alt="Kinnow Very Berry Chia Pudding" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Very Berry Chia Pudding</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 13: Mango Oatmeal -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/mango+oatmeal.webp" alt="Kinnow Mango Oatmeal" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Mango Oatmeal Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 14: Paprika Tofu Salad -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/PeprikaTofuSalad.webp" alt="Kinnow Paprika Tofu Salad" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Paprika Tofu Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 15: Rainbow Fruit Salad -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/rainbow+fruit+salad.webp" alt="Kinnow Rainbow Fruit Salad" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Rainbow Fruit Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 16: Mango Coconut Bowl -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/mango+coconut+bowl.webp" alt="Kinnow Mango Coconut Bowl" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Mango Coconut Smoothie</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 17: Peri Peri Paneer Chickpea Salad -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/Peri+Peri+Paneer+Chickpea+Salad.png" alt="Kinnow Peri Peri Paneer Chickpea Salad" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Peri Peri Paneer Chickpea Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 18: Mango Yogurt Granola Bowl -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/Mango+Yogurt+Granola+Bowl+(1).png" alt="Kinnow Mango Yogurt Granola Bowl" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Mango Yogurt Granola Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 19: Pesto Paneer Salad -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/PestoPaneerSalad.jpeg" alt="Kinnow Pesto Paneer Salad" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Pesto Paneer Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 20: Yogurt Fruit Bowl -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/yogurt+fruit+bowl.webp" alt="Kinnow Yogurt Fruit Bowl" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Yogurt Fruit Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 21: Makhana Chia Pudding -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/MakhanaChia.jpeg" alt="Kinnow Makhana Chia Pudding" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Makhana Chia Oats</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 22: Watermelon Feta Salad -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/WatermelonFet.jpeg" alt="Kinnow Watermelon Feta Salad" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Watermelon Feta Cheese Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- CARD 23: Caesar Salad -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/CeaserSalad.jpeg" alt="Kinnow Caesar Salad" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Caesar Salad</h3>
+                                    </div>
                                 </article>
 
                             </div>
@@ -3166,16 +3361,6 @@
                         </button>
 
                     </div>
-
-                    <!-- Dots -->
-                    <!-- <div class="deliver-dots">
-                        <span class="active"></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div> -->
-
-                </div>
             </section>
 
             <section class="bulk-section" aria-labelledby="bulk-heading">
@@ -3497,13 +3682,11 @@
                         if (isTransitioning) return;
                         isTransitioning = true;
                         const nextIdx = currentIdx + 1;
-                        // Animate to clone if needed
                         const domIdx = realToDom(nextIdx);
                         const tx = getTranslateForDomIndex(domIdx);
                         track.style.transition = 'transform 0.4s ease';
                         track.style.transform = `translateX(${tx}px)`;
                         currentIdx = nextIdx;
-                        // Update active on the target card
                         allCards.forEach((card, i) => card.classList.toggle('active', i === domIdx));
                     }
 
@@ -3686,15 +3869,6 @@
                 realCards = Array.from(track.querySelectorAll('.meal-card'));
             }
 
-            // Assign explicit odd/even classes so clones maintain the correct zig-zag state
-            realCards.forEach((card, idx) => {
-                if (idx % 2 === 0) {
-                    card.classList.add('is-odd'); // 1st element (index 0) is odd
-                } else {
-                    card.classList.add('is-even'); // 2nd element (index 1) is even
-                }
-            });
-
             const totalReal = realCards.length;
             let currentIdx = 0;
             let isTransitioning = false;
@@ -3718,33 +3892,89 @@
                 return cardWidth + gap;
             }
 
-            // Calculate translateX so the active item is left-aligned in the slider
-            // If you want it centered like stories, add "+ (slider.offsetWidth - allCards[0].offsetWidth) / 2"
             function getTranslateForDomIndex(domIdx) {
                 const step = getStep();
-                // We align the item to the left with a tiny offset or perfectly left
-                return -(domIdx * step);
+                const cardW = allCards[0].offsetWidth;
+                const sliderW = slider.offsetWidth;
+                return -(domIdx * step) + (sliderW - cardW) / 2;
+            }
+
+            function updateCardArc(activeDomIdx) {
+                const isMobile = window.innerWidth <= 768;
+
+                allCards.forEach((card, i) => {
+                    const diff = i - activeDomIdx;
+                    const dist = Math.abs(diff);
+                    card.classList.toggle('active', dist === 0);
+
+                    if (isMobile) {
+                        // Mobile 3-card visible layout
+                        if (dist === 0) {
+                            card.style.transform = 'translate(0px, -6px) scale(1.08)';
+                            card.style.opacity = '1';
+                            card.style.zIndex = '10';
+                        } else if (dist === 1) {
+                            const shiftX = diff > 0 ? 12 : -12;
+                            card.style.transform = `translate(${shiftX}px, 14px) scale(0.88)`;
+                            card.style.opacity = '0.85';
+                            card.style.zIndex = '8';
+                        } else {
+                            const shiftX = diff > 0 ? 22 : -22;
+                            const drop = Math.min(45, 14 + (dist - 1) * 15);
+                            const scale = Math.max(0.7, 0.88 - (dist - 1) * 0.08);
+                            card.style.transform = `translate(${shiftX}px, ${drop}px) scale(${scale})`;
+                            card.style.opacity = '0.35';
+                            card.style.zIndex = '4';
+                        }
+                    } else {
+                        // Desktop visual gap compensation layout
+                        if (dist === 0) {
+                            card.style.transform = 'translate(0px, -12px) scale(1.16)';
+                            card.style.opacity = '1';
+                            card.style.zIndex = '10';
+                        } else if (dist === 1) {
+                            // Compensate center card width expansion (+26px) so edge-to-edge visual whitespace gap is 100% equal
+                            const shiftX = diff > 0 ? 26 : -26;
+                            card.style.transform = `translate(${shiftX}px, 28px) scale(0.95)`;
+                            card.style.opacity = '0.88';
+                            card.style.zIndex = '8';
+                        } else if (dist === 2) {
+                            const shiftX = diff > 0 ? 34 : -34;
+                            card.style.transform = `translate(${shiftX}px, 68px) scale(0.84)`;
+                            card.style.opacity = '0.7';
+                            card.style.zIndex = '6';
+                        } else {
+                            const shiftX = diff > 0 ? 42 : -42;
+                            const drop = Math.min(115, 68 + (dist - 2) * 25);
+                            const scale = Math.max(0.72, 0.84 - (dist - 2) * 0.05);
+                            const opacity = Math.max(0.35, 0.7 - (dist - 2) * 0.15);
+                            card.style.transform = `translate(${shiftX}px, ${drop}px) scale(${scale})`;
+                            card.style.opacity = opacity;
+                            card.style.zIndex = '4';
+                        }
+                    }
+                });
             }
 
             function goTo(realIdx, animate) {
                 currentIdx = realIdx;
-                // DOM index of the target real card is totalReal + realIdx
                 const domIdx = totalReal + realIdx;
                 const tx = getTranslateForDomIndex(domIdx);
 
                 if (animate) {
-                    track.style.transition = 'transform 0.4s ease';
+                    track.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
                 } else {
                     track.style.transition = 'none';
                 }
                 track.style.transform = `translateX(${tx}px)`;
+
+                updateCardArc(domIdx);
             }
 
             track.addEventListener('transitionend', (e) => {
                 if (e.target !== track) return;
                 isTransitioning = false;
 
-                // If we've scrolled into the clones, silently jump back to the real set
                 if (currentIdx < 0 || currentIdx >= totalReal) {
                     const wrapped = ((currentIdx % totalReal) + totalReal) % totalReal;
                     goTo(wrapped, false);
@@ -3765,6 +3995,7 @@
 
             leftBtn.addEventListener('click', goPrev);
             rightBtn.addEventListener('click', goNext);
+
 
             // Touch/swipe support
             let touchStartX = 0, touchStartTx = 0, isSwiping = false;
@@ -3848,9 +4079,10 @@
             slider.addEventListener('mouseup', endDrag);
             slider.addEventListener('mouseleave', endDrag);
 
-            // Initialize position without animation
+            // Initialize random position on load
+            const randomStartIdx = Math.floor(Math.random() * totalReal);
             setTimeout(() => {
-                goTo(0, false);
+                goTo(randomStartIdx, false);
             }, 50);
 
             window.addEventListener('resize', () => {

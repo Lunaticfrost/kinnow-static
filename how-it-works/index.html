@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-
+    <script src="/js/spa-router.js" defer></script>
     <style>
         :root {
             --orange: #ff7318;
@@ -429,7 +429,8 @@
         .step-orange-2 { background: linear-gradient(135deg, #f8810a 0%, #ffa347 100%); }
         .step-orange-3 { background: linear-gradient(135deg, #ff6b00 0%, #ffa040 100%); }
         .step-orange-4 { background: linear-gradient(135deg, #f05a00 0%, #ff7a1c 100%); }
-        .step-orange-5 { background: linear-gradient(135deg, #e65100 0%, #f47100 100%); }
+        .step-orange-5 { background: linear-gradient(135deg, #eb5800 0%, #f7750d 100%); }
+        .step-orange-6 { background: linear-gradient(135deg, #e65100 0%, #f47100 100%); }
 
         /* ─── Scroll Reveal Animation (Card Rising Entrance) ─── */
         .step-text {
@@ -1013,8 +1014,14 @@
                 </a>
             </li>
             <li>
-                <a href="#step-05" class="tracker-dot" data-step="step-05" aria-label="Step 5: Macros & Swap">
+                <a href="#step-05" class="tracker-dot" data-step="step-05" aria-label="Step 5: Meal Preview">
                     <span class="tracker-num">05</span>
+                    <span class="tracker-tooltip">Meal Preview</span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-06" class="tracker-dot" data-step="step-06" aria-label="Step 6: Macros & Swap">
+                    <span class="tracker-num">06</span>
                     <span class="tracker-tooltip">Manage & Track</span>
                 </a>
             </li>
@@ -1076,6 +1083,7 @@
                         <li>Gluten-free & lactose-free dietary options</li>
                         <li>Subscribe for multiple people in a single plan</li>
                         <li>Pick your exact subscription start date</li>
+                        <li>Flexibility: Change dietary preferences anytime</li>
                     </ul>
                 </div>
                 <div class="step-screenshot">
@@ -1095,7 +1103,7 @@
                         <li>Convenient morning slots (5 AM - 10 AM)</li>
                         <li>On-time delivery straight to home or work</li>
                         <li>Add delivery instructions for Hassle-Free deliveries</li>
-                        <li>Additional notes for kitchen team or delivery team</li>
+                        <li>Flexibly change address or time slot whenever required</li>
                     </ul>
                 </div>
                 <div class="step-screenshot">
@@ -1104,12 +1112,32 @@
             </div>
         </section>
 
-        <!-- Step 05 — Swap, skip & track macros -->
+        <!-- Step 05 — Meal preview & swap options in advance -->
         <section class="step-section step-orange-5" id="step-05">
             <span class="step-watermark">05</span>
             <div class="step-inner">
                 <div class="step-text">
                     <span class="step-label">Step 05</span>
+                    <h2>See what you'll get<br>before making payment</h2>
+                    <ul class="step-bullets">
+                        <li>Preview your upcoming meal schedule in advance</li>
+                        <li>Explore all meal swap options available for your plan</li>
+                        <li>Know exact dishes, ingredients & rotation beforehand</li>
+                        <li>100% transparency: zero surprises at checkout</li>
+                    </ul>
+                </div>
+                <div class="step-screenshot">
+                    <img class="phone-frame" src="../images/app-step5-preview-swap.png" alt="Kinnow app screen showing meal preview and swap options before checkout">
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 06 — Swap, skip & track macros -->
+        <section class="step-section step-orange-6" id="step-06">
+            <span class="step-watermark">06</span>
+            <div class="step-inner">
+                <div class="step-text">
+                    <span class="step-label">Step 06</span>
                     <h2>Subscribed? <br> swap, skip & track macros</h2>
                     <ul class="step-bullets">
                         <li>Going out? Skip the meal in single click</li>
