@@ -40,12 +40,146 @@
       position: sticky;
       top: 0;
       background-color: #fff;
-      z-index: 100;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 0;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    header.header-hidden {
+      transform: translateY(-100%);
+    }
+    header.header-scrolled {
+      box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
+    }
+
+    /* ─── CANONICAL FOOTER (100% Identical to Homepage index.html) ─── */
+    footer {
+      background: #F8AF6E;
+      padding: 60px 0 40px;
+      margin-top: 60px;
+      color: #ffffff !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand img {
+      width: 130px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .footer-brand p,
+    .footer-download p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .footer-brand p {
+      margin-bottom: 20px;
+    }
+    .footer-brand h4 {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
+    }
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .social-row a {
+      display: block;
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease;
+    }
+    .social-row a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: scale(1.15);
+    }
+    .social-row img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-content: start;
+    }
+    .footer-links a {
+      color: #ffffff;
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      opacity: 0.8;
+      transform: translateX(4px);
+    }
+    .footer-store-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .footer-store-row a {
+      transition: transform 0.2s ease;
+    }
+    .footer-store-row a:hover {
+      transform: translateY(-2px);
+    }
+    .footer-store-row img {
+      height: 40px;
+      width: auto;
+    }
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.8);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     .header-container {
@@ -347,10 +481,76 @@
 
     <p>For delivery-related assistance, customers may contact Kinnow Customer Support through the support options available in the Kinnow application.</p>
 
-    <footer>
-      &copy; 2025-2026 Kinnow Daily Foods Private Limited. All Rights Reserved.
-    </footer>
+  <!-- CANONICAL FOOTER (100% Identical to Homepage index.html) -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../images/kinnow-header-logo.png" alt="Kinnow logo">
+          <p>Kinnow Daily delivers fresh, ready-to-eat breakfasts built for busy mornings and healthier routines.</p>
+          <h4 style="margin-top: 12px;">FOLLOW US ON</h4>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="../images/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="../images/instagram.png" alt="Instagram"></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="../how-it-works/">How it Works</a>
+          <a href="../bangalore/">Bangalore</a>
+          <a href="../faq/">FAQs</a>
+          <a href="../shipping-policy/">Shipping Policy</a>
+          <a href="../privacy-policy/">Privacy Policy</a>
+          <a href="../terms-of-service/">Terms of Service</a>
+          <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
+          <a href="../download">Download App</a>
+        </div>
+
+        <div class="footer-download">
+          <p>Download Kinnow and get the freshness delivered at your doorstep.</p>
+          <div class="footer-store-row">
+            <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh">
+              <img src="../images/play-store-custom.png" alt="Get it on Google Play">
+            </a>
+            <a href="https://apps.apple.com/app/kinnow/id6747724751">
+              <img src="../images/app-store-custom.png" alt="Download on App Store">
+            </a>
+          </div>
+          <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni 3546, Property Id: 3GTVC2H7 - (125033)</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
+        <span>Real Nutrition, Filtered for you</span>
+      </div>
+    </div>
+  </footer>
   </div>
+
+  <script>
+    (function () {
+      let lastScrollY = window.scrollY;
+      const header = document.querySelector('header');
+
+      if (header) {
+        window.addEventListener('scroll', () => {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY <= 20) {
+            header.classList.remove('header-hidden', 'header-scrolled');
+          } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            header.classList.add('header-hidden');
+          } else if (currentScrollY < lastScrollY) {
+            header.classList.remove('header-hidden');
+            header.classList.add('header-scrolled');
+          }
+
+          lastScrollY = currentScrollY;
+        }, { passive: true });
+      }
+    })();
+  </script>
 </body>
 
 </html>
