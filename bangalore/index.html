@@ -136,11 +136,19 @@
         /* ─── HEADER ─── */
         header {
             width: 100%;
-            z-index: 50;
+            z-index: 1000;
             background: #ffffff;
             box-shadow: 0 2px 20px rgba(162, 78, 0, 0.06);
             position: sticky;
             top: 0;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            will-change: transform;
+        }
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+        header.header-scrolled {
+            box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
         }
 
         .header-row {
@@ -235,7 +243,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
-            z-index: 100;
+            z-index: 9999;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1812,27 +1820,48 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- CANONICAL FOOTER (100% Identical to Homepage index.html) -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="../images/kinnow-header-logo.png" alt="Kinnow logo">
-                    <p>Kinnow Daily Foods Private Limited delivers fresh, ready-to-eat breakfasts built for busy mornings and healthier routines.</p>
+                    <p>Kinnow Daily delivers fresh, ready-to-eat breakfasts built for busy mornings and healthier routines.</p>
+                    <h4 style="margin-top: 12px;">FOLLOW US ON</h4>
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="../images/linkedin.png" alt="LinkedIn"></a>
+                        <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="../images/instagram.png" alt="Instagram"></a>
+                    </div>
                 </div>
 
                 <div class="footer-links">
                     <a href="../how-it-works/">How it Works</a>
+                    <a href="../bangalore/">Bangalore</a>
                     <a href="../faq/">FAQs</a>
+                    <a href="../shipping-policy/">Shipping Policy</a>
                     <a href="../privacy-policy/">Privacy Policy</a>
                     <a href="../terms-of-service/">Terms of Service</a>
-                    <a href="../shipping-policy/">Shipping Policy</a>
+                    <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
+                    <a href="../download">Download App</a>
+                </div>
+
+                <div class="footer-download">
+                    <p>Download Kinnow and get the freshness delivered at your doorstep.</p>
+                    <div class="footer-store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh">
+                            <img src="../images/play-store-custom.png" alt="Get it on Google Play">
+                        </a>
+                        <a href="https://apps.apple.com/app/kinnow/id6747724751">
+                            <img src="../images/app-store-custom.png" alt="Download on App Store">
+                        </a>
+                    </div>
+                    <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni 3546, Property Id: 3GTVC2H7 - (125033)</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 Kinnow Daily Foods Private Limited. All rights reserved.</p>
-                <p>Namma Bengaluru • Made with care</p>
+                <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
+                <span>Real Nutrition, Filtered for you</span>
             </div>
         </div>
     </footer>
@@ -1851,11 +1880,28 @@
         const overlay = document.getElementById('navDrawerOverlay');
         const closeBtn = document.getElementById('drawerCloseBtn');
 
-        if (toggleBtn) toggleBtn.addEventListener('click', () => overlay.classList.add('active'));
-        if (closeBtn) closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
-        if (overlay) overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) overlay.classList.remove('active');
-        });
+        if (toggleBtn && overlay) {
+            function openMenu() {
+                overlay.classList.add('active');
+                const header = document.querySelector('header');
+                if (header) header.classList.remove('header-hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            toggleBtn.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeMenu();
+            });
+            overlay.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        }
 
         // Full-Width Parabolic Arc Meal Slider Script (Matches Homepage)
         (function () {
@@ -2026,7 +2072,30 @@
                     badgeText.textContent = phrases[idx];
                     badgeText.classList.remove('fade-out');
                 }, 350);
-            }, 2500);
+        // Dynamic Smart Scroll Header
+        (function () {
+            let lastScrollY = window.scrollY;
+            const header = document.querySelector('header');
+            const overlay = document.getElementById('navDrawerOverlay');
+
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (overlay && overlay.classList.contains('active')) return;
+
+                    const currentScrollY = window.scrollY;
+
+                    if (currentScrollY <= 20) {
+                        header.classList.remove('header-hidden', 'header-scrolled');
+                    } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                        header.classList.add('header-hidden');
+                    } else if (currentScrollY < lastScrollY) {
+                        header.classList.remove('header-hidden');
+                        header.classList.add('header-scrolled');
+                    }
+
+                    lastScrollY = currentScrollY;
+                }, { passive: true });
+            }
         })();
     </script>
 </body>

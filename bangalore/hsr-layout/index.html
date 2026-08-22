@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Food Delivery in HSR Layout | Kinnow</title>
+  <meta name="description" content="Looking for healthy food in HSR Layout? Kinnow delivers fresh, nutritious meals and breakfast options across HSR, with 100+ choices and flexible subscriptions.">
+  <link rel="canonical" href="https://kinnowdaily.com/bangalore/hsr-layout/">
+  <link rel="icon" type="image/png" href="../../images/icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kinnowdaily.com/bangalore/hsr-layout/">
+  <meta property="og:title" content="Healthy Food Delivery in HSR Layout | Kinnow">
+  <meta property="og:description" content="Fresh, nutritious meals delivered across HSR Layout. Explore 100+ meals and drinks and flexible subscriptions with Kinnow.">
+  <meta property="og:image" content="https://kinnowdaily.com/images/hsr-map-app-screen.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FoodEstablishment",
+    "name":"Kinnow",
+    "url":"https://kinnowdaily.com/bangalore/hsr-layout/",
+    "description":"Fresh, nutritious meals and breakfast options delivered across HSR Layout.",
+    "areaServed":["HSR Layout Sector 1","HSR Layout Sector 2","HSR Layout Sector 3","HSR Layout Sector 4","HSR Layout Sector 5","HSR Layout Sector 6","HSR Layout Sector 7","Agara","Teachers Colony","Somasundarapalya","Kudlu Gate"],
+    "servesCuisine":["Healthy","Vegetarian","Breakfast"]
+  }
+  </script>
+
+  <style>
+    /* ─── CANONICAL KINNOW DESIGN SYSTEM TOKENS ─── */
+    :root {
+      --orange: #ff7318;
+      --orange-deep: #ff7318;
+      --orange-dark: #ff6800;
+      --peach: #fff2e6;
+      --warm: #fff8f1;
+      --ink: #1c1917;
+      --muted: #6b625b;
+      --line: #eadfd5;
+      --white: #fff;
+      --shadow: 0 18px 50px rgba(72,43,20,.09);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"Outfit","Segoe UI",sans-serif;background:var(--warm);color:var(--ink);line-height:1.5;overflow-x:hidden}
+    h1,h2,h3{font-family:"Sora",sans-serif}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,calc(100% - 40px));margin:auto}
+
+    /* ─── CANONICAL HEADER (Identical to bangalore/index.html) ─── */
+    header {
+      width: 100%;
+      z-index: 1000;
+      background: #ffffff;
+      box-shadow: 0 2px 20px rgba(162, 78, 0, 0.06);
+      position: sticky;
+      top: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    header.header-hidden {
+      transform: translateY(-100%);
+    }
+    header.header-scrolled {
+      box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
+    }
+
+    .header-row {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .logo img {
+      height: 150px;
+      width: auto;
+      margin: -50px 0;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: auto;
+      margin-right: 28px;
+    }
+
+    .nav-link {
+      color: #333333;
+      font-size: 15.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--orange);
+      transform: translateY(-1px);
+    }
+
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(255, 115, 24, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .cta-pill:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(255, 115, 24, 0.45);
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--orange);
+      border: 1.5px solid rgba(255, 115, 24, 0.25);
+      box-shadow: 0 4px 14px rgba(162, 78, 0, 0.08);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      margin-left: 16px;
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.06);
+      background: #ffffff;
+      border-color: var(--orange);
+      box-shadow: 0 8px 24px rgba(255, 115, 24, 0.25);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none !important;
+      }
+    }
+
+    /* ─── MOBILE DRAWER (Identical to bangalore/index.html) ─── */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-content {
+      position: absolute;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background: #ffffff;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .drawer-overlay.active .drawer-content {
+      right: 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .drawer-close {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .drawer-link {
+      font-size: 18px;
+      font-weight: 700;
+      color: #222;
+      text-decoration: none;
+    }
+
+    /* ─── PAGE SECTIONS ─── */
+    .hero{background:#fff;padding:76px 0 86px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:70px}
+    .eyebrow{display:inline-flex;background:var(--peach);color:var(--orange-dark);padding:8px 13px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:22px}
+    .hero h1{font-size:clamp(42px,5.5vw,68px);line-height:1.08;letter-spacing:-.045em;max-width:650px}
+    .hero h1 span{color:var(--orange)}
+    .hero-copy{font-size:19px;color:var(--muted);max-width:590px;margin:22px 0 28px;line-height:1.65}
+    .store-buttons{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .store-buttons img{height:47px;width:auto;display:block}
+    .hero-note{font-size:13px;color:#857a71;margin-top:16px}
+    .hero-visual{position:relative;min-height:510px;display:flex;align-items:center;justify-content:center}
+    .hero-visual:before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;background:var(--peach);z-index:0}
+    .hero-phone-wrapper{position:relative;z-index:2;width:min(290px,72%);background:#1c1917;border-radius:36px;padding:8px;box-shadow:0 28px 45px rgba(54,31,14,.22);transform:rotate(1deg)}
+    .hero-phone{width:100%;height:auto;border-radius:28px;display:block}
+    .hero-card{position:absolute;z-index:3;background:#fff;border:1px solid rgba(28,25,23,.08);border-radius:18px;padding:14px 18px;box-shadow:var(--shadow);font-size:14px;backdrop-filter:blur(8px)}
+    .hero-card strong{display:block;font-size:15px;margin-bottom:3px}.hero-card span{color:var(--muted)}
+    .hero-card.one{top:70px;left:-45px}.hero-card.two{right:-45px;bottom:70px}.hero-card.three{right:-25px;top:25px;font-weight:800;color:var(--orange-dark);padding:10px 16px;border-color:rgba(255,115,24,0.2)}
+
+    .section{padding:96px 0}.section.white{background:#fff}.section-head{text-align:center;max-width:700px;margin:0 auto 48px}.kicker{font-size:13px;font-weight:800;color:var(--orange-dark);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}.section h2{font-size:clamp(30px,4vw,46px);line-height:1.15;letter-spacing:-.035em}.section-head p{color:var(--muted);font-size:17px;margin-top:15px}
+    
+    .three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .feature{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}
+    .feature-icon-wrapper{width:56px;height:56px;border-radius:16px;background:var(--peach);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+    .feature-icon{width:32px;height:32px;object-fit:contain;filter:brightness(0) saturate(100%) invert(48%) sepia(85%) saturate(1980%) hue-rotate(354deg) brightness(101%) contrast(101%)}
+    .feature h3{font-size:21px;margin-bottom:8px}
+    .feature p{color:var(--muted);font-size:15.5px;line-height:1.65}
+
+    .coverage{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}.coverage-copy h2{font-size:clamp(31px,4vw,46px);line-height:1.14;margin-bottom:16px}.coverage-copy p{color:var(--muted);font-size:17px;line-height:1.7;max-width:520px}
+    .coverage-status-list{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+    .coverage-status-item{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;color:var(--ink)}
+    .coverage-badge{display:inline-block;padding:5px 14px;border-radius:999px;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0}
+    .coverage-badge.active{background:var(--peach);color:var(--orange-dark);border:1px solid rgba(255,115,24,0.2)}
+    .coverage-badge.coming-soon{background:rgba(28,25,23,0.07);color:var(--ink);border:1px solid rgba(28,25,23,0.1)}
+    
+    @media (max-width: 900px) {
+      .coverage-copy{text-align:center;display:flex;flex-direction:column;align-items:center}
+      .coverage-copy p{margin:14px auto 0 auto}
+      .coverage-status-list{align-items:center;width:100%}
+      .coverage-status-item{justify-content:center;width:100%;text-align:center}
+    }
+    @media (max-width: 520px) {
+      .coverage-status-item{flex-direction:column;gap:6px;text-align:center}
+    }
+    .sector-list{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 32px}
+    .sector{border:1px solid rgba(255,115,24,0.22);background:var(--warm);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600;color:var(--ink);transition:all 0.25s ease;display:inline-flex;align-items:center;gap:7px}
+    .sector:hover{border-color:var(--orange);background:#ffffff;transform:translateY(-2px);box-shadow:0 4px 14px rgba(255,115,24,0.15);color:var(--orange-dark)}
+    .sector-dot{width:7px;height:7px;border-radius:50%;background:#10b981;display:inline-block}
+
+    .map-card{background:linear-gradient(145deg, #fff7ef 0%, #ffeedc 100%);border-radius:36px;padding:44px 30px;display:flex;justify-content:center;align-items:center;position:relative;box-shadow:0 20px 48px rgba(162,78,0,0.08);border:1px solid rgba(255,115,24,0.15);overflow:hidden}
+    .map-phone-frame{position:relative;width:min(285px,90%);background:#1c1917;border-radius:40px;padding:9px;box-shadow:0 30px 70px rgba(0,0,0,0.22);z-index:2;transition:transform 0.3s ease}
+    .map-phone-frame:hover{transform:translateY(-4px)}
+    .map-phone-notch{display:none}
+    .map-phone-screen{border-radius:32px;overflow:hidden;background:#fff}
+    .map-phone-screen img{width:100%;height:auto;display:block}
+    .map-floating-badge{position:absolute;bottom:20px;background:#ffffff;border-radius:999px;padding:10px 20px;font-size:13px;font-weight:700;color:var(--orange-dark);box-shadow:0 12px 30px rgba(0,0,0,0.12);z-index:5;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,115,24,0.25)}
+
+    /* 100% Full Width Scrollable Meal Carousel Styling */
+    .meals{background:#fff;padding:96px 0;overflow:hidden}
+    .meals .container{width:100%;max-width:100%;padding:0}
+    .meals .section-head{max-width:700px;margin:0 auto 36px;padding:0 24px}
+    .meal-carousel-wrapper{position:relative;width:100%}
+    .meal-carousel-track{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;padding:10px 28px 24px 28px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%}
+    .meal-carousel-track::-webkit-scrollbar{display:none}
+    .meal-card{flex:0 0 265px;min-width:265px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform 0.25s ease,box-shadow 0.25s ease}
+    .meal-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(255,115,24,0.14);border-color:rgba(255,115,24,0.3)}
+    .meal-card img{width:100%;height:220px;object-fit:cover;display:block}
+    .meal-content{padding:18px 16px;text-align:center}
+    .meal-content h3{font-size:16px;line-height:1.3;font-weight:700;color:var(--ink)}
+    .meal-link{text-align:center;margin-top:36px}
+    .carousel-btn-group{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}
+    .carousel-arrow{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,115,24,0.25);background:#ffffff;color:var(--orange-dark);font-size:18px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(162,78,0,0.08);transition:all 0.2s ease}
+    .carousel-arrow:hover{background:var(--orange);color:#ffffff;border-color:var(--orange);box-shadow:0 8px 20px rgba(255,115,24,0.3);transform:scale(1.05)}
+
+    /* Kinnow Orange Gradient Routine Section */
+    .routine {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      color: #ffffff;
+    }
+    .routine .kicker {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.22);
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 999px;
+    }
+    .routine .section-head h2 {
+      color: #ffffff;
+    }
+    .routine .section-head p {
+      color: rgba(255, 255, 255, 0.95);
+    }
+    .routine-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .routine-card {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 28px 24px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+    .routine-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+    .routine-card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    .routine-card p {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .subscription{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.subscription h2{font-size:clamp(31px,4vw,46px);line-height:1.14}.subscription-copy>p{color:var(--muted);font-size:17px;line-height:1.7;margin:16px 0 24px}.benefits{display:grid;gap:12px;margin-bottom:28px}.benefit{display:flex;gap:11px;align-items:flex-start;font-size:15px}.check{width:23px;height:23px;border-radius:50%;background:var(--peach);color:var(--orange-dark);display:grid;place-items:center;font-weight:800;flex:0 0 auto}
+    .sub-phone-frame{position:relative;width:min(285px,90%);background:#1c1917;border-radius:40px;padding:9px;box-shadow:0 30px 70px rgba(0,0,0,0.18);transition:transform 0.3s ease}
+    .sub-phone-frame:hover{transform:translateY(-4px)}
+    .sub-phone-notch{display:none}
+    .sub-phone-screen{border-radius:32px;overflow:hidden;background:#fff}
+    .sub-phone-screen img{width:100%;height:auto;display:block}
+
+    .steps{background:#fff}.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{padding:30px;border:1px solid var(--line);border-radius:22px}.step-num{width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:20px}.step h3{font-size:20px;margin-bottom:8px}.step p{color:var(--muted);font-size:15px;line-height:1.65}
+
+    .faq-list{max-width:800px;margin:auto}.faq-item{border-bottom:1px solid var(--line)}.faq-question{width:100%;background:none;border:0;padding:22px 0;text-align:left;display:flex;justify-content:space-between;gap:20px;font:600 16px "Outfit",sans-serif;cursor:pointer;color:var(--ink)}.faq-icon{font-size:23px;color:var(--orange);line-height:1}.faq-answer{display:none;color:var(--muted);font-size:15px;line-height:1.7;padding:0 35px 22px 0}.faq-item.open .faq-answer{display:block}.faq-item.open .faq-icon{transform:rotate(45deg)}
+
+    /* ─── CANONICAL FOOTER (100% Identical to Homepage index.html) ─── */
+    footer {
+      background: #F8AF6E;
+      padding: 60px 0 40px;
+      margin-top: 40px;
+      color: #ffffff !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand img {
+      width: 130px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .footer-brand p,
+    .footer-download p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-brand p {
+      margin-bottom: 20px;
+    }
+
+    .footer-brand h4 {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .social-row a {
+      display: block;
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .social-row a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: scale(1.15);
+    }
+
+    .social-row img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      font-size: 14.5px;
+      font-weight: 600;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+      transform: translateX(4px);
+    }
+
+    .footer-store-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .footer-store-row a {
+      transition: transform 0.2s ease;
+    }
+
+    .footer-store-row a:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-store-row img {
+      height: 40px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.8);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media(max-width:900px){.hero{padding:55px 0 65px}.hero-grid,.coverage,.subscription{grid-template-columns:1fr;gap:42px}.hero{text-align:center}.hero-copy{margin-left:auto;margin-right:auto}.hero-visual{min-height:470px}.hero-card.one{left:-10px;top:40px}.hero-card.two{right:-10px;bottom:40px}.hero-card.three{right:0px;top:10px}.three-grid,.step-grid{grid-template-columns:1fr}.meal-grid{grid-template-columns:repeat(2,1fr)}.routine-grid{grid-template-columns:repeat(2,1fr)}.coverage-copy{text-align:center}.coverage-copy p{margin:auto}.sector-list{justify-content:center}}
+    @media(max-width:560px){.container{width:min(100% - 28px,1120px)}.hero h1{font-size:40px}.hero-copy{font-size:16px}.hero-visual{min-height:390px}.hero-visual:before{width:300px;height:300px}.hero-phone-wrapper{width:235px}.hero-card{padding:10px 14px;font-size:12px;border-radius:14px}.hero-card strong{font-size:13px}.hero-card.one{top:15px;left:-5px}.hero-card.two{bottom:15px;right:-5px}.hero-card.three{top:-10px;right:-5px}.section{padding:72px 0}.section-head{margin-bottom:35px}.meal-grid{gap:10px}.meal-content{padding:12px}.meal-content h3{font-size:15px}.routine-grid{grid-template-columns:1fr}.map-card{padding:16px}}
+  </style>
+</head>
+<body>
+  <!-- CANONICAL HEADER (100% Identical to bangalore/index.html) -->
+  <header>
+    <div class="header-row">
+      <a href="../../" class="logo" aria-label="Kinnow home">
+        <img src="../../images/kinnow-logo.png" alt="Kinnow logo">
+      </a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="../../how-it-works/" class="nav-link">How it Works</a>
+        <a href="../" class="nav-link active">Bangalore</a>
+        <a href="../../faq/" class="nav-link">FAQs</a>
+      </nav>
+      <a href="../../download" class="cta-pill">Get the App</a>
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle navigation drawer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c1917" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- CANONICAL MOBILE DRAWER (100% Identical to bangalore/index.html) -->
+  <div class="drawer-overlay" id="navDrawerOverlay">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <span style="font-weight: 800; font-size: 20px; color: var(--orange-deep);">Kinnow</span>
+        <button class="drawer-close" id="drawerCloseBtn">&times;</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="../../how-it-works/" class="drawer-link">How it Works</a>
+        <a href="../" class="drawer-link">Bangalore</a>
+        <a href="../../faq/" class="drawer-link">FAQs</a>
+        <a href="../../download" class="cta-pill" style="margin-top: 20px; text-align: center;">Get the App</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Kinnow in HSR Layout</span>
+          <h1>Healthy food, <span>made easy</span> in HSR.</h1>
+          <p class="hero-copy">Fresh, nutritious meals delivered across HSR Layout, from Sector 1 to Sector 7, Agara and nearby areas. Choose what you want, whenever you want it.</p>
+          <div style="margin-bottom: 22px;">
+            <a href="../../download" class="cta-pill">Download Now</a>
+          </div>
+          <p class="hero-note">100+ meals & drinks · Fresh every day · Flexible subscriptions</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card one"><strong>24g Protein</strong><span>Fresh Paneer & Avocado</span></div>
+          <div class="hero-card three">100+ options</div>
+          <div class="hero-phone-wrapper">
+            <img class="hero-phone" src="../../images/green-goddess-app-screen.png" alt="Kinnow app showing Green Goddess Sandwich meal details">
+          </div>
+          <div class="hero-card two"><strong>Macro-Counted</strong><span>455 kcal • Clean & Natural</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Why Kinnow</div>
+          <h2>Your everyday healthy meal, sorted.</h2>
+          <p>Eating well shouldn't mean planning your morning around food. Kinnow makes it easier to keep good food in your routine.</p>
+        </div>
+        <div class="three-grid">
+          <article class="feature">
+            <div class="feature-icon-wrapper">
+              <img class="feature-icon" src="../../images/icon-quality.png" alt="Freshness">
+            </div>
+            <h3>Freshness</h3>
+            <p>Prepared fresh every dawn with hand-picked ingredients, zero refined sugar, and zero preservatives. Delivered in your chosen morning slot.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon-wrapper">
+              <img class="feature-icon" src="../../images/icon-dry-fruits.png" alt="Variety">
+            </div>
+            <h3>Variety</h3>
+            <p>Explore 100+ meals and drinks so your routine doesn't have to taste the same every day.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon-wrapper">
+              <img class="feature-icon" src="../../images/icon-truck.png" alt="Convenience">
+            </div>
+            <h3>Convenience</h3>
+            <p>Choose your meals, swap when you want, and let Kinnow take care of the delivery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container coverage">
+        <div class="coverage-copy">
+          <div class="kicker">Delivery in HSR</div>
+          <h2>HSR Layout is fully covered.</h2>
+          <p style="color: var(--muted); font-size: 17px; line-height: 1.7; margin-top: 14px; max-width: 520px;">Enjoy doorstep morning delivery across HSR Layout, prepped fresh every dawn and delivered right to your apartment before your day starts.</p>
+          
+          <div class="coverage-status-list">
+            <div class="coverage-status-item">
+              <span class="coverage-badge active">Subscriptions</span>
+              <span>Live &amp; delivering daily</span>
+            </div>
+            <div class="coverage-status-item">
+              <span class="coverage-badge coming-soon">Kinnow Instant</span>
+              <span>Coming soon with 20-min freshness promise</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <div class="map-phone-frame">
+            <div class="map-phone-notch"></div>
+            <div class="map-phone-screen">
+              <img src="../../images/hsr-map-app-screen.png" alt="Kinnow HSR Layout delivery area in the app">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section meals">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">The Kinnow menu</div>
+          <h2>Something good to look forward to.</h2>
+          <p>From breakfast bowls to wholesome favourites, there's always more to explore in the app.</p>
+        </div>
+        
+        <div class="meal-carousel-wrapper">
+          <div class="meal-carousel-track" id="mealCarouselTrack">
+            <!-- CARD 1: Strawberry Chia Pudding -->
+            <article class="meal-card">
+              <img src="../../images/meals/strawberry+chia+pudding.webp" alt="Strawberry Chia Pudding" loading="lazy">
+              <div class="meal-content">
+                <h3>Strawberry Chia Pudding</h3>
+              </div>
+            </article>
+
+            <!-- CARD 2: Avocado Smoothie Bowl -->
+            <article class="meal-card">
+              <img src="../../images/meals/avocado+smoothie.webp" alt="Avocado Smoothie Bowl" loading="lazy">
+              <div class="meal-content">
+                <h3>Avocado Smoothie Bowl</h3>
+              </div>
+            </article>
+
+            <!-- CARD 3: Mango Coconut Chia Pudding -->
+            <article class="meal-card">
+              <img src="../../images/meals/mango+coconut+chia+pudding.webp" alt="Mango Coconut Chia Pudding" loading="lazy">
+              <div class="meal-content">
+                <h3>Mango Coconut Chia Pudding</h3>
+              </div>
+            </article>
+
+            <!-- CARD 4: Green Goddess Sandwich -->
+            <article class="meal-card">
+              <img src="../../images/meals/Green+Goddess+Sandwich.png" alt="Green Goddess Sandwich" loading="lazy">
+              <div class="meal-content">
+                <h3>Green Goddess Sandwich</h3>
+              </div>
+            </article>
+
+            <!-- CARD 5: Berry Bliss Smoothie -->
+            <article class="meal-card">
+              <img src="../../images/meals/berry+bliss+smoothie.webp" alt="Berry Bliss Smoothie" loading="lazy">
+              <div class="meal-content">
+                <h3>Berry Bliss Smoothie</h3>
+              </div>
+            </article>
+
+            <!-- CARD 6: Chipotle Paneer Protein Bowl -->
+            <article class="meal-card">
+              <img src="../../images/meals/Chipotle+Paneer+Protein+Bowl.png" alt="Chipotle Paneer Protein Bowl" loading="lazy">
+              <div class="meal-content">
+                <h3>Chipotle Paneer Bowl</h3>
+              </div>
+            </article>
+
+            <!-- CARD 7: Overnight Berry Oats -->
+            <article class="meal-card">
+              <img src="../../images/meals/overnight+berry+oats.webp" alt="Overnight Berry Oats" loading="lazy">
+              <div class="meal-content">
+                <h3>Overnight Berry Oats</h3>
+              </div>
+            </article>
+
+            <!-- CARD 8: Chickpeas Multigrain Toast -->
+            <article class="meal-card">
+              <img src="../../images/meals/Seasoned+ChickPeas+on+Multigrain+Toast.webp" alt="Chickpeas Multigrain Toast" loading="lazy">
+              <div class="meal-content">
+                <h3>Chickpeas Multigrain Toast</h3>
+              </div>
+            </article>
+
+            <!-- CARD 9: Baked Falafel Salad Bowl -->
+            <article class="meal-card">
+              <img src="../../images/meals/Baked+Falafel+Salad+Bowl.png" alt="Baked Falafel Salad Bowl" loading="lazy">
+              <div class="meal-content">
+                <h3>Baked Falafel Salad Bowl</h3>
+              </div>
+            </article>
+
+            <!-- CARD 10: Rainbow Fruit Salad -->
+            <article class="meal-card">
+              <img src="../../images/meals/rainbow+fruit+salad.webp" alt="Rainbow Fruit Salad" loading="lazy">
+              <div class="meal-content">
+                <h3>Rainbow Fruit Salad</h3>
+              </div>
+            </article>
+
+            <!-- CARD 11: Peri Peri Paneer Salad -->
+            <article class="meal-card">
+              <img src="../../images/meals/Peri+Peri+Paneer+Chickpea+Salad.png" alt="Peri Peri Paneer Salad" loading="lazy">
+              <div class="meal-content">
+                <h3>Peri Peri Paneer Salad</h3>
+              </div>
+            </article>
+
+            <!-- CARD 12: Mango Yogurt Granola Bowl -->
+            <article class="meal-card">
+              <img src="../../images/meals/Mango+Yogurt+Granola+Bowl+(1).png" alt="Mango Yogurt Granola Bowl" loading="lazy">
+              <div class="meal-content">
+                <h3>Mango Yogurt Granola Bowl</h3>
+              </div>
+            </article>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-btn-group">
+            <button class="carousel-arrow" id="carouselPrevBtn" aria-label="Previous meals">&larr;</button>
+            <button class="carousel-arrow" id="carouselNextBtn" aria-label="Next meals">&rarr;</button>
+          </div>
+        </div>
+
+        <div class="meal-link">
+          <a href="../../download" class="cta-pill">Find many more options in the app</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section routine">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Why Kinnow Works</div>
+          <h2>Good food that fits your routine.</h2>
+          <p>Built for high-energy mornings, active lifestyles, and effortless healthy habits across HSR Layout.</p>
+        </div>
+        <div class="routine-grid">
+          <article class="routine-card">
+            <h3>Morning Fresh Prep</h3>
+            <p>Crafted fresh every morning with hand-picked fruits & superfood seeds. Never pre-frozen, never reheated, zero preservatives.</p>
+          </article>
+          <article class="routine-card">
+            <h3>Macro-Counted Nutrition</h3>
+            <p>Every meal comes with exact protein, carb, fiber, and calorie breakdowns so you hit your fitness goals effortlessly.</p>
+          </article>
+          <article class="routine-card">
+            <h3>100+ Rotating Variety</h3>
+            <p>Swap your breakfast bowl or sandwich daily until 11 PM. Your morning nutrition never gets boring.</p>
+          </article>
+          <article class="routine-card">
+            <h3>Zero Prep & Cleanup</h3>
+            <p>Save 45+ minutes every morning. No chopping, no blender washing, no grocery runs, just unbox and thrive.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container subscription">
+        <div class="subscription-copy">
+          <div class="kicker">Subscriptions</div>
+          <h2>Make healthy eating a routine.</h2>
+          <p>Don't decide what to eat every morning. Pick your meals, choose your schedule and let Kinnow take care of the rest.</p>
+          <div class="benefits">
+            <div class="benefit"><span class="check">✓</span><span><strong>Pick your custom duration plan</strong>: choose 1 to 180 days to suit your lifestyle.</span></div>
+            <div class="benefit"><span class="check">✓</span><span><strong>Swap when you want</strong>: change eligible scheduled meals from the app.</span></div>
+            <div class="benefit"><span class="check">✓</span><span><strong>Pause when you're away</strong>: manage your subscription from the app.</span></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <div class="sub-phone-frame">
+            <div class="sub-phone-notch"></div>
+            <div class="sub-phone-screen">
+              <img src="../../images/app-step2-customize.png" alt="Kinnow app subscription customization screen">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section steps">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Simple by design</div>
+          <h2>From app to doorstep.</h2>
+          <p>Getting your Kinnow meals set up takes just a few taps.</p>
+        </div>
+        <div class="step-grid">
+          <article class="step">
+            <div class="step-num">1</div>
+            <h3>Pick Your Plan & Duration</h3>
+            <p>Choose your plan and subscription length from 1 to 180 days starting at ₹188/day.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">2</div>
+            <h3>Select Add-Ons</h3>
+            <p>Customize your plan with tender coconut, dry fruits, and protein shakes.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">3</div>
+            <h3>Set Preferences & Start Date</h3>
+            <p>Choose gluten-free/lactose-free options, subscriber count, and start date.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">4</div>
+            <h3>Choose Delivery Slot</h3>
+            <p>Pick your preferred morning slot (5 AM - 10 AM) and address details.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">5</div>
+            <h3>Preview & Swap Meals</h3>
+            <p>See your full upcoming menu breakdown and swap options before paying.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">6</div>
+            <h3>Subscribed! Manage & Track</h3>
+            <p>Enjoy daily morning delivery. Skip, swap, or track macros anytime in the app.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="faq">
+      <div class="container">
+        <div class="section-head"><div class="kicker">Questions?</div><h2>HSR Layout FAQs</h2><p>Everything you need to know about getting Kinnow in HSR.</p></div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question"><span>Does Kinnow deliver across HSR Layout?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes! Kinnow is fully active across HSR Layout. We deliver fresh healthy breakfast bowls, multigrain toasts, overnight oats, and salads directly to your doorstep every morning.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>What are the morning delivery slots in HSR Layout?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer">We offer morning delivery slots between 5:00 AM and 10:00 AM. You can pick the exact time window that fits your workout, morning standups, or work routine in the Kinnow app.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>What is the cutoff time to swap or pause subscription meals?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer">You can swap your upcoming meal, pause delivery, or update your delivery address anytime until 11:00 PM the night before. If you're traveling, paused balance days automatically roll over with zero penalty.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>How are Kinnow meals prepared and what ingredients are used?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Every meal is prepared fresh every morning in our local kitchen using hand-picked fruits, superfood seeds, multigrain breads, and clean proteins. All meals are 100% vegetarian, non-reheated, with zero refined sugar and zero artificial preservatives.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>How do Kinnow subscriptions work and what are the pricing options?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer">You can build custom subscriptions for any duration from 1 to 180 days starting at ₹188 per day. There are no long-term lock-ins, and you can manage your daily menu, add-ons (like tender coconut or protein shakes), and delivery frequency right from the app.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Can I track macros and calories for my meals?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes! Every meal item displays exact nutritional information, including total calories, protein, healthy fats, carbs, and fiber in the app, making it easy to track your daily fitness goals.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:75px;padding-bottom:85px;text-align:center">
+      <div class="container"><div class="section-head" style="margin-bottom:24px"><div class="kicker">Ready when you are</div><h2>Your healthy routine starts here.</h2><p>Fresh meals. More choice. One less thing to worry about.</p></div><a href="../../download" class="cta-pill">Get Kinnow</a></div>
+    </section>
+  </main>
+
+  <!-- CANONICAL FOOTER (100% Identical to Homepage index.html) -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../../images/kinnow-header-logo.png" alt="Kinnow logo">
+          <p>Kinnow Daily delivers fresh, ready-to-eat breakfasts built for busy mornings and healthier routines.</p>
+          <h4 style="margin-top: 12px;">FOLLOW US ON</h4>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="../../images/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="../../images/instagram.png" alt="Instagram"></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="../../how-it-works/">How it Works</a>
+          <a href="../">Bangalore</a>
+          <a href="../../faq/">FAQs</a>
+          <a href="../../shipping-policy/">Shipping Policy</a>
+          <a href="../../privacy-policy/">Privacy Policy</a>
+          <a href="../../terms-of-service/">Terms of Service</a>
+          <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
+          <a href="../../download">Download App</a>
+        </div>
+
+        <div class="footer-download">
+          <p>Download Kinnow and get the freshness delivered at your doorstep.</p>
+          <div class="footer-store-row">
+            <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh">
+              <img src="../../images/play-store-custom.png" alt="Get it on Google Play">
+            </a>
+            <a href="https://apps.apple.com/app/kinnow/id6747724751">
+              <img src="../../images/app-store-custom.png" alt="Download on App Store">
+            </a>
+          </div>
+          <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni 3546, Property Id: 3GTVC2H7 - (125033)</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
+        <span>Real Nutrition, Filtered for you</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      let lastScrollY = window.scrollY;
+      const header = document.querySelector('header');
+      const toggleBtn = document.getElementById('menuToggleBtn');
+      const overlay = document.getElementById('navDrawerOverlay');
+      const closeBtn = document.getElementById('drawerCloseBtn');
+
+      // Smart Hide-on-Scroll Down & Reveal-on-Scroll Up Header
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (overlay && overlay.classList.contains('active')) return;
+
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY <= 20) {
+            header.classList.remove('header-hidden', 'header-scrolled');
+          } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            header.classList.add('header-hidden');
+          } else if (currentScrollY < lastScrollY) {
+            header.classList.remove('header-hidden');
+            header.classList.add('header-scrolled');
+          }
+
+          lastScrollY = currentScrollY;
+        }, { passive: true });
+      }
+
+      // Drawer Open / Close Logic
+      if (toggleBtn && overlay) {
+        function openMenu() {
+          overlay.classList.add('active');
+          if (header) header.classList.remove('header-hidden');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        toggleBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeMenu();
+        });
+        overlay.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+      }
+
+      // Meal Carousel Scroll Controls
+      const carouselTrack = document.getElementById('mealCarouselTrack');
+      const prevBtn = document.getElementById('carouselPrevBtn');
+      const nextBtn = document.getElementById('carouselNextBtn');
+
+      if (carouselTrack && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          carouselTrack.scrollBy({ left: -285, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          carouselTrack.scrollBy({ left: 285, behavior: 'smooth' });
+        });
+      }
+
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.parentElement;
+          const isOpen = item.classList.contains('open');
+          
+          document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+
+          if (!isOpen) {
+            item.classList.add('open');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

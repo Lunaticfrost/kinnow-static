@@ -61,11 +61,19 @@
 
         header {
             width: 100%;
-            z-index: 40;
+            z-index: 1000;
             background: #ffffff;
             box-shadow: 0 2px 20px rgba(162, 78, 0, 0.06);
             position: sticky;
             top: 0;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            will-change: transform;
+        }
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+        header.header-scrolled {
+            box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
         }
 
         .header-row {
@@ -861,6 +869,7 @@
 
                 <div class="footer-links">
                     <a href="../how-it-works/">How it Works</a>
+                    <a href="../bangalore/">Bangalore</a>
                     <a href="../faq/">FAQs</a>
                     <a href="../shipping-policy/">Shipping Policy</a>
                     <a href="../privacy-policy/">Privacy Policy</a>
@@ -886,7 +895,7 @@
 
             <div class="footer-bottom">
                 <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
-                <span>Healthy breakfast, delivered every morning.</span>
+                <span>Real Nutrition, Filtered for you</span>
             </div>
         </div>
     </footer>
@@ -930,12 +939,17 @@
             const overlay = document.getElementById('navDrawerOverlay');
             const closeBtn = document.getElementById('drawerCloseBtn');
 
+            const header = document.querySelector('header');
+
             function openDrawer() {
                 if (overlay) overlay.classList.add('active');
+                if (header) header.classList.remove('header-hidden');
+                document.body.style.overflow = 'hidden';
             }
 
             function closeDrawer() {
                 if (overlay) overlay.classList.remove('active');
+                document.body.style.overflow = '';
             }
 
             if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
@@ -944,6 +958,30 @@
                 overlay.addEventListener('click', (e) => {
                     if (e.target === overlay) closeDrawer();
                 });
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeDrawer);
+                });
+            }
+
+            // Dynamic Smart Scroll Header
+            if (header) {
+                let lastScrollY = window.scrollY;
+                window.addEventListener('scroll', () => {
+                    if (overlay && overlay.classList.contains('active')) return;
+
+                    const currentScrollY = window.scrollY;
+
+                    if (currentScrollY <= 20) {
+                        header.classList.remove('header-hidden', 'header-scrolled');
+                    } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                        header.classList.add('header-hidden');
+                    } else if (currentScrollY < lastScrollY) {
+                        header.classList.remove('header-hidden');
+                        header.classList.add('header-scrolled');
+                    }
+
+                    lastScrollY = currentScrollY;
+                }, { passive: true });
             }
         });
     </script>
