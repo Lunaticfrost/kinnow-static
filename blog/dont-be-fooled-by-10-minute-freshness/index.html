@@ -690,6 +690,144 @@
                 text-align: center;
             }
         }
+    /* ─── FOOTER ─── */
+        footer {
+            background: #F8AF6E;
+            padding: 60px 0 40px;
+            margin-top: 40px;
+            color: #ffffff !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer .container {
+            width: min(1200px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 130px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p,
+        .footer-download p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h4 {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-row a {
+            display: block;
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .social-row a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.15);
+        }
+
+        .social-row img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+
+        .footer-store-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .footer-store-row a {
+            transition: transform 0.2s ease;
+        }
+
+        .footer-store-row a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-store-row img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
     </style>
 </head>
 
@@ -701,11 +839,11 @@
                 <img src="../../images/kinnow-logo.png" alt="Kinnow logo">
             </a>
             <nav class="nav-links" aria-label="Main Navigation">
-                <a href="../../how-it-works/" class="nav-link">How it Works</a>
-                <a href="../../bangalore/" class="nav-link">Bangalore</a>
-                <a href="../../faq/" class="nav-link">FAQs</a>
-                <a href="../../blog/" class="nav-link active">Blog</a>
-            </nav>
+                    <a href="/how-it-works/" class="nav-link ".strip()>How it Works</a>
+                    <a href="/bangalore/" class="nav-link ".strip()>Bangalore</a>
+                    <a href="/faq/" class="nav-link ".strip()>FAQs</a>
+                    <a href="/blog/" class="nav-link active".strip()>Blog</a>
+                </nav>
             <div class="header-actions">
                 <a href="../../download" class="cta-pill">Get the App</a>
                 <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle navigation menu">
@@ -726,23 +864,19 @@
                 <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
             </div>
             <nav class="drawer-nav">
-                <a href="../../how-it-works/" class="drawer-link">
-                    <span>How it Works</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-                <a href="../../bangalore/" class="drawer-link">
-                    <span>Bangalore</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-                <a href="../../faq/" class="drawer-link">
-                    <span>FAQs</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-                <a href="../../blog/" class="drawer-link" style="color: var(--orange);">
-                    <span>Blog</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-            </nav>
+                    <a href="/how-it-works/" class="drawer-link">
+                        <span>How it Works</span>
+                    </a>
+                    <a href="/bangalore/" class="drawer-link">
+                        <span>Bangalore</span>
+                    </a>
+                    <a href="/faq/" class="drawer-link">
+                        <span>FAQs</span>
+                    </a>
+                    <a href="/blog/" class="drawer-link">
+                        <span>Blog</span>
+                    </a>
+                </nav>
             <div class="drawer-cta">
                 <a href="../../download" class="drawer-cta-btn">Get the App</a>
             </div>
@@ -867,15 +1001,15 @@
                 </div>
 
                 <div class="footer-links">
-                    <a href="../../how-it-works/">How it Works</a>
-                    <a href="../../bangalore/">Bangalore</a>
-                    <a href="../../faq/">FAQs</a>
-                    <a href="../../blog/">Blog</a>
-                    <a href="../../shipping-policy/">Shipping Policy</a>
-                    <a href="../../privacy-policy/">Privacy Policy</a>
-                    <a href="../../terms-of-service/">Terms of Service</a>
+                    <a href="/how-it-works/">How it Works</a>
+                    <a href="/bangalore/">Bangalore</a>
+                    <a href="/faq/">FAQs</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/shipping-policy/">Shipping Policy</a>
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms-of-service/">Terms of Service</a>
                     <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
-                    <a href="../../download">Download App</a>
+                    <a href="/download">Download App</a>
                 </div>
 
                 <div class="footer-download">
