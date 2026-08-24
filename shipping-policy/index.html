@@ -36,7 +36,7 @@
       margin: 0px;
     }
 
-    header {
+    header.site-header {
       position: sticky;
       top: 0;
       background-color: #fff;
@@ -49,10 +49,10 @@
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
       will-change: transform;
     }
-    header.header-hidden {
+    header.site-header.header-hidden {
       transform: translateY(-100%);
     }
-    header.header-scrolled {
+    header.site-header.header-scrolled {
       box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
     }
 
@@ -269,7 +269,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="site-header">
     <div class="header-container">
       <div class="logo">
         <a href="../">
@@ -531,7 +531,7 @@
   <script>
     (function () {
       let lastScrollY = window.scrollY;
-      const header = document.querySelector('header');
+      const header = document.querySelector('header.site-header');
 
       if (header) {
         window.addEventListener('scroll', () => {

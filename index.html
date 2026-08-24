@@ -213,7 +213,7 @@
             line-height: 1.7;
         }
 
-        header {
+        header.site-header {
             position: absolute;
             top: 0;
             left: 0;
@@ -363,7 +363,7 @@
             transform: translateX(0);
         }
 
-        .drawer-header {
+        .drawer-header.site-header {
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -2937,7 +2937,7 @@
 
 <body>
     <div class="page">
-        <header>
+        <header class="site-header">
             <div class="container header-row">
                 <a href="/" class="logo" aria-label="Kinnow home">
                     <img src="images/kinnow-header-logo.png" alt="Kinnow logo">
@@ -2946,6 +2946,7 @@
                     <a href="/how-it-works/" class="nav-link">How it Works</a>
                     <a href="/bangalore/" class="nav-link">Bangalore</a>
                     <a href="/faq/" class="nav-link">FAQs</a>
+                    <a href="/blog/" class="nav-link">Blog</a>
                 </nav>
                 <div class="header-actions">
                     <a href="/download" class="cta-pill">Get the App</a>
@@ -2977,6 +2978,10 @@
                     </a>
                     <a href="/faq/" class="drawer-link">
                         <span>FAQs</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                    <a href="/blog/" class="drawer-link">
+                        <span>Blog</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </a>
                 </nav>
@@ -3826,6 +3831,7 @@
                         <a href="/how-it-works/">How it Works</a>
                         <a href="/bangalore/">Bangalore</a>
                         <a href="/faq/">FAQs</a>
+                        <a href="/blog/">Blog</a>
                         <a href="/shipping-policy/">Shipping Policy</a>
                         <a href="/privacy-policy/">Privacy Policy</a>
                         <a href="/terms-of-service/">Terms of Service</a>
