@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinnow Journal | Real Nutrition & Healthy Eating Habits</title>
+    <meta name="description" content="Discover expert articles on clean nutrition, gut health, superfoods, and hassle-free healthy eating in Bengaluru.">
+    <link rel="canonical" href="https://kinnowdaily.com/blog/">
+    <link rel="icon" type="image/png" href="../images/icon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinnowdaily.com/blog/">
+    <meta property="og:title" content="Kinnow Journal - Real Nutrition & Healthy Eating Habits">
+    <meta property="og:description" content="Discover expert articles on clean nutrition, gut health, superfoods, and hassle-free healthy eating in Bengaluru.">
+    <meta property="og:image" content="https://kinnowdaily.com/images/kinnow-logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://kinnowdaily.com/blog/">
+    <meta name="twitter:title" content="Kinnow Journal - Real Nutrition & Healthy Eating Habits">
+    <meta name="twitter:description" content="Discover expert articles on clean nutrition, gut health, superfoods, and hassle-free healthy eating in Bengaluru.">
+    <meta name="twitter:image" content="https://kinnowdaily.com/images/kinnow-logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #ff7318;
+            --orange-deep: #f05a00;
+            --orange-light: #fff2e6;
+            --white: #ffffff;
+            --text-dark: #1c1917;
+            --text-muted: #6b625b;
+            --shadow-soft: 0 16px 40px rgba(162, 78, 0, 0.08);
+            --shadow-hover: 0 24px 50px rgba(162, 78, 0, 0.15);
+            --border-light: rgba(244, 122, 25, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+            background-color: #fff9f5;
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Outfit", sans-serif;
+            color: var(--text-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ─── DYNAMIC SMART HEADER ─── */
+        header.site-header {
+            width: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(162, 78, 0, 0.06);
+            position: sticky;
+            top: 0;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            will-change: transform;
+        }
+
+        header.site-header.header-hidden {
+            transform: translateY(-100%);
+        }
+
+        header.site-header.header-scrolled {
+            box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
+        }
+
+        .header-row {
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .logo img {
+            height: 150px;
+            width: auto;
+            margin: -50px 0;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-left: auto;
+            margin-right: 28px;
+        }
+
+        .nav-link {
+            color: #333333;
+            font-size: 15.5px;
+            font-weight: 600;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--orange);
+            transform: translateY(-1px);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 14.5px;
+            box-shadow: 0 4px 14px rgba(240, 90, 0, 0.25);
+            transition: all 0.25s ease;
+        }
+
+        .cta-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(240, 90, 0, 0.35);
+        }
+
+        .menu-toggle {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff5ed;
+            border: 1px solid rgba(244, 122, 25, 0.2);
+            color: var(--orange);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0;
+        }
+
+        .menu-toggle svg {
+            stroke: var(--orange);
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.05);
+            background: var(--orange);
+        }
+
+        .menu-toggle:hover svg {
+            stroke: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none !important;
+            }
+            .logo img {
+                width: 120px;
+            }
+            .menu-toggle {
+                width: 36px;
+                height: 36px;
+            }
+            .cta-pill {
+                min-height: 40px;
+                padding: 0 16px;
+                font-size: 13.5px;
+            }
+        }
+
+        /* ─── SLIDE-OUT DRAWER ─── */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .drawer-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            max-width: 85vw;
+            background: #ffffff;
+            z-index: 10000;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .drawer-overlay.active .drawer-panel {
+            transform: translateX(0);
+        }
+
+        .drawer-header.site-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .drawer-close {
+            background: #fff5ed;
+            border: 1px solid rgba(244, 122, 25, 0.2);
+            font-size: 18px;
+            font-weight: 700;
+            color: #f47a19;
+            cursor: pointer;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+
+        .drawer-close:hover {
+            color: #ffffff;
+            background: #f47a19;
+            transform: rotate(90deg);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .drawer-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222222;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .drawer-link:hover {
+            color: #f47a19;
+            padding-left: 6px;
+        }
+
+        .drawer-cta {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drawer-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(244, 122, 25, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        /* ─── BLOG MAIN CONTAINER ─── */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 48px 24px 80px;
+        }
+
+        /* Hero Banner */
+        .blog-hero {
+            position: relative;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 56px;
+        }
+
+        .journal-badge {
+            display: inline-block;
+            background: rgba(255, 115, 24, 0.12);
+            color: var(--orange-deep);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 115, 24, 0.2);
+        }
+
+        .blog-hero h1 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(34px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-hero h1 span {
+            color: var(--orange);
+        }
+
+        .blog-hero p {
+            font-size: clamp(16px, 2vw, 19px);
+            color: var(--text-muted);
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Featured Article Card */
+        .featured-article {
+            background: var(--white);
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            margin-bottom: 64px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .featured-article:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(255, 115, 24, 0.28);
+        }
+
+        .featured-img-wrap {
+            position: relative;
+            overflow: hidden;
+            min-height: 380px;
+        }
+
+        .featured-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-article:hover .featured-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 115, 24, 0.1);
+            color: var(--orange-deep);
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: fit-content;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 115, 24, 0.18);
+        }
+
+        .featured-content h2 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .featured-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13.5px;
+            color: #777777;
+            font-weight: 600;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 15px;
+            margin-top: auto;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .featured-article:hover .read-more-btn {
+            color: var(--orange-deep);
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 900px) {
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+            .featured-img-wrap {
+                min-height: 260px;
+            }
+            .featured-content {
+                padding: 30px 24px;
+            }
+        }
+
+        /* Category Filter Tabs */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .filter-tab {
+            background: #ffffff;
+            border: 1px solid rgba(244, 122, 25, 0.15);
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .filter-tab:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            transform: translateY(-1px);
+        }
+
+        .filter-tab.active {
+            background: var(--orange);
+            color: #ffffff;
+            border-color: var(--orange);
+            box-shadow: 0 4px 14px rgba(255, 115, 24, 0.3);
+        }
+
+        /* Article Cards Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 72px;
+        }
+
+        @media (max-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(255, 115, 24, 0.28);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            height: 210px;
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .article-card:hover .card-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-body h3 {
+            font-family: "Sora", sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .card-body p {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 13px;
+            color: #888888;
+            font-weight: 600;
+        }
+
+        /* App Conversion Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            border-radius: 32px;
+            padding: 56px 40px;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 48px rgba(240, 90, 0, 0.25);
+        }
+
+        .cta-banner::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+
+        .cta-banner h2 {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 14px;
+            line-height: 1.25;
+        }
+
+        .cta-banner p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 600px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+
+        .banner-store-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .banner-store-row img {
+            height: 48px;
+            width: auto;
+            transition: transform 0.25s ease;
+        }
+
+        .banner-store-row img:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ─── CANONICAL FOOTER ─── */
+        footer {
+            background: #F8AF6E;
+            padding: 60px 0 40px;
+            margin-top: 40px;
+            color: #ffffff !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 40px;
+            padding: 0 24px;
+        }
+
+        .footer-brand img {
+            width: 130px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-brand p,
+        .footer-download p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h4 {
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-row a {
+            display: block;
+            position: relative;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .social-row a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.15);
+        }
+
+        .social-row img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-content: start;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 600;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            transform: translateX(4px);
+        }
+
+        .footer-store-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .footer-store-row a {
+            transition: transform 0.2s ease;
+        }
+
+        .footer-store-row a:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-store-row img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding: 20px 24px 0 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dynamic Header -->
+    <header class="site-header">
+        <div class="header-row">
+            <a href="../" class="logo" aria-label="Kinnow home">
+                <img src="../images/kinnow-logo.png" alt="Kinnow logo">
+            </a>
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="../how-it-works/" class="nav-link">How it Works</a>
+                <a href="../bangalore/" class="nav-link">Bangalore</a>
+                <a href="../faq/" class="nav-link">FAQs</a>
+                <a href="../blog/" class="nav-link active">Blog</a>
+            </nav>
+            <div class="header-actions">
+                <a href="../download" class="cta-pill">Get the App</a>
+                <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle navigation menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slide-Out Navigation Drawer -->
+    <div class="drawer-overlay" id="navDrawerOverlay" aria-hidden="true">
+        <div class="drawer-panel">
+            <div class="drawer-header" style="justify-content: flex-end;">
+                <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+            </div>
+            <nav class="drawer-nav">
+                <a href="../how-it-works/" class="drawer-link">
+                    <span>How it Works</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="../bangalore/" class="drawer-link">
+                    <span>Bangalore</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="../faq/" class="drawer-link">
+                    <span>FAQs</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="../blog/" class="drawer-link" style="color: var(--orange);">
+                    <span>Blog</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+            </nav>
+            <div class="drawer-cta">
+                <a href="../download" class="drawer-cta-btn">Get the App</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="blog-hero">
+            <h1>Real Nutrition & Healthy <span>Eating Habits</span></h1>
+            <p>Expert insights on gut health, clean eating, macro balance, and hassle-free daily nutrition for busy professionals.</p>
+        </section>
+
+        <!-- Featured Article Card -->
+        <a href="../blog/protein-at-breakfast-indian-breakfasts/" class="featured-article" aria-label="Read Protein at Breakfast article">
+            <div class="featured-img-wrap">
+                <img src="../images/blog/protein-breakfast.jpg" alt="Protein at Breakfast" loading="lazy">
+            </div>
+            <div class="featured-content">
+                <h2>Protein at Breakfast: How Much Do You Need & Why Most Indian Breakfasts Fall Short</h2>
+                <p>Discover why traditional poha, idli, upma, and bakery breakfasts leave you hungry by 11 AM, and how to build a protein-balanced breakfast.</p>
+                <div class="article-meta">
+                    <span>5 min read</span>
+                    <span>•</span>
+                    <span>Jan 14, 2026</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Articles Grid -->
+        <section class="articles-grid">
+            <!-- Card 1 -->
+            <a href="../blog/we-opened-our-kitchen-doors/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/open-kitchen.jpg" alt="We Opened Our Kitchen Doors. Here's What You'll See." loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>We Opened Our Kitchen Doors. Here's What You'll See.</h3>
+                    <p>Discover how Kinnow's full-stack kitchens, open walk-in policy, published hygiene audits, and 100% macro disclosure rebuild trust.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>April 26, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="../blog/bangalore-skips-breakfast/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/bangalore-skips-breakfast.jpg" alt="Bangalore Skips Breakfast" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Bangalore Skips Breakfast. Here's What That's Really Costing You.</h3>
+                    <p>It's 8:47 AM on Outer Ring Road. Traffic hasn't moved in eleven minutes. Discover why Outer Ring Road gridlock leads to skipped breakfasts in Bengaluru.</p>
+                    <div class="card-footer">
+                        <span>6 min read</span>
+                        <span>Feb 12, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="../blog/why-salad-bowl-outperforms-thali/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/salad-vs-thali.jpg" alt="Why a Salad Bowl Can Out-Perform a Full Thali" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Why a Salad Bowl Can Out-Perform a Full Thali (When It's Built Right)</h3>
+                    <p>Discover how high-protein 100% vegetarian salad bowls deliver lasting satiety without the 3 PM post-lunch thali energy crash.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Mar 03, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="../blog/smoothie-or-sugar-bomb-how-to-tell-difference/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/smoothie-sugar-bomb.jpg" alt="Smoothie or Sugar Bomb" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Smoothie or Sugar Bomb? How to Tell the Difference</h3>
+                    <p>Discover how to spot a real fiber-and-protein balanced smoothie vs a blended sugar dessert, and why zero-added-sugar smoothies sustain energy.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Mar 21, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="../blog/healthy-eating-doesnt-have-to-cost-more/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/affordable-health.jpg" alt="Healthy Eating Doesn't Have to Cost More. Here's the Proof" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Healthy Eating Doesn't Have to Cost More. Here's the Proof</h3>
+                    <p>Discover how Kinnow's full-stack model eliminates middleman markups to make 100% fresh, vegetarian nutrition genuinely affordable.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Apr 08, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="../blog/protein-at-breakfast-indian-breakfasts/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/protein-breakfast.jpg" alt="Protein at Breakfast" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Protein at Breakfast: How Much Do You Need & Why Most Indian Breakfasts Fall Short</h3>
+                    <p>Discover why traditional poha, idli, upma, and bakery breakfasts leave you hungry by 11 AM, and how to build a protein-balanced breakfast.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Jan 14, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 7 -->
+            <a href="../blog/your-gut-runs-on-a-schedule-too/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/gut-schedule.jpg" alt="Your Gut Runs on a Schedule Too, and Most Indian Diets Ignore It" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Your Gut Runs on a Schedule Too, and Most Indian Diets Ignore It</h3>
+                    <p>Discover how meal timing consistency, fiber fuel, and traditional fermentation support gut microbiome balance and prevent morning bloating.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Apr 26, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 8 -->
+            <a href="../blog/sandwich-that-doesnt-spike-blood-sugar/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/low-gi-sandwich.jpg" alt="The Sandwich That Doesn't Spike Your Blood Sugar" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>The Sandwich That Doesn't Spike Your Blood Sugar</h3>
+                    <p>Discover how whole wheat fiber and high-protein vegetarian fillings turn sandwiches into low-GI, steady-energy meals.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>May 15, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 9 -->
+            <a href="../blog/dont-be-fooled-by-10-minute-freshness/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/freshness-audit.jpg" alt="Don't Be Fooled by 10-Minute Freshness" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Don't Be Fooled by 10-Minute "Freshness": What Fast Delivery Isn't Telling You</h3>
+                    <p>Understand the physics problem behind 10-minute food delivery, why pre-cooked dark store food isn't fresh, and how Kinnow operates full-stack.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Jun 04, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 10 -->
+            <a href="../blog/chia-pudding-tiny-seed-more-than-multivitamin/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/chia-pudding-seed.jpg" alt="Chia Pudding: The Tiny Seed Doing More Than Your Multivitamin" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Chia Pudding: The Tiny Seed Doing More Than Your Multivitamin</h3>
+                    <p>Discover how soluble fiber gel, ALA omega-3s, and protein turn chia pudding into an effortless zero-cooking nutrient powerhouse.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Jun 22, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 11 -->
+            <a href="../blog/slow-mornings-fast-city-bangalore/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/slow-mornings.jpg" alt="Slow Mornings in Bangalore" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Slow Mornings in a Fast City: Is It Actually Possible in Bangalore?</h3>
+                    <p>Discover how morning cortisol spikes and rushed commutes impact your focus, and why an automated breakfast subscription fixes the system.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Jul 11, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 12 -->
+            <a href="../blog/oats-every-day-genius-habit-or-overrated-hype/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/oats-genius-hype.jpg" alt="Oats Every Day" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Oats Every Day: Genius Habit or Overrated Hype?</h3>
+                    <p>Discover the science of beta-glucan fiber in oats, why instant oats sabotage your morning, and how rolled oats deliver steady energy.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Jul 30, 2026</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 13 -->
+            <a href="../blog/calorie-counting-lying-nutrient-density-metric/" class="article-card">
+                <div class="card-img-wrap">
+                    <img src="../images/blog/nutrient-density.jpg" alt="Calorie-Counting Is Lying to You. Nutrient Density Is the Real Metric." loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Calorie-Counting Is Lying to You. Nutrient Density Is the Real Metric.</h3>
+                    <p>Discover why counting calories fails and how nutrient density (protein, fiber, vitamins per calorie) delivers lasting energy and satiety.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <span>Aug 18, 2026</span>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- App Conversion Banner -->
+        <section class="cta-banner">
+            <h2>Start Your Healthy Eating Routine Today</h2>
+            <p>Subscribe to 100% fresh, vegetarian meal bowls delivered straight to your doorstep across Bengaluru.</p>
+            <div class="banner-store-row">
+                <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh" target="_blank" rel="noreferrer">
+                    <img src="../images/play-store-custom.png" alt="Get it on Google Play">
+                </a>
+                <a href="https://apps.apple.com/app/kinnow/id6747724751" target="_blank" rel="noreferrer">
+                    <img src="../images/app-store-custom.png" alt="Download on App Store">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Canonical Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../images/kinnow-header-logo.png" alt="Kinnow logo">
+                    <p>Kinnow Daily delivers fresh, ready-to-eat breakfasts built for busy mornings and healthier routines.</p>
+                    <h4>FOLLOW US ON</h4>
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/company/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on LinkedIn"><img src="../images/linkedin.png" alt="LinkedIn"></a>
+                        <a href="https://www.instagram.com/kinnowdaily" target="_blank" rel="noreferrer" aria-label="Kinnow on Instagram"><img src="../images/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <a href="../how-it-works/">How it Works</a>
+                    <a href="../bangalore/">Bangalore</a>
+                    <a href="../faq/">FAQs</a>
+                    <a href="../blog/">Blog</a>
+                    <a href="../shipping-policy/">Shipping Policy</a>
+                    <a href="../privacy-policy/">Privacy Policy</a>
+                    <a href="../terms-of-service/">Terms of Service</a>
+                    <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
+                    <a href="../download">Download App</a>
+                </div>
+
+                <div class="footer-download">
+                    <p>Download Kinnow and get the freshness delivered at your doorstep.</p>
+                    <div class="footer-store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.kinnow.fresh">
+                            <img src="../images/play-store-custom.png" alt="Get it on Google Play">
+                        </a>
+                        <a href="https://apps.apple.com/app/kinnow/id6747724751">
+                            <img src="../images/app-store-custom.png" alt="Download on App Store">
+                        </a>
+                    </div>
+                    <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni 3546, Property Id: 3GTVC2H7 - (125033)</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; Kinnow Daily Foods Private Limited. All rights reserved 2025-2026</span>
+                <span>Real Nutrition, Filtered for you</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        (function () {
+            // Drawer toggle
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const overlay = document.getElementById('navDrawerOverlay');
+            const closeBtn = document.getElementById('drawerCloseBtn');
+            const header = document.querySelector('header.site-header');
+
+            function openDrawer() {
+                if (overlay) overlay.classList.add('active');
+                if (header) header.classList.remove('header-hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                if (overlay) overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeDrawer();
+                });
+            }
+
+            // Smart Scroll Header
+            if (header) {
+                let lastScrollY = window.scrollY;
+                window.addEventListener('scroll', () => {
+                    if (overlay && overlay.classList.contains('active')) return;
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY <= 20) {
+                        header.classList.remove('header-hidden', 'header-scrolled');
+                    } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                        header.classList.add('header-hidden');
+                    } else if (currentScrollY < lastScrollY) {
+                        header.classList.remove('header-hidden');
+                        header.classList.add('header-scrolled');
+                    }
+                    lastScrollY = currentScrollY;
+                }, { passive: true });
+            }
+
+        })();
+    </script>
+</body>
+
+</html>

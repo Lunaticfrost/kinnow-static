@@ -50,7 +50,7 @@
     .container{width:min(1120px,calc(100% - 40px));margin:auto}
 
     /* ─── CANONICAL HEADER (Identical to bangalore/index.html) ─── */
-    header {
+    header.site-header {
       width: 100%;
       z-index: 1000;
       background: #ffffff;
@@ -60,10 +60,10 @@
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
       will-change: transform;
     }
-    header.header-hidden {
+    header.site-header.header-hidden {
       transform: translateY(-100%);
     }
-    header.header-scrolled {
+    header.site-header.header-scrolled {
       box-shadow: 0 4px 24px rgba(162, 78, 0, 0.12);
     }
 
@@ -193,7 +193,7 @@
       right: 0;
     }
 
-    .drawer-header {
+    .drawer-header.site-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -497,7 +497,7 @@
 </head>
 <body>
   <!-- CANONICAL HEADER (100% Identical to bangalore/index.html) -->
-  <header>
+  <header class="site-header">
     <div class="header-row">
       <a href="../../" class="logo" aria-label="Kinnow home">
         <img src="../../images/kinnow-logo.png" alt="Kinnow logo">
@@ -921,7 +921,7 @@
   <script>
     (function () {
       let lastScrollY = window.scrollY;
-      const header = document.querySelector('header');
+      const header = document.querySelector('header.site-header');
       const toggleBtn = document.getElementById('menuToggleBtn');
       const overlay = document.getElementById('navDrawerOverlay');
       const closeBtn = document.getElementById('drawerCloseBtn');
