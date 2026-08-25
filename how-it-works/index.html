@@ -165,6 +165,7 @@
         }
 
         /* ─── Slide-Out Navigation Drawer ─── */
+        /* ─── MOBILE SLIDE-OUT DRAWER ─── */
         .drawer-overlay {
             position: fixed;
             inset: 0;
@@ -193,6 +194,7 @@
             padding: 20px 24px;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
             box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
             transform: translateX(100%);
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -249,6 +251,33 @@
             align-items: center;
             justify-content: space-between;
             transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .drawer-link:hover {
+            color: #f47a19;
+            padding-left: 6px;
+        }
+
+        .drawer-cta {
+            margin-top: auto;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .drawer-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #ff7318 0%, #f05a00 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(240, 90, 0, 0.25);
         }
 
         .drawer-link:hover {
@@ -990,66 +1019,44 @@
                 <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
             </div>
             <nav class="drawer-nav">
-                    <a href="/how-it-works/" class="drawer-link">
-                        <span>How it Works</span>
-                    </a>
-                    <a href="/bangalore/" class="drawer-link">
-                        <span>Bangalore</span>
-                    </a>
-                    <a href="/faq/" class="drawer-link">
-                        <span>FAQs</span>
-                    </a>
-                    <a href="/blog/" class="drawer-link">
-                        <span>Blog</span>
-                    </a>
-                </nav>
+                <a href="/how-it-works/" class="drawer-link">
+                    <span>How it Works</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/bangalore/" class="drawer-link">
+                    <span>Bangalore</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/faq/" class="drawer-link">
+                    <span>FAQs</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/blog/" class="drawer-link">
+                    <span>Blog</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/shipping-policy/" class="drawer-link">
+                    <span>Shipping Policy</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/privacy-policy/" class="drawer-link">
+                    <span>Privacy Policy</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/terms-of-service/" class="drawer-link">
+                    <span>Terms of Service</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="mailto:hello@kinnowdaily.com" class="drawer-link">
+                    <span>Contact Us</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+            </nav>
             <div class="drawer-cta">
-                <a href="../download" class="drawer-cta-btn">Get the App</a>
+                <a href="/download" class="drawer-cta-btn">Get the App</a>
             </div>
         </div>
     </div>
-
-    <!-- Floating Side Step Progress Tracker -->
-    <nav class="side-step-tracker" aria-label="Step Progress Navigation">
-        <ul class="tracker-list">
-            <li>
-                <a href="#step-01" class="tracker-dot active" data-step="step-01" aria-label="Step 1: Pick plan">
-                    <span class="tracker-num">01</span>
-                    <span class="tracker-tooltip">Pick Plan</span>
-                </a>
-            </li>
-            <li>
-                <a href="#step-02" class="tracker-dot" data-step="step-02" aria-label="Step 2: Customize">
-                    <span class="tracker-num">02</span>
-                    <span class="tracker-tooltip">Customize</span>
-                </a>
-            </li>
-            <li>
-                <a href="#step-03" class="tracker-dot" data-step="step-03" aria-label="Step 3: Preferences">
-                    <span class="tracker-num">03</span>
-                    <span class="tracker-tooltip">Preferences</span>
-                </a>
-            </li>
-            <li>
-                <a href="#step-04" class="tracker-dot" data-step="step-04" aria-label="Step 4: Delivery">
-                    <span class="tracker-num">04</span>
-                    <span class="tracker-tooltip">Delivery Slot</span>
-                </a>
-            </li>
-            <li>
-                <a href="#step-05" class="tracker-dot" data-step="step-05" aria-label="Step 5: Meal Preview">
-                    <span class="tracker-num">05</span>
-                    <span class="tracker-tooltip">Meal Preview</span>
-                </a>
-            </li>
-            <li>
-                <a href="#step-06" class="tracker-dot" data-step="step-06" aria-label="Step 6: Macros & Swap">
-                    <span class="tracker-num">06</span>
-                    <span class="tracker-tooltip">Manage & Track</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
 
     <main>
         <!-- Hero Intro -->
@@ -1234,8 +1241,7 @@
                     <a href="/shipping-policy/">Shipping Policy</a>
                     <a href="/privacy-policy/">Privacy Policy</a>
                     <a href="/terms-of-service/">Terms of Service</a>
-                    <a href="mailto:hello@kinnowdaily.com">hello@kinnowdaily.com</a>
-                    <a href="/download">Download App</a>
+                                        <a href="/download">Download App</a>
                 </div>
 
                 <div class="footer-download">
@@ -1248,7 +1254,8 @@
                             <img src="../images/app-store-custom.png" alt="Download on App Store">
                         </a>
                     </div>
-                    <p style="margin-top: 16px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni
+                    <p style="margin-top: 16px;"><strong>Contact Us:</strong> <a href="mailto:hello@kinnowdaily.com" style="color: #ffffff; text-decoration: underline; font-weight: 600;">hello@kinnowdaily.com</a></p>
+                        <p style="margin-top: 8px;">Address: Kinnow Daily Foods Private Limited, Khewat 2794, Khatoni
                         3546, Property Id: 3GTVC2H7 - (125033)</p>
                 </div>
             </div>
