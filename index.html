@@ -60,7 +60,7 @@
       "image": "https://kinnowdaily.com/images/kinnow-logo.png",
       "url": "https://kinnowdaily.com/",
       "email": "hello@kinnowdaily.com",
-      "priceRange": "₹188-300",
+      "priceRange": "₹167-300",
       "areaServed": [
         {
           "@type": "AdministrativeArea",
@@ -1418,188 +1418,558 @@
             pointer-events: none;
         }
 
+        /* PRICING SECTION - INSPIRATION MATCH */
         .pricing-section {
             background: transparent;
-            padding: 56px 0 72px;
+            padding: 84px 0 104px;
+            position: relative;
+            overflow: visible;
         }
 
-        .pricing-section .section-label {
+        .pricing-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            align-items: center;
+            gap: clamp(36px, 5.5vw, 84px);
+        }
+
+        /* Left Hero Copy */
+        .pricing-hero-copy {
+            color: #ffffff;
+        }
+
+        .pricing-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .kicker-line {
+            width: 30px;
+            height: 1.5px;
+            background: rgba(255, 255, 255, 0.72);
+            border-radius: 999px;
+        }
+
+        .pricing-hero-headline {
+            font-family: "Sora", "Outfit", sans-serif;
+            font-size: clamp(48px, 5.4vw, 76px);
+            font-weight: 800;
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+            margin: 0 0 24px;
+            text-shadow: 0 2px 14px rgba(160, 60, 0, 0.16);
+        }
+
+        .pricing-hero-sub {
+            font-size: clamp(16.5px, 1.5vw, 19px);
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 440px;
+            margin: 0 0 36px;
+        }
+
+        .pricing-hero-pills {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 46px;
+            flex-wrap: wrap;
+            gap: 14px;
         }
 
-        .pricing-section .section-label::before,
-        .pricing-section .section-label::after {
-            content: "";
-            width: 42px;
-            height: 2px;
+        .pricing-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 20px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.18);
+            border: 1.2px solid rgba(255, 255, 255, 0.38);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .pricing-shell {
-            margin-top: 0;
-            background: rgba(255, 226, 193, 0.55);
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 18px 42px rgba(141, 68, 0, 0.1);
-            width: min(1120px, 100%);
-            margin-left: auto;
-            margin-right: auto;
+        .pill-icon {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-            align-items: stretch;
-        }
-
-        .plan-card {
-            border-radius: 20px;
-            padding: 40px 36px 36px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .plan-card.light {
-            background: transparent;
-            color: var(--white);
-            box-shadow: none;
-        }
-
-        .plan-card.accent {
-            background: linear-gradient(180deg, #ff8d19 0%, #ff7a10 100%);
-            color: var(--white);
-            box-shadow: 0 20px 48px rgba(160, 72, 0, 0.28);
+        /* Right Column - Stage */
+        .pricing-card-stage {
             position: relative;
-            top: -40px;
-            z-index: 1;
+            width: 100%;
+            max-width: 530px;
+            margin-left: auto;
         }
 
-        .plan-chip {
-            display: inline-block;
-            min-height: 32px;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-        }
-
-        .light .plan-chip {
-            display: none;
-        }
-
-        .accent .plan-chip {
-            background: transparent;
-            border: 1.5px solid rgba(255, 255, 255, 0.9);
+        /* Background Sun Glow */
+        .pricing-sun-glow {
             position: absolute;
-            top: 28px;
-            right: 28px;
-            margin-bottom: 0;
-            border-radius: 6px;
-        }
-
-        .plan-card h3 {
-            font-family: "Sora", "Outfit", sans-serif;
-            font-size: clamp(24px, 2.8vw, 36px);
-            line-height: 1.12;
-            margin-bottom: 12px;
-            padding-right: 0;
-        }
-
-        .plan-card.accent h3 {
-            padding-right: 120px;
-        }
-
-        .plan-card p {
-            font-size: clamp(14px, 1.4vw, 16px);
-            line-height: 1.55;
-            margin-bottom: 28px;
-            max-width: 32ch;
+            top: -65px;
+            right: -55px;
+            width: 280px;
+            height: 280px;
+            background: #f77a06;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
             opacity: 0.95;
         }
 
-        .price {
-            font-family: "Sora", "Outfit", sans-serif;
-            font-size: clamp(48px, 5vw, 64px);
-            line-height: 1;
-            margin-bottom: 6px;
-            font-weight: 700;
+        /* Top-Right Kinnow Brand Icon Badge */
+        .pricing-kinnow-badge {
+            position: absolute;
+            top: -22px;
+            right: 30px;
+            z-index: 5;
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 14px 30px rgba(160, 60, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.04);
+            transform: rotate(6deg);
+            padding: 10px;
+            pointer-events: none;
         }
 
-        .price span {
-            font-size: 0.55em;
+        .pricing-kinnow-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* The Main White/Cream Pricing Card */
+        .pricing-card {
+            background: #fffcf8;
+            border-radius: 36px;
+            border: 2.5px solid rgba(255, 255, 255, 0.95);
+            padding: 44px 38px 34px;
+            box-shadow: 0 30px 80px -15px rgba(160, 60, 0, 0.2), 0 4px 14px rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 2;
+            color: #2e1b10;
+        }
+
+        .card-overline {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: #9c623b;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .card-plan-title {
+            font-family: "Sora", "Outfit", sans-serif;
+            font-size: clamp(32px, 3.4vw, 37px);
+            font-weight: 800;
+            color: #2e1a0e;
+            letter-spacing: -0.03em;
+            margin: 0 0 10px;
+            line-height: 1.12;
+        }
+
+        .card-plan-desc {
+            font-size: 14.5px;
+            line-height: 1.5;
+            color: #786152;
+            margin: 0 0 24px;
+            max-width: 410px;
+        }
+
+        /* Portion Selector */
+        .portion-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .portion-box {
+            background: #ffffff;
+            border: 1.5px solid #ebd9cb;
+            border-radius: 18px;
+            padding: 18px 18px 16px;
+            text-align: left;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .portion-box:hover {
+            border-color: #ffa149;
+            transform: translateY(-2px);
+        }
+
+        .portion-box.active {
+            border: 2px solid #ff7a00;
+            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.16);
+        }
+
+        .portion-check-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ff7a00;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255, 122, 0, 0.4);
+        }
+
+        .portion-box.active .portion-check-badge {
+            display: flex;
+        }
+
+        .portion-check-badge svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .portion-box-title {
+            font-family: "Sora", sans-serif;
+            font-size: 15.5px;
+            font-weight: 800;
+            color: #2e1a0e;
+            margin-bottom: 3px;
+        }
+
+        .portion-box-kcal {
+            font-size: 12px;
+            color: #876e5e;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .portion-box-price {
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+
+        .portion-box-price strong {
+            font-family: "Sora", sans-serif;
+            font-size: 23px;
+            font-weight: 800;
+            color: #e86e00;
+            letter-spacing: -0.02em;
+        }
+
+        .portion-box-price span {
+            font-size: 12px;
+            color: #876e5e;
             font-weight: 600;
         }
 
-        .price-note {
-            font-size: 15px;
-            margin-bottom: 28px;
-            opacity: 0.88;
+        /* Selected Plan Section */
+        .selected-plan-section {
+            margin-bottom: 20px;
         }
 
-        .plan-features {
-            list-style: none;
-            display: grid;
-            gap: 14px;
-            margin-bottom: 32px;
-            font-size: 15px;
-            line-height: 1.5;
-            flex: 1;
-        }
-
-        .plan-features li {
-            padding-left: 26px;
-            position: relative;
-        }
-
-        .plan-features li::before {
-            content: "\2713";
-            position: absolute;
-            left: 0;
-            top: 1px;
+        .selected-plan-label {
+            font-size: 11px;
             font-weight: 800;
-            font-size: 14px;
+            letter-spacing: 0.08em;
+            color: #9c623b;
+            margin-bottom: 6px;
+            text-transform: uppercase;
         }
 
-        .plan-button {
-            display: inline-flex;
+        .selected-plan-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .selected-plan-summary {
+            font-size: 13.5px;
+            color: #3d2415;
+            line-height: 1.4;
+        }
+
+        .selected-plan-summary strong {
+            color: #2e1a0e;
+            font-weight: 700;
+        }
+
+        .selected-plan-tag {
+            background: #faeedf;
+            color: #8c5a3a;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+
+        /* CTA Button */
+        .card-cta-button {
+            display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             width: 100%;
-            min-height: 52px;
-            border-radius: 14px;
+            min-height: 56px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ff8c00 0%, #f27200 100%);
+            color: #ffffff;
+            font-family: "Sora", sans-serif;
+            font-size: 16.5px;
+            font-weight: 800;
+            box-shadow: 0 12px 28px rgba(242, 114, 0, 0.35);
+            transition: all 0.22s ease;
+            margin-bottom: 18px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card-cta-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #ff9615 0%, #f77a06 100%);
+            box-shadow: 0 16px 36px rgba(242, 114, 0, 0.45);
+            color: #ffffff;
+        }
+
+        .card-cta-button svg {
+            transition: transform 0.22s ease;
+        }
+
+        .card-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Accordion: What's included */
+        .included-accordion {
+            text-align: center;
+        }
+
+        .included-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            font-family: "Outfit", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #786152;
+            cursor: pointer;
+            padding: 6px 12px;
+            transition: color 0.18s ease;
+        }
+
+        .included-toggle:hover {
+            color: #2e1b10;
+        }
+
+        .included-chevron {
+            transition: transform 0.25s ease;
+        }
+
+        .included-toggle[aria-expanded="true"] .included-chevron {
+            transform: rotate(180deg);
+        }
+
+        .included-drawer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+            opacity: 0;
+            text-align: left;
+        }
+
+        .included-drawer.open {
+            max-height: 520px;
+            opacity: 1;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed #ebd9cb;
+        }
+
+        .included-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .included-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13.5px;
+            color: #5a4234;
+            line-height: 1.45;
+        }
+
+        .inc-check {
+            color: #e86e00;
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        .included-list li strong {
+            color: #2e1b10;
             font-weight: 700;
-            font-size: 18px;
-            margin-top: auto;
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
 
-        .light .plan-button {
-            background: #ff8d19;
-            color: var(--white);
-            box-shadow: 0 8px 20px rgba(160, 72, 0, 0.2);
+        /* Floating Bottom-Left Badge ("No commitment") */
+        .pricing-float-badge {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            z-index: 5;
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1.5px solid rgba(255, 235, 218, 0.95);
+            padding: 12px 18px 12px 14px;
+            box-shadow: 0 16px 36px rgba(150, 60, 0, 0.16);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: rotate(-3deg) translateZ(0);
+            -webkit-transform: rotate(-3deg) translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            pointer-events: none;
         }
 
-        .light .plan-button:hover {
-            transform: translateY(-2px);
+        .float-badge-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff4e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ea6e00;
+            font-size: 14px;
+            font-weight: 800;
+            flex-shrink: 0;
         }
 
-        .accent .plan-button {
-            background: var(--cream);
-            color: #f97a00;
-            box-shadow: 0 8px 20px rgba(140, 64, 0, 0.15);
+        .float-badge-copy {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .accent .plan-button:hover {
-            transform: translateY(-2px);
+        .float-badge-copy strong {
+            display: block;
+            font-size: 13px;
+            color: #2e1b10;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .float-badge-copy span {
+            font-size: 12px;
+            color: #786152;
+            font-weight: 500;
+            display: block;
+        }
+
+        @media (max-width: 980px) {
+            .pricing-layout {
+                grid-template-columns: 1fr;
+                gap: 52px;
+            }
+
+            .pricing-hero-copy {
+                text-align: center;
+            }
+
+            .pricing-kicker {
+                justify-content: center;
+            }
+
+            .pricing-hero-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .pricing-hero-pills {
+                justify-content: center;
+            }
+
+            .pricing-card-stage {
+                max-width: 520px;
+                margin: 0 auto;
+            }
+
+            .pricing-float-badge {
+                left: 0;
+                bottom: -16px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .pricing-section {
+                padding: 60px 0 72px;
+            }
+
+            .pricing-card {
+                padding: 32px 22px 26px;
+                border-radius: 28px;
+            }
+
+            .portion-selector {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .pricing-sun-glow {
+                right: -20px;
+                width: 220px;
+                height: 220px;
+            }
+
+            .pricing-kinnow-badge {
+                right: 16px;
+                top: -16px;
+                width: 52px;
+                height: 52px;
+                transform: rotate(4deg);
+                padding: 8px;
+            }
+
+            .pricing-float-badge {
+                position: static;
+                margin-top: 20px;
+                transform: none;
+                width: 100%;
+                box-sizing: border-box;
+            }
         }
 
         .coconut-section {
@@ -2244,13 +2614,6 @@
                 top: 168px;
             }
 
-            .pricing-shell {
-                padding: 28px;
-            }
-
-            .plan-card.accent h3 {
-                padding-right: 100px;
-            }
         }
 
         @media (max-width: 1040px) {
@@ -2341,24 +2704,6 @@
             .bulk-accent {
                 right: 20px;
                 bottom: 18px;
-            }
-
-            .pricing-shell {
-                width: 100%;
-                padding: 20px;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .accent .plan-chip {
-                top: 22px;
-                right: 22px;
-            }
-
-            .plan-card.accent h3 {
-                padding-right: 0;
             }
 
             .coconut-inner {
@@ -2692,20 +3037,6 @@
                 padding: 32px 20px 26px;
             }
 
-            .pricing-shell {
-                padding: 16px;
-                border-radius: 20px;
-            }
-
-            .plan-card {
-                padding: 28px 22px 24px;
-            }
-
-            .plan-button {
-                min-height: 48px;
-                font-size: 17px;
-            }
-
             .coconut-section {
                 padding: 0 0 2px;
             }
@@ -2848,15 +3179,6 @@
                 margin-top: 20%;
             }
 
-            .plan-card {
-                border-radius: 16px;
-            }
-
-            .accent .plan-chip {
-                position: static;
-                margin-bottom: 14px;
-                align-self: flex-start;
-            }
 
             .plan-features {
                 gap: 12px;
@@ -3584,44 +3906,154 @@
                 </div>
             </section>
 
-            <section class="pricing-section">
+            <section class="pricing-section" id="pricing">
                 <div class="container">
-                    <span class="section-label">Pricing</span>
-                    <div class="pricing-shell">
-                        <div class="pricing-grid">
-                            <article class="plan-card light">
-                                <h3>Good Morning Plan</h3>
-                                <p>Includes daily fresh breakfast — nutrient packed and delicious.</p>
-                                <div class="price">₹188<span>/day</span></div>
-                                <div class="price-note">(with 4-week subscription)</div>
-                                <ul class="plan-features">
-                                    <li>Daily fresh breakfast delivery</li>
-                                    <li>Wholesome and filling servings</li>
-                                    <li>Dietary preferences respected user curated meals</li>
-                                    <li>Option to skip meals</li>
-                                    <li>30 days no repeat menu</li>
-                                    <li>Free delivery</li>
-                                </ul>
-                                <a href="/download" class="plan-button">Get Started</a>
+                    <div class="pricing-layout">
+                        <!-- Left Column: Typographic Hero -->
+                        <div class="pricing-hero-copy">
+                            <div class="pricing-kicker">
+                                <span class="kicker-line"></span>
+                                <span>PRICING THAT FEELS GOOD</span>
+                                <span class="kicker-line"></span>
+                            </div>
+
+                            <h2 class="pricing-hero-headline">
+                                Your best<br>mornings,<br>on auto-pilot.
+                            </h2>
+
+                            <p class="pricing-hero-sub">
+                                One delicious, nutrition-packed breakfast delivered fresh every morning. Subscribe once and make healthy the easy choice.
+                            </p>
+
+                            <div class="pricing-hero-pills">
+                                <div class="pricing-pill">
+                                    <svg class="pill-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                        <path d="M10 2.5L4.5 5v5.5c0 4.2 2.4 8.1 5.5 9.5 3.1-1.4 5.5-5.3 5.5-9.5V5L10 2.5z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.8 10.2L9.2 11.6L12.8 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>Pause or skip anytime</span>
+                                </div>
+                                <div class="pricing-pill">
+                                    <svg class="pill-icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.5 2.5L10.8 6.8L15 8.2L10.8 9.5L9.5 13.8L8.2 9.5L4 8.2L8.2 6.8L9.5 2.5Z"/>
+                                        <path d="M14.5 12L15.3 14.5L17.8 15.3L15.3 16L14.5 18.5L13.8 16L11.2 15.3L13.8 14.5L14.5 12Z"/>
+                                    </svg>
+                                    <span>50+ meals to choose from</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Card Stage -->
+                        <div class="pricing-card-stage">
+                            <!-- Sun Glow Backdrop -->
+                            <div class="pricing-sun-glow" aria-hidden="true"></div>
+
+                            <!-- Top-Right Kinnow Brand Icon -->
+                            <div class="pricing-kinnow-badge" aria-hidden="true">
+                                <img src="images/icon.png" alt="Kinnow">
+                            </div>
+
+                            <!-- Main Card -->
+                            <article class="pricing-card">
+                                <div class="card-overline">DAILY BREAKFAST</div>
+                                <h3 class="card-plan-title">Kinnow Daily</h3>
+                                <p class="card-plan-desc">Freshly made, carefully portioned, and delivered to make your day start on the right note.</p>
+
+                                <!-- Portion Selector -->
+                                <div class="portion-selector" role="radiogroup" aria-label="Choose your portion size">
+                                    <button type="button" class="portion-box active" id="portion-light" data-portion="light" aria-checked="true" role="radio">
+                                        <span class="portion-check-badge" aria-hidden="true">
+                                            <svg viewBox="0 0 16 16" fill="none">
+                                                <path d="M12.5 4.5L6.5 10.5L3.5 7.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        <div class="portion-box-title">Light portion</div>
+                                        <div class="portion-box-kcal">350–500 kcal</div>
+                                        <div class="portion-box-price"><strong>₹167</strong> <span>/day</span></div>
+                                    </button>
+
+                                    <button type="button" class="portion-box" id="portion-classic" data-portion="classic" aria-checked="false" role="radio">
+                                        <span class="portion-check-badge" aria-hidden="true">
+                                            <svg viewBox="0 0 16 16" fill="none">
+                                                <path d="M12.5 4.5L6.5 10.5L3.5 7.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        <div class="portion-box-title">Classic portion</div>
+                                        <div class="portion-box-kcal">500–650 kcal</div>
+                                        <div class="portion-box-price"><strong>₹188</strong> <span>/day</span></div>
+                                    </button>
+                                </div>
+
+                                <!-- Selected Plan Detail -->
+                                <div class="selected-plan-section">
+                                    <div class="selected-plan-label">SELECTED PLAN</div>
+                                    <div class="selected-plan-row">
+                                        <div class="selected-plan-summary" id="selectedPlanSummary">
+                                            <strong>Light portion</strong> · Lighter portions, balanced nutrition
+                                        </div>
+                                        <div class="selected-plan-tag">4-Week Plan</div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Button -->
+                                <a href="/download" class="card-cta-button" id="pricingCtaBtn">
+                                    <span>Get started with ₹167/day</span>
+                                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+
+                                <!-- Accordion What's Included -->
+                                <div class="included-accordion">
+                                    <button type="button" class="included-toggle" id="includedToggle" aria-expanded="false">
+                                        <span>What's included</span>
+                                        <svg class="included-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                    <div class="included-drawer" id="includedDrawer">
+                                        <ul class="included-list">
+                                            <li>
+                                                <span class="inc-check">✓</span>
+                                                <span><strong>Delivered fresh daily</strong> in chosen time slot between 5:00 AM to 10:00 AM</span>
+                                            </li>
+                                            <li>
+                                                <span class="inc-check">✓</span>
+                                                <span><strong>50+ meals available to choose from</strong>: never repeat for a month</span>
+                                            </li>
+                                            <li>
+                                                <span class="inc-check">✓</span>
+                                                <span><strong>Dietary preferences customized</strong>: lactose free, gluten free, dairy free options available</span>
+                                            </li>
+                                            <li>
+                                                <span class="inc-check">✓</span>
+                                                <span><strong>Essential morning add-ons</strong>: choose from fresh tender coconut &amp; soaked dry fruits and protein shakes available</span>
+                                            </li>
+                                            <li>
+                                                <span class="inc-check">✓</span>
+                                                <span><strong>Complete flexibility</strong>: pause subscription, skip meals, change address/time slot anytime</span>
+                                            </li>
+                                            <li>
+                                                <span class="inc-check">✓</span>
+                                                <span><strong>100% free doorstep delivery</strong> without any surge or platform fees</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </article>
 
-                            <article class="plan-card accent">
-                                <div class="plan-chip">Most Popular</div>
-                                <h3>Power Morning Plan</h3>
-                                <p>Includes daily fresh breakfast + tender coconut combo.</p>
-                                <div class="price">₹258<span>/day</span></div>
-                                <div class="price-note">(with 4-week subscription)</div>
-                                <ul class="plan-features">
-                                    <li>Fresh tender coconut included</li>
-                                    <li>Daily fresh breakfast delivery</li>
-                                    <li>Wholesome and filling servings</li>
-                                    <li>Dietary preferences respected user curated meals</li>
-                                    <li>Option to skip meals</li>
-                                    <li>30 days no repeat menu</li>
-                                    <li>Free delivery</li>
-                                </ul>
-                                <a href="/download" class="plan-button">Get Started</a>
-                            </article>
+                            <!-- Bottom-Left Floating Badge -->
+                            <div class="pricing-float-badge">
+                                <div class="float-badge-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                        <path d="M13 4.5L6.5 11.5L3 8" stroke="#ea6e00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="float-badge-copy">
+                                    <strong>No commitment</strong>
+                                    <span>skip meal or pause plan whenever you need</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4315,6 +4747,48 @@
                 });
             }
         })();
+
+        // Pricing Portion Switcher & Accordion Script
+        (function () {
+            const lightBtn = document.getElementById('portion-light');
+            const classicBtn = document.getElementById('portion-classic');
+            const summaryEl = document.getElementById('selectedPlanSummary');
+            const ctaBtn = document.getElementById('pricingCtaBtn');
+            const includedToggle = document.getElementById('includedToggle');
+            const includedDrawer = document.getElementById('includedDrawer');
+
+            if (lightBtn && classicBtn) {
+                lightBtn.addEventListener('click', () => {
+                    lightBtn.classList.add('active');
+                    lightBtn.setAttribute('aria-checked', 'true');
+                    classicBtn.classList.remove('active');
+                    classicBtn.setAttribute('aria-checked', 'false');
+                    if (summaryEl) summaryEl.innerHTML = '<strong>Light portion</strong> · Lighter portions, balanced nutrition';
+                    if (ctaBtn) {
+                        ctaBtn.innerHTML = '<span>Get started with ₹167/day</span> <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                    }
+                });
+
+                classicBtn.addEventListener('click', () => {
+                    classicBtn.classList.add('active');
+                    classicBtn.setAttribute('aria-checked', 'true');
+                    lightBtn.classList.remove('active');
+                    lightBtn.setAttribute('aria-checked', 'false');
+                    if (summaryEl) summaryEl.innerHTML = '<strong>Classic portion</strong> · Full & hearty portions, high protein';
+                    if (ctaBtn) {
+                        ctaBtn.innerHTML = '<span>Get started with ₹188/day</span> <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                    }
+                });
+            }
+
+            if (includedToggle && includedDrawer) {
+                includedToggle.addEventListener('click', () => {
+                    const isOpen = includedDrawer.classList.toggle('open');
+                    includedToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+            }
+        })();
+
     </script>
 </body>
 
