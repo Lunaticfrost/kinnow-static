@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Top Swap Loop -->
+  <polyline points="85 14 85 36 63 36" />
+  <path d="M16 50 A 34 34 0 0 1 76 25 L 85 36" />
+
+  <!-- Bottom Swap Loop -->
+  <polyline points="15 86 15 64 37 64" />
+  <path d="M84 50 A 34 34 0 0 1 24 75 L 15 64" />
+
+  <!-- Center Pause Bars -->
+  <line x1="44" y1="40" x2="44" y2="60" stroke-width="5" />
+  <line x1="56" y1="40" x2="56" y2="60" stroke-width="5" />
+</svg>
