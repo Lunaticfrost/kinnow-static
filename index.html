@@ -1043,44 +1043,262 @@
         }
 
         .deliver-section {
-            padding: 110px 0;
-            /* background: #f4c9a7; */
+            background: #f77e09;
+            padding: 80px 0 0;
             overflow: hidden;
+            position: relative;
         }
 
-        .deliver-section .section-label {
+        .deliver-hero-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .deliver-hero-title {
+            font-family: "Sora", "Outfit", sans-serif;
+            font-size: clamp(54px, 7.8vw, 116px);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 0.96;
+            letter-spacing: -0.04em;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .deliver-hero-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            /* padding-bottom: 24px; */
+            gap: clamp(14px, 2.5vw, 42px);
+            max-width: 1140px;
+            margin: clamp(-75px, -5.2vw, -50px) auto 0;
+            padding: 0 clamp(16px, 2.8vw, 32px);
+            position: relative;
+            z-index: 10;
         }
 
-        .deliver-section .section-label::before,
-        .deliver-section .section-label::after {
-            content: "";
-            width: 42px;
-            height: 2px;
+        .deliver-meta-card {
+            flex: 0 1 245px;
+            max-width: 255px;
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 16px 20px;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+            color: #ffffff;
+            transition: opacity 0.24s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            position: relative;
+            z-index: 12;
+            margin-bottom: 25px;
+        }
+
+        .deliver-meta-card.deliver-meta-card-left {
+            text-align: left;
+        }
+
+        .deliver-meta-card.deliver-meta-card-right {
+            text-align: left;
+        }
+
+        .deliver-meta-card.updating {
+            opacity: 0.35;
+            transform: translateY(2px) scale(0.98);
+        }
+
+        .deliver-meta-kicker {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 6px;
+        }
+
+        .deliver-meta-title {
+            font-size: clamp(18px, 1.45vw, 21px);
+            font-weight: 800;
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .deliver-meta-highlight {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.88);
+            padding: 4px 10px;
+            display: inline-block;
+            line-height: 1.3;
         }
 
-        .deliver-section .section-label::before {
-            margin-right: 12px;
+        .deliver-meta-cal-row {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            margin: 2px 0 8px 0;
         }
 
-        .deliver-section .section-label::after {
-            margin-left: 12px;
+        .deliver-meta-cal-val {
+            font-size: clamp(26px, 2.2vw, 32px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: #ffffff;
         }
 
-        .deliver-section .section-copy {
+        .deliver-meta-cal-unit {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .deliver-meta-macros {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .deliver-macro-chip {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 4px 10px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .deliver-hero-bowl {
+            width: clamp(380px, 38vw, 520px);
+            aspect-ratio: 1 / 1;
+            flex-shrink: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: -115px;
+            z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .deliver-bowl-floater {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            animation: deliverBowlFloat 5.5s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @keyframes deliverBowlFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(1.2deg);
+            }
+        }
+
+        .deliver-bowl-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 20px 34px rgba(0, 0, 0, 0.26));
+            opacity: 0;
+            transform: scale(0.85) rotate(20deg);
+            transition: opacity 0.45s ease,
+                        transform 0.58s cubic-bezier(0.34, 1.2, 0.64, 1);
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+
+        .deliver-bowl-slide.active {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .deliver-bowl-slide.exiting {
+            opacity: 0;
+            transform: scale(0.85) rotate(-20deg);
+            z-index: 1;
+        }
+
+        .deliver-arch-shape {
+            width: 100%;
+            height: 100px;
+            line-height: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            margin-bottom: -1px;
+        }
+
+        .deliver-arch-shape svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .deliver-menu-band {
+            background: #ffc78c;
+            padding-bottom: 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .deliver-menu-header {
             text-align: center;
-            color: white;
-            font-size: 20px;
-            max-width: 760px;
+            padding-top: 50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .deliver-menu-title {
+            font-family: "Sora", "Outfit", sans-serif;
+            font-size: clamp(32px, 4.2vw, 54px);
+            font-weight: 900;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.08;
+            letter-spacing: -0.01em;
             margin: 0 auto;
-            line-height: 1.6;
+            text-transform: uppercase;
+        }
+
+        .deliver-menu-subcopy {
+            text-align: center;
+            color: #b38055;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 10px auto 30px;
         }
 
         .deliver-wrapper {
@@ -1247,12 +1465,91 @@
         @media (max-width: 768px) {
 
             .deliver-section {
-                padding: 40px 0;
+                padding: 48px 0 0;
             }
 
-            .deliver-section .section-copy {
-                font-size: 16px;
-                margin-bottom: 50px;
+            .deliver-hero-title {
+                font-size: clamp(38px, 10vw, 58px);
+                line-height: 0.98;
+                letter-spacing: -0.03em;
+                margin-bottom: 0;
+            }
+
+            .deliver-hero-row {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin-top: -10px;
+                margin-bottom: -35px;
+                padding: 0 16px;
+            }
+
+            .deliver-hero-bowl {
+                width: 270px;
+                max-width: 82vw;
+                margin-top: 0;
+                margin-bottom: -15px;
+                order: 1;
+            }
+
+            .deliver-meta-card {
+                flex: none;
+                width: 100%;
+                max-width: 310px;
+                padding: 12px 16px;
+                border-radius: 16px;
+                margin-bottom: 0;
+            }
+
+            .deliver-meta-card.deliver-meta-card-left {
+                order: 2;
+                text-align: center;
+            }
+
+            .deliver-meta-card.deliver-meta-card-right {
+                order: 3;
+                text-align: center;
+            }
+
+            .deliver-meta-kicker {
+                justify-content: center;
+            }
+
+            .deliver-meta-title {
+                justify-content: center;
+                min-height: auto;
+            }
+
+            .deliver-meta-cal-row {
+                justify-content: center;
+            }
+
+            .deliver-meta-macros {
+                justify-content: center;
+            }
+
+            .deliver-arch-shape {
+                height: 55px;
+                margin-bottom: -1px;
+            }
+
+            .deliver-menu-band {
+                padding-bottom: 45px;
+            }
+
+            .deliver-menu-header {
+                padding-top: 55px;
+            }
+
+            .deliver-menu-title {
+                font-size: clamp(26px, 6.8vw, 36px);
+            }
+
+            .deliver-menu-subcopy {
+                font-size: 14.5px;
+                margin: 8px auto 24px;
             }
 
             .meal-card {
@@ -1442,7 +1739,7 @@
             pointer-events: none;
         }
 
-        /* PRICING SECTION - INSPIRATION MATCH */
+        /* PRICING SECTION - 3-PLAN GRID */
         .pricing-section {
             background: transparent;
             padding: 84px 0 104px;
@@ -1450,25 +1747,21 @@
             overflow: visible;
         }
 
-        .pricing-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-            align-items: center;
-            gap: clamp(36px, 5.5vw, 84px);
-        }
-
-        /* Left Hero Copy */
-        .pricing-hero-copy {
+        .pricing-header-center {
+            text-align: center;
             color: #ffffff;
+            max-width: 820px;
+            margin: 0 auto;
         }
 
         .pricing-kicker {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.88);
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -1483,477 +1776,410 @@
 
         .pricing-hero-headline {
             font-family: "Sora", "Outfit", sans-serif;
-            font-size: clamp(48px, 5.4vw, 76px);
+            font-size: clamp(38px, 4.8vw, 64px);
             font-weight: 800;
-            line-height: 1.02;
+            line-height: 1.05;
             letter-spacing: -0.04em;
             color: #ffffff;
-            margin: 0 0 24px;
+            margin: 0 0 18px;
             text-shadow: 0 2px 14px rgba(160, 60, 0, 0.16);
         }
 
         .pricing-hero-sub {
-            font-size: clamp(16.5px, 1.5vw, 19px);
+            font-size: clamp(15.5px, 1.4vw, 18px);
             line-height: 1.55;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 440px;
-            margin: 0 0 36px;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 580px;
+            margin: 0 auto 28px;
         }
 
         .pricing-hero-pills {
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 12px;
+            margin-bottom: 52px;
         }
 
         .pricing-pill {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 11px 20px;
+            gap: 8px;
+            padding: 9px 18px;
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.18);
-            border: 1.2px solid rgba(255, 255, 255, 0.38);
+            border: 1.2px solid rgba(255, 255, 255, 0.36);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             color: #ffffff;
-            font-size: 14.5px;
+            font-size: 13.5px;
             font-weight: 600;
             letter-spacing: 0.01em;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .pill-icon {
-            width: 17px;
-            height: 17px;
+        .pricing-pill svg {
+            width: 16px;
+            height: 16px;
             flex-shrink: 0;
         }
 
-        /* Right Column - Stage */
-        .pricing-card-stage {
+        /* 3-Card Grid */
+        .pricing-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: stretch;
             position: relative;
-            width: 100%;
-            max-width: 530px;
-            margin-left: auto;
         }
 
-        /* Background Sun Glow */
-        .pricing-sun-glow {
-            position: absolute;
-            top: -65px;
-            right: -55px;
-            width: 280px;
-            height: 280px;
-            background: #f77a06;
-            border-radius: 50%;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.95;
-        }
-
-        /* Top-Right Kinnow Brand Icon Badge */
-        .pricing-kinnow-badge {
-            position: absolute;
-            top: -22px;
-            right: 30px;
-            z-index: 5;
-            width: 60px;
-            height: 60px;
-            background: #ffffff;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 14px 30px rgba(160, 60, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.04);
-            transform: rotate(6deg);
-            padding: 10px;
-            pointer-events: none;
-        }
-
-        .pricing-kinnow-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* The Main White/Cream Pricing Card */
-        .pricing-card {
+        .pricing-plan-card {
             background: #fffcf8;
-            border-radius: 36px;
-            border: 2.5px solid rgba(255, 255, 255, 0.95);
-            padding: 44px 38px 34px;
-            box-shadow: 0 30px 80px -15px rgba(160, 60, 0, 0.2), 0 4px 14px rgba(0, 0, 0, 0.03);
+            border-radius: 32px;
+            border: 2px solid rgba(255, 255, 255, 0.92);
+            padding: 38px 28px 30px;
+            box-shadow: 0 24px 60px -15px rgba(160, 60, 0, 0.18), 0 4px 14px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             position: relative;
-            z-index: 2;
             color: #2e1b10;
+            transition: transform 0.26s ease, box-shadow 0.26s ease;
         }
 
-        .card-overline {
-            font-size: 12px;
+        .pricing-plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 32px 75px -15px rgba(160, 60, 0, 0.25);
+        }
+
+        .pricing-plan-card.plan-card-featured {
+            background: #ffffff;
+            border: 2.5px solid #ff7a00;
+            box-shadow: 0 30px 80px -12px rgba(255, 122, 0, 0.28), 0 4px 18px rgba(0, 0, 0, 0.04);
+            transform: scale(1.02);
+            z-index: 2;
+        }
+
+        .pricing-plan-card.plan-card-featured:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 38px 90px -12px rgba(255, 122, 0, 0.35);
+        }
+
+        .plan-ribbon-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff7a00 0%, #e65c00 100%);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            padding: 5px 16px;
+            border-radius: 999px;
+            box-shadow: 0 4px 14px rgba(255, 122, 0, 0.4);
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .plan-card-top {
+            margin-bottom: 6px;
+        }
+
+        .plan-badge-ghost {
+            display: inline-block;
+            font-size: 11px;
             font-weight: 800;
             letter-spacing: 0.1em;
             color: #9c623b;
             text-transform: uppercase;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
-        .card-plan-title {
+        .plan-badge-ghost.featured-kicker {
+            color: #ea6e00;
+        }
+
+        .plan-title {
             font-family: "Sora", "Outfit", sans-serif;
-            font-size: clamp(32px, 3.4vw, 37px);
+            font-size: clamp(26px, 2.2vw, 31px);
             font-weight: 800;
             color: #2e1a0e;
             letter-spacing: -0.03em;
-            margin: 0 0 10px;
-            line-height: 1.12;
+            margin: 0 0 8px;
+            line-height: 1.15;
         }
 
-        .card-plan-desc {
-            font-size: 14.5px;
+        .plan-desc {
+            font-size: 13.5px;
             line-height: 1.5;
             color: #786152;
-            margin: 0 0 24px;
-            max-width: 410px;
+            margin: 0;
+            min-height: 42px;
         }
 
-        /* Portion Selector */
-        .portion-selector {
+        /* Interactive Mini Selector inside Cards */
+        .plan-mini-selector {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 24px;
-        }
-
-        .portion-box {
-            background: #ffffff;
-            border: 1.5px solid #ebd9cb;
-            border-radius: 18px;
-            padding: 18px 18px 16px;
-            text-align: left;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-            width: 100%;
-            font-family: inherit;
-        }
-
-        .portion-box:hover {
-            border-color: #ffa149;
-            transform: translateY(-2px);
-        }
-
-        .portion-box.active {
-            border: 2px solid #ff7a00;
-            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.16);
-        }
-
-        .portion-check-badge {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: #ff7a00;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(255, 122, 0, 0.4);
-        }
-
-        .portion-box.active .portion-check-badge {
-            display: flex;
-        }
-
-        .portion-check-badge svg {
-            width: 12px;
-            height: 12px;
-        }
-
-        .portion-box-title {
-            font-family: "Sora", sans-serif;
-            font-size: 15.5px;
-            font-weight: 800;
-            color: #2e1a0e;
-            margin-bottom: 3px;
-        }
-
-        .portion-box-kcal {
-            font-size: 12px;
-            color: #876e5e;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .portion-box-price {
-            display: flex;
-            align-items: baseline;
-            gap: 2px;
-        }
-
-        .portion-box-price strong {
-            font-family: "Sora", sans-serif;
-            font-size: 23px;
-            font-weight: 800;
-            color: #e86e00;
-            letter-spacing: -0.02em;
-        }
-
-        .portion-box-price span {
-            font-size: 12px;
-            color: #876e5e;
-            font-weight: 600;
-        }
-
-        /* Selected Plan Section */
-        .selected-plan-section {
-            margin-bottom: 20px;
-        }
-
-        .selected-plan-label {
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            color: #9c623b;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-
-        .selected-plan-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .selected-plan-summary {
-            font-size: 13.5px;
-            color: #3d2415;
-            line-height: 1.4;
-        }
-
-        .selected-plan-summary strong {
-            color: #2e1a0e;
-            font-weight: 700;
-        }
-
-        .selected-plan-tag {
-            background: #faeedf;
-            color: #8c5a3a;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 6px;
-            letter-spacing: 0.04em;
-            white-space: nowrap;
-        }
-
-        /* CTA Button */
-        .card-cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            min-height: 56px;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #ff8c00 0%, #f27200 100%);
-            color: #ffffff;
-            font-family: "Sora", sans-serif;
-            font-size: 16.5px;
-            font-weight: 800;
-            box-shadow: 0 12px 28px rgba(242, 114, 0, 0.35);
-            transition: all 0.22s ease;
-            margin-bottom: 18px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .card-cta-button:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #ff9615 0%, #f77a06 100%);
-            box-shadow: 0 16px 36px rgba(242, 114, 0, 0.45);
-            color: #ffffff;
-        }
-
-        .card-cta-button svg {
-            transition: transform 0.22s ease;
-        }
-
-        .card-cta-button:hover svg {
-            transform: translateX(4px);
-        }
-
-        /* Accordion: What's included */
-        .included-accordion {
-            text-align: center;
-        }
-
-        .included-toggle {
-            display: inline-flex;
-            align-items: center;
             gap: 6px;
-            background: none;
+            background: #f5ebe0;
+            padding: 4px;
+            border-radius: 14px;
+            margin: 18px 0 20px;
+        }
+
+        .mini-chip {
             border: none;
-            font-family: "Outfit", sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: #786152;
+            background: transparent;
+            padding: 8px 6px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #7a6353;
             cursor: pointer;
-            padding: 6px 12px;
-            transition: color 0.18s ease;
+            text-align: center;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            line-height: 1.25;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .included-toggle:hover {
-            color: #2e1b10;
+        .mini-chip:hover {
+            color: #2e1a0e;
         }
 
-        .included-chevron {
-            transition: transform 0.25s ease;
+        .mini-chip.active {
+            background: #ffffff;
+            color: #ff7a00;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        .included-toggle[aria-expanded="true"] .included-chevron {
-            transform: rotate(180deg);
-        }
-
-        .included-drawer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-            opacity: 0;
-            text-align: left;
-        }
-
-        .included-drawer.open {
-            max-height: 520px;
-            opacity: 1;
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px dashed #ebd9cb;
-        }
-
-        .included-list {
-            list-style: none;
+        /* Complete Dual-Selector Controls */
+        .complete-dual-selectors {
             display: flex;
             flex-direction: column;
-            gap: 11px;
-            padding: 0;
+            gap: 10px;
+            margin: 14px 0 18px;
+        }
+
+        .complete-selector-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .complete-group-label {
+            font-size: 10.5px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #8c7363;
+            padding-left: 2px;
+        }
+
+        .complete-selector-group .plan-mini-selector {
             margin: 0;
         }
 
-        .included-list li {
+        /* Price block */
+        .plan-price-block {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #ebd9cb;
+        }
+
+        .plan-price-prefix {
+            display: block;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #8c7363;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .plan-price-val {
+            display: flex;
+            align-items: baseline;
+            gap: 3px;
+        }
+
+        .plan-price-val strong {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(34px, 3vw, 42px);
+            font-weight: 800;
+            color: #2e1a0e;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .plan-card-featured .plan-price-val strong {
+            color: #ea6e00;
+        }
+
+        .plan-price-unit {
+            font-size: 14px;
+            font-weight: 600;
+            color: #876e5e;
+        }
+
+        .plan-price-term {
+            display: block;
+            font-size: 12px;
+            color: #8c7363;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Features list */
+        .plan-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .plan-features-list li {
             display: flex;
             align-items: flex-start;
             gap: 10px;
             font-size: 13.5px;
-            color: #5a4234;
             line-height: 1.45;
+            color: #442d1f;
         }
 
-        .inc-check {
-            color: #e86e00;
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 1.2;
-            flex-shrink: 0;
-        }
-
-        .included-list li strong {
-            color: #2e1b10;
-            font-weight: 700;
-        }
-
-        /* Floating Bottom-Left Badge ("No commitment") */
-        .pricing-float-badge {
-            position: absolute;
-            bottom: -24px;
-            left: -24px;
-            z-index: 5;
-            background: #ffffff;
-            border-radius: 18px;
-            border: 1.5px solid rgba(255, 235, 218, 0.95);
-            padding: 12px 18px 12px 14px;
-            box-shadow: 0 16px 36px rgba(150, 60, 0, 0.16);
-            display: flex;
+        .plan-chk {
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
-            transform: rotate(-3deg) translateZ(0);
-            -webkit-transform: rotate(-3deg) translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            pointer-events: none;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #faeedf;
+            color: #ea6e00;
+            font-size: 11px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
         }
 
-        .float-badge-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #fff4e5;
+        .plan-chk.featured-chk {
+            background: #ffebd8;
+            color: #ea6e00;
+        }
+
+        /* CTA buttons */
+        .plan-card-cta {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ea6e00;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 16px;
+            font-family: "Sora", sans-serif;
             font-size: 14px;
             font-weight: 800;
+            text-decoration: none;
+            transition: all 0.22s ease;
+            box-sizing: border-box;
+            background: #2e1a0e;
+            color: #ffffff;
+        }
+
+        .plan-card-cta:hover {
+            background: #472d1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 26, 14, 0.2);
+        }
+
+        .plan-card-cta-featured {
+            background: linear-gradient(135deg, #ff7a00 0%, #e65c00 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 24px rgba(255, 122, 0, 0.32);
+        }
+
+        .plan-card-cta-featured:hover {
+            background: linear-gradient(135deg, #ff881a 0%, #eb6400 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 122, 0, 0.42);
+        }
+
+        /* Bottom reassurance */
+        .pricing-bottom-reassurance {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 48px auto 0;
+            padding: 12px 28px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1.2px solid rgba(255, 255, 255, 0.34);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            font-size: 14px;
+            max-width: fit-content;
+        }
+
+        .reassurance-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #ea6e00;
             flex-shrink: 0;
         }
 
-        .float-badge-copy {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        /* Responsive Media Queries for 3-Plan Grid */
+        @media (max-width: 1040px) {
+            .pricing-grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+
+            .pricing-plan-card {
+                padding: 30px 18px 24px;
+            }
+
+            .pricing-plan-card.plan-card-featured {
+                transform: none;
+            }
+
+            .pricing-plan-card.plan-card-featured:hover {
+                transform: translateY(-5px);
+            }
         }
 
-        .float-badge-copy strong {
-            display: block;
-            font-size: 13px;
-            color: #2e1b10;
-            font-weight: 800;
-            line-height: 1.25;
-        }
-
-        .float-badge-copy span {
-            font-size: 12px;
-            color: #786152;
-            font-weight: 500;
-            display: block;
-        }
-
-        @media (max-width: 980px) {
-            .pricing-layout {
+        @media (max-width: 820px) {
+            .pricing-grid-3 {
                 grid-template-columns: 1fr;
-                gap: 52px;
+                max-width: 440px;
+                gap: 32px;
             }
 
-            .pricing-hero-copy {
+            .pricing-plan-card.plan-card-featured {
+                order: -1;
+            }
+
+            .pricing-bottom-reassurance {
+                border-radius: 20px;
+                padding: 12px 20px;
                 text-align: center;
-            }
-
-            .pricing-kicker {
-                justify-content: center;
-            }
-
-            .pricing-hero-sub {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .pricing-hero-pills {
-                justify-content: center;
-            }
-
-            .pricing-card-stage {
-                max-width: 520px;
-                margin: 0 auto;
-            }
-
-            .pricing-float-badge {
-                left: 0;
-                bottom: -16px;
+                flex-direction: column;
+                gap: 8px;
             }
         }
 
@@ -1962,40 +2188,16 @@
                 padding: 60px 0 72px;
             }
 
-            .pricing-card {
-                padding: 32px 22px 26px;
-                border-radius: 28px;
+            .pricing-plan-card {
+                padding: 28px 20px 22px;
+                border-radius: 24px;
             }
 
-            .portion-selector {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .pricing-sun-glow {
-                right: -20px;
-                width: 220px;
-                height: 220px;
-            }
-
-            .pricing-kinnow-badge {
-                right: 16px;
-                top: -16px;
-                width: 52px;
-                height: 52px;
-                transform: rotate(4deg);
-                padding: 8px;
-            }
-
-            .pricing-float-badge {
-                position: static;
-                margin-top: 20px;
-                transform: none;
-                width: 100%;
-                box-sizing: border-box;
+            .pricing-hero-headline {
+                font-size: 34px;
             }
         }
-
+        
         .coconut-section {
             background: transparent;
             padding: 0 0 2px;
@@ -3651,17 +3853,75 @@
             </section>
 
             <section class="deliver-section">
-                <div class="container">
+                <!-- Upper Half: Experience a Healthier You -->
+                <div class="deliver-hero-wrap">
+                    <h2 class="deliver-hero-title">Experience a<br>Healthier You</h2>
 
-                    <span class="section-label">WHAT WE DELIVER</span>
+                    <div class="deliver-hero-row">
+                        <!-- Left Glass Card: Dish Identity -->
+                        <div class="deliver-meta-card deliver-meta-card-left" id="deliverMetaLeft" aria-live="polite">
+                            <div class="deliver-meta-kicker">
+                                <span id="bowlKicker">Healthy Salad</span>
+                            </div>
+                            <h3 class="deliver-meta-title" id="bowlTitle">Caesar Salad</h3>
+                            <div class="deliver-meta-highlight" id="bowlHighlight">Crisp Greens & House Dressing</div>
+                        </div>
 
-                    <p class="section-copy">
-                        Smoothies, power oats, chia puddings and more, just a taste of what’s on the menu. Discover many more in the app.
-                    </p>
+                        <!-- Center Salad Bowl Carousel -->
+                        <div class="deliver-hero-bowl" id="deliverHeroBowl" title="Click to view next bowl">
+                            <div class="deliver-bowl-floater">
+                                <img src="images/hero-bowls/01-caesar-salad.png" alt="Fresh wholesome Caesar Salad" class="deliver-bowl-slide active" fetchpriority="high">
+                                <img src="images/hero-bowls/02-beetroot-yogurt-bowl.png" alt="Beetroot Yogurt Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/03-avocado-smoothie-bowl.png" alt="Creamy Avocado Smoothie Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/04-falafel-hummus-bowl.png" alt="Falafel Hummus Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/05-mango-yogurt-bowl.png" alt="Vibrant Mango Yogurt Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/06-warm-grain-bowl.png" alt="Warm Grain Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/07-paneer-tikka-bowl.png" alt="Paneer Tikka Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/08-greek-salad.png" alt="Crisp Greek Salad" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/09-peri-peri-bowl.png" alt="Peri Peri Chickpea Bowl" class="deliver-bowl-slide">
+                                <img src="images/hero-bowls/10-strawberry-power-oats.png" alt="Strawberry Power Oats" class="deliver-bowl-slide">
+                            </div>
+                        </div>
 
+                        <!-- Right Glass Card: Verified Nutrition & Macros -->
+                        <div class="deliver-meta-card deliver-meta-card-right" id="deliverMetaRight" aria-live="polite">
+                            <div class="deliver-meta-kicker">
+                                <span>VERIFIED NUTRITION</span>
+                            </div>
+                            <div class="deliver-meta-cal-row">
+                                <span class="deliver-meta-cal-val" id="bowlCalories">386</span>
+                                <span class="deliver-meta-cal-unit">KCAL</span>
+                            </div>
+                            <div class="deliver-meta-macros">
+                                <span class="deliver-macro-chip">
+                                    <strong id="bowlProtein">17.5g</strong>&nbsp;Protein
+                                </span>
+                                <span class="deliver-macro-chip">
+                                    <strong id="bowlCarbs">35.8g</strong>&nbsp;Carbs
+                                </span>
+                                <span class="deliver-macro-chip">
+                                    <strong id="bowlFats">19.0g</strong>&nbsp;Fats
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="deliver-wrapper">
+                <!-- Curved Arch Divider -->
+                <div class="deliver-arch-shape" aria-hidden="true">
+                    <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
+                        <path d="M0,100 Q720,0 1440,100 L1440,100 L0,100 Z" fill="#ffc78c"/>
+                    </svg>
+                </div>
+
+                <!-- Lower Half: Arched Peach Band with Taste of What's on the Menu -->
+                <div class="deliver-menu-band">
+                    <div class="deliver-menu-header">
+                        <h3 class="deliver-menu-title">TASTE OF WHAT’S<br>ON THE MENU</h3>
+                        <p class="deliver-menu-subcopy">Discover many more in the app.</p>
+                    </div>
+
+                    <div class="deliver-wrapper">
 
                         <!-- Left Arrow -->
                         <button class="deliver-arrow deliver-prev" aria-label="Previous">
@@ -3683,13 +3943,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 2: Avocado Smoothie Bowl -->
+                                 <!-- CARD 2: Avocado Smoothie Bowl -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/avocado+smoothie.webp" alt="Kinnow Avocado Smoothie Bowl" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Avocado Smoothie Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Classic Cold Coffee -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/ClassicColdCoffee.png" alt="Kinnow Classic Cold Coffee" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Classic Cold Coffee</h3>
                                     </div>
                                 </article>
 
@@ -3713,13 +3983,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 5: Berry Bliss Smoothie -->
+                                 <!-- CARD 5: Berry Bliss Smoothie -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/berry+bliss+smoothie.webp" alt="Kinnow Berry Bliss Smoothie Bowl" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Berry Bliss Smoothie</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Mango Dragon Blend -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/MangoDragonBlend.png" alt="Kinnow Mango Dragon Blend" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Mango Dragon Blend</h3>
                                     </div>
                                 </article>
 
@@ -3743,13 +4023,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 8: Overnight Berry Oats -->
+                                 <!-- CARD 8: Overnight Berry Oats -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/overnight+berry+oats.webp" alt="Kinnow Overnight Berry Oats" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Overnight Soaked Berry Oats</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Vietnamese Iced Coffee -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/VietnameseIcedCoffee.png" alt="Kinnow Vietnamese Iced Coffee" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Vietnamese Iced Coffee</h3>
                                     </div>
                                 </article>
 
@@ -3773,13 +4063,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 11: Baked Falafel Salad Bowl -->
+                                 <!-- CARD 11: Baked Falafel Salad Bowl -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/Baked+Falafel+Salad+Bowl.png" alt="Kinnow Baked Falafel Salad Bowl" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Baked Falafel Salad Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Blueberry Blend -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/BlueberryBlend.png" alt="Kinnow Blueberry Blend" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Blueberry Blend</h3>
                                     </div>
                                 </article>
 
@@ -3803,13 +4103,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 14: Paprika Tofu Salad -->
+                                 <!-- CARD 14: Paprika Tofu Salad -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/PeprikaTofuSalad.webp" alt="Kinnow Paprika Tofu Salad" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Paprika Tofu Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Orange Iced Coffee -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/OrangeIcedCoffee.png" alt="Kinnow Orange Iced Coffee" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Orange Iced Coffee</h3>
                                     </div>
                                 </article>
 
@@ -3833,13 +4143,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 17: Peri Peri Paneer Chickpea Salad -->
+                                 <!-- CARD 17: Peri Peri Paneer Chickpea Salad -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/Peri+Peri+Paneer+Chickpea+Salad.png" alt="Kinnow Peri Peri Paneer Chickpea Salad" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Peri Peri Paneer Chickpea Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Ragi Cardamom Yogurt Blend -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/RagiCardamomYogurtBlend.png" alt="Kinnow Ragi Cardamom Yogurt Blend" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Ragi Cardamom Yogurt Blend</h3>
                                     </div>
                                 </article>
 
@@ -3863,13 +4183,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 20: Yogurt Fruit Bowl -->
+                                 <!-- CARD 20: Yogurt Fruit Bowl -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/yogurt+fruit+bowl.webp" alt="Kinnow Yogurt Fruit Bowl" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Yogurt Fruit Bowl</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Peanut Butter Iced Coffee -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/PeanutButterIcedCoffee.png" alt="Kinnow Peanut Butter Iced Coffee" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Peanut Butter Iced Coffee</h3>
                                     </div>
                                 </article>
 
@@ -3883,13 +4213,23 @@
                                     </div>
                                 </article>
 
-                                <!-- CARD 22: Watermelon Feta Salad -->
+                                 <!-- CARD 22: Watermelon Feta Salad -->
                                 <article class="meal-card">
                                     <div class="meal-image">
                                         <img src="images/meals/WatermelonFet.jpeg" alt="Kinnow Watermelon Feta Salad" loading="lazy">
                                     </div>
                                     <div class="image-overlay">
                                         <h3>Watermelon Feta Cheese Salad</h3>
+                                    </div>
+                                </article>
+
+                                <!-- Mango Iced Latte -->
+                                <article class="meal-card">
+                                    <div class="meal-image">
+                                        <img src="images/meals/MangoIcedLatte.png" alt="Kinnow Mango Iced Latte" loading="lazy">
+                                    </div>
+                                    <div class="image-overlay">
+                                        <h3>Mango Iced Latte</h3>
                                     </div>
                                 </article>
 
@@ -3913,6 +4253,7 @@
                         </button>
 
                     </div>
+                </div>
             </section>
 
             <section class="bulk-section" aria-labelledby="bulk-heading">
@@ -3937,157 +4278,203 @@
 
             <section class="pricing-section" id="pricing">
                 <div class="container">
-                    <div class="pricing-layout">
-                        <!-- Left Column: Typographic Hero -->
-                        <div class="pricing-hero-copy">
-                            <div class="pricing-kicker">
-                                <span class="kicker-line"></span>
-                                <span>PRICING THAT FEELS GOOD</span>
-                                <span class="kicker-line"></span>
-                            </div>
-
-                            <h2 class="pricing-hero-headline">
-                                Your best<br>mornings,<br>on auto-pilot.
-                            </h2>
-
-                            <p class="pricing-hero-sub">
-                                One delicious, nutrition-packed breakfast delivered fresh every morning. Subscribe once and make healthy the easy choice.
-                            </p>
-
-                            <div class="pricing-hero-pills">
-                                <div class="pricing-pill">
-                                    <svg class="pill-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                                        <path d="M10 2.5L4.5 5v5.5c0 4.2 2.4 8.1 5.5 9.5 3.1-1.4 5.5-5.3 5.5-9.5V5L10 2.5z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.8 10.2L9.2 11.6L12.8 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>Pause or skip anytime</span>
-                                </div>
-                                <div class="pricing-pill">
-                                    <svg class="pill-icon" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.5 2.5L10.8 6.8L15 8.2L10.8 9.5L9.5 13.8L8.2 9.5L4 8.2L8.2 6.8L9.5 2.5Z"/>
-                                        <path d="M14.5 12L15.3 14.5L17.8 15.3L15.3 16L14.5 18.5L13.8 16L11.2 15.3L13.8 14.5L14.5 12Z"/>
-                                    </svg>
-                                    <span>50+ meals to choose from</span>
-                                </div>
-                            </div>
+                    <!-- Centered Section Header -->
+                    <div class="pricing-header-center">
+                        <div class="pricing-kicker">
+                            <span class="kicker-line"></span>
+                            <span>PRICING THAT FEELS GOOD</span>
+                            <span class="kicker-line"></span>
                         </div>
 
-                        <!-- Right Column: Card Stage -->
-                        <div class="pricing-card-stage">
-                            <!-- Sun Glow Backdrop -->
-                            <div class="pricing-sun-glow" aria-hidden="true"></div>
+                        <h2 class="pricing-hero-headline">
+                            Your best mornings,<br>on auto-pilot.
+                        </h2>
 
-                            <!-- Top-Right Kinnow Brand Icon -->
-                            <div class="pricing-kinnow-badge" aria-hidden="true">
-                                <img src="images/icon.png" alt="Kinnow">
+                        <p class="pricing-hero-sub">
+                            Choose the subscription that fits your routine. Wholesome meals, cold-crafted drinks, or the complete all-in-one routine.
+                        </p>
+
+                        <div class="pricing-hero-pills">
+                            <div class="pricing-pill">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                    <path d="M10 2.5L4.5 5v5.5c0 4.2 2.4 8.1 5.5 9.5 3.1-1.4 5.5-5.3 5.5-9.5V5L10 2.5z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7.8 10.2L9.2 11.6L12.8 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Pause or skip anytime</span>
                             </div>
-
-                            <!-- Main Card -->
-                            <article class="pricing-card">
-                                <div class="card-overline">DAILY BREAKFAST</div>
-                                <h3 class="card-plan-title">Kinnow Daily</h3>
-                                <p class="card-plan-desc">Freshly made, carefully portioned, and delivered to make your day start on the right note.</p>
-
-                                <!-- Portion Selector -->
-                                <div class="portion-selector" role="radiogroup" aria-label="Choose your portion size">
-                                    <button type="button" class="portion-box active" id="portion-light" data-portion="light" aria-checked="true" role="radio">
-                                        <span class="portion-check-badge" aria-hidden="true">
-                                            <svg viewBox="0 0 16 16" fill="none">
-                                                <path d="M12.5 4.5L6.5 10.5L3.5 7.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </span>
-                                        <div class="portion-box-title">Light portion</div>
-                                        <div class="portion-box-kcal">350–500 kcal</div>
-                                        <div class="portion-box-price"><strong>₹167</strong> <span>/day</span></div>
-                                    </button>
-
-                                    <button type="button" class="portion-box" id="portion-classic" data-portion="classic" aria-checked="false" role="radio">
-                                        <span class="portion-check-badge" aria-hidden="true">
-                                            <svg viewBox="0 0 16 16" fill="none">
-                                                <path d="M12.5 4.5L6.5 10.5L3.5 7.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </span>
-                                        <div class="portion-box-title">Classic portion</div>
-                                        <div class="portion-box-kcal">500–650 kcal</div>
-                                        <div class="portion-box-price"><strong>₹188</strong> <span>/day</span></div>
-                                    </button>
-                                </div>
-
-                                <!-- Selected Plan Detail -->
-                                <div class="selected-plan-section">
-                                    <div class="selected-plan-label">SELECTED PLAN</div>
-                                    <div class="selected-plan-row">
-                                        <div class="selected-plan-summary" id="selectedPlanSummary">
-                                            <strong>Light portion</strong> · Lighter portions, balanced nutrition
-                                        </div>
-                                        <div class="selected-plan-tag">4-Week Plan</div>
-                                    </div>
-                                </div>
-
-                                <!-- Action Button -->
-                                <a href="/download" class="card-cta-button" id="pricingCtaBtn">
-                                    <span>Get started with ₹167/day</span>
-                                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
-
-                                <!-- Accordion What's Included -->
-                                <div class="included-accordion">
-                                    <button type="button" class="included-toggle" id="includedToggle" aria-expanded="false">
-                                        <span>What's included</span>
-                                        <svg class="included-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </button>
-                                    <div class="included-drawer" id="includedDrawer">
-                                        <ul class="included-list">
-                                            <li>
-                                                <span class="inc-check">✓</span>
-                                                <span><strong>Delivered fresh daily</strong> in chosen time slot between 5:00 AM to 10:00 AM</span>
-                                            </li>
-                                            <li>
-                                                <span class="inc-check">✓</span>
-                                                <span><strong>50+ meals available to choose from</strong>: never repeat for a month</span>
-                                            </li>
-                                            <li>
-                                                <span class="inc-check">✓</span>
-                                                <span><strong>Dietary preferences customized</strong>: lactose free, gluten free, dairy free options available</span>
-                                            </li>
-                                            <li>
-                                                <span class="inc-check">✓</span>
-                                                <span><strong>Essential morning add-ons</strong>: choose from fresh tender coconut &amp; soaked dry fruits and protein shakes available</span>
-                                            </li>
-                                            <li>
-                                                <span class="inc-check">✓</span>
-                                                <span><strong>Complete flexibility</strong>: pause subscription, skip meals, change address/time slot anytime</span>
-                                            </li>
-                                            <li>
-                                                <span class="inc-check">✓</span>
-                                                <span><strong>100% free doorstep delivery</strong> without any surge or platform fees</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Bottom-Left Floating Badge -->
-                            <div class="pricing-float-badge">
-                                <div class="float-badge-icon" aria-hidden="true">
-                                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                                        <path d="M13 4.5L6.5 11.5L3 8" stroke="#ea6e00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="float-badge-copy">
-                                    <strong>No commitment</strong>
-                                    <span>skip meal or pause plan whenever you need</span>
-                                </div>
+                            <div class="pricing-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.5 2.5L10.8 6.8L15 8.2L10.8 9.5L9.5 13.8L8.2 9.5L4 8.2L8.2 6.8L9.5 2.5Z"/>
+                                    <path d="M14.5 12L15.3 14.5L17.8 15.3L15.3 16L14.5 18.5L13.8 16L11.2 15.3L13.8 14.5L14.5 12Z"/>
+                                </svg>
+                                <span>50+ meals &amp; 25+ drinks</span>
+                            </div>
+                            <div class="pricing-pill">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                    <path d="M3 10H17M13 5L18 10L13 15" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>100% Free Doorstep Delivery</span>
                             </div>
                         </div>
                     </div>
+
+                    <!-- 3-Card Comparison Grid -->
+                    <div class="pricing-grid-3">
+                        <!-- Card 1: Kinnow Sips -->
+                        <article class="pricing-plan-card" id="plan-card-sips">
+                            <div class="plan-card-top">
+                                <span class="plan-badge-ghost">DAILY DRINKS</span>
+                                <h3 class="plan-title">Kinnow Sips</h3>
+                                <p class="plan-desc">Handcrafted cold brews, iced lattes, and fresh whole-ingredient blends delivered daily.</p>
+                            </div>
+
+                            <!-- Interactive Mini Selector -->
+                            <div class="plan-mini-selector" role="radiogroup" aria-label="Sips beverage tier">
+                                <button type="button" class="mini-chip active" data-plan="sips" data-tier="coffee" aria-checked="true">
+                                    <span>Coffee Drinks</span>
+                                </button>
+                                <button type="button" class="mini-chip" data-plan="sips" data-tier="all" aria-checked="false">
+                                    <span>All Drinks</span>
+                                </button>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="plan-price-block">
+                                <span class="plan-price-prefix">From</span>
+                                <div class="plan-price-val">
+                                    <strong id="price-sips">₹158</strong>
+                                    <span class="plan-price-unit">/day</span>
+                                </div>
+                                <span class="plan-price-term" id="term-sips">4-Week Plan</span>
+                            </div>
+
+                            <!-- Features List -->
+                            <ul class="plan-features-list">
+                                <li><span class="plan-chk">✓</span><span>100% clean, cold-crafted daily drinks</span></li>
+                                <li><span class="plan-chk">✓</span><span>Swap between 25+ brews &amp; blends</span></li>
+                                <li><span class="plan-chk">✓</span><span>Free daily morning delivery</span></li>
+                                <li><span class="plan-chk">✓</span><span>Pause or skip days anytime in app</span></li>
+                            </ul>
+
+                            <!-- CTA -->
+                            <a href="/download" class="plan-card-cta" id="cta-sips">
+                                <span>Get Sips with ₹158/day</span>
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </article>
+
+                        <!-- Card 2: Kinnow Daily (Meals Only) -->
+                        <article class="pricing-plan-card" id="plan-card-daily">
+                            <div class="plan-card-top">
+                                <span class="plan-badge-ghost">DAILY BREAKFAST</span>
+                                <h3 class="plan-title">Kinnow Daily</h3>
+                                <p class="plan-desc">Chef-crafted, nutrient-dense breakfast bowls and salads made with whole foods and zero refined sugar.</p>
+                            </div>
+
+                            <!-- Interactive Portion Selector -->
+                            <div class="plan-mini-selector" role="radiogroup" aria-label="Daily portion size">
+                                <button type="button" class="mini-chip active" data-plan="daily" data-portion="light" aria-checked="true">
+                                    <span>Light (350–500 kcal)</span>
+                                </button>
+                                <button type="button" class="mini-chip" data-plan="daily" data-portion="classic" aria-checked="false">
+                                    <span>Classic (500–650 kcal)</span>
+                                </button>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="plan-price-block">
+                                <span class="plan-price-prefix">From</span>
+                                <div class="plan-price-val">
+                                    <strong id="price-daily">₹167</strong>
+                                    <span class="plan-price-unit">/day</span>
+                                </div>
+                                <span class="plan-price-term" id="term-daily">4-Week Plan</span>
+                            </div>
+
+                            <!-- Features List -->
+                            <ul class="plan-features-list">
+                                <li><span class="plan-chk">✓</span><span>50+ rotating meals, zero repeats</span></li>
+                                <li><span class="plan-chk">✓</span><span>Customizable dietary preferences</span></li>
+                                <li><span class="plan-chk">✓</span><span>Delivered fresh 5:00 AM – 10:00 AM</span></li>
+                                <li><span class="plan-chk">✓</span><span>100% free doorstep delivery</span></li>
+                            </ul>
+
+                            <!-- CTA -->
+                            <a href="/download" class="plan-card-cta" id="cta-daily">
+                                <span>Get Daily with ₹167/day</span>
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </article>
+
+                        <!-- Card 3: Kinnow Complete (Featured All-In-One) -->
+                        <article class="pricing-plan-card plan-card-featured" id="plan-card-complete">
+                            <div class="plan-ribbon-badge">BEST VALUE ★ ALL-IN-ONE</div>
+                            <div class="plan-card-top">
+                                <span class="plan-badge-ghost featured-kicker">MEAL + DAILY DRINK</span>
+                                <h3 class="plan-title">Kinnow Complete</h3>
+                                <p class="plan-desc">Our complete morning routine. Wholesome chef-crafted breakfast paired daily with your cold brew or blend.</p>
+                            </div>
+
+                            <!-- Dual 2-Pill Toggles: Portion + Drink -->
+                            <div class="complete-dual-selectors">
+                                <div class="complete-selector-group">
+                                    <span class="complete-group-label">Meal Portion</span>
+                                    <div class="plan-mini-selector" role="radiogroup" aria-label="Meal portion size">
+                                        <button type="button" class="mini-chip active" data-complete-param="meal" data-val="light" aria-checked="true">
+                                            <span>Light</span>
+                                        </button>
+                                        <button type="button" class="mini-chip" data-complete-param="meal" data-val="classic" aria-checked="false">
+                                            <span>Classic</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="complete-selector-group">
+                                    <span class="complete-group-label">Daily Drink</span>
+                                    <div class="plan-mini-selector" role="radiogroup" aria-label="Daily drink type">
+                                        <button type="button" class="mini-chip active" data-complete-param="drink" data-val="coffee" aria-checked="true">
+                                            <span>Coffee Drinks</span>
+                                        </button>
+                                        <button type="button" class="mini-chip" data-complete-param="drink" data-val="all" aria-checked="false">
+                                            <span>All Drinks</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="plan-price-block">
+                                <span class="plan-price-prefix">From</span>
+                                <div class="plan-price-val">
+                                    <strong id="price-complete">₹308</strong>
+                                    <span class="plan-price-unit">/day</span>
+                                </div>
+                                <span class="plan-price-term" id="term-complete">4-Week Plan</span>
+                            </div>
+
+                            <!-- Features List -->
+                            <ul class="plan-features-list">
+                                <li><span class="plan-chk featured-chk">✓</span><span><strong>1 Chef Meal + 1 Cold Drink daily</strong></span></li>
+                                <li><span class="plan-chk featured-chk">✓</span><span>Swap meal &amp; drink independently in app</span></li>
+                                <li><span class="plan-chk featured-chk">✓</span><span>Full access to 50+ meals &amp; 25+ drinks</span></li>
+                                <li><span class="plan-chk featured-chk">✓</span><span>Priority morning delivery slot</span></li>
+                            </ul>
+
+                            <!-- CTA -->
+                            <a href="/download" class="plan-card-cta plan-card-cta-featured" id="cta-complete">
+                                <span>Get Complete with ₹308/day</span>
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </article>
+                    </div>
+
+                    <!-- Bottom Reassurance Strip -->
+                    <div class="pricing-bottom-reassurance">
+                        <span class="reassurance-icon">✓</span>
+                        <span><strong>No commitment</strong> · Skip meals, swap drinks, or pause your plan whenever you need in the app.</span>
+                    </div>
                 </div>
             </section>
-
+            
             <section class="coconut-section">
                 <div class="coconut-band">
                     <div class="coconut-vector" aria-hidden="true"></div>
@@ -4754,6 +5141,194 @@
             });
         })();
 
+        // Deliver Hero Bowl Auto-Cycling & Live Nutrition Sync (1s Transition)
+        (function () {
+            const bowlContainer = document.getElementById('deliverHeroBowl');
+            if (!bowlContainer) return;
+
+            const slides = bowlContainer.querySelectorAll('.deliver-bowl-slide');
+            if (slides.length <= 1) return;
+
+            // DOM elements for metadata
+            const kickerEl = document.getElementById('bowlKicker');
+            const titleEl = document.getElementById('bowlTitle');
+            const highlightEl = document.getElementById('bowlHighlight');
+            const caloriesEl = document.getElementById('bowlCalories');
+            const proteinEl = document.getElementById('bowlProtein');
+            const carbsEl = document.getElementById('bowlCarbs');
+            const fatsEl = document.getElementById('bowlFats');
+            const metaLeft = document.getElementById('deliverMetaLeft');
+            const metaRight = document.getElementById('deliverMetaRight');
+
+            const BOWL_DATA = [
+                {
+                    title: "Caesar Salad",
+                    category: "Healthy Salad",
+                    highlight: "Crisp Greens & House Dressing",
+                    calories: 386,
+                    protein: "17.5g",
+                    carbs: "35.8g",
+                    fats: "19.0g"
+                },
+                {
+                    title: "Beetroot Yogurt Bowl",
+                    category: "Smoothie Bowl",
+                    highlight: "Probiotics & Berry Crunch",
+                    calories: 653,
+                    protein: "27.1g",
+                    carbs: "84.3g",
+                    fats: "22.4g"
+                },
+                {
+                    title: "Avocado Smoothie Bowl",
+                    category: "Smoothie Bowl",
+                    highlight: "Healthy Fats & Energy Boost",
+                    calories: 452,
+                    protein: "11.4g",
+                    carbs: "65.4g",
+                    fats: "15.5g"
+                },
+                {
+                    title: "Hummus Falafel Bowl",
+                    category: "Healthy Salad",
+                    highlight: "High Plant Protein & Greens",
+                    calories: 322,
+                    protein: "20.0g",
+                    carbs: "40.9g",
+                    fats: "7.2g"
+                },
+                {
+                    title: "Mango Coconut Bowl",
+                    category: "Smoothie Bowl",
+                    highlight: "Alphonso Mango & Coconut",
+                    calories: 643,
+                    protein: "16.5g",
+                    carbs: "97.5g",
+                    fats: "20.1g"
+                },
+                {
+                    title: "Umami Grain Bowl",
+                    category: "Grain Bowl",
+                    highlight: "Slow-Burn Complex Carbs",
+                    calories: 314,
+                    protein: "19.2g",
+                    carbs: "45.4g",
+                    fats: "5.8g"
+                },
+                {
+                    title: "Chipotle Paneer Bowl",
+                    category: "Healthy Salad",
+                    highlight: "Grilled Paneer & Fresh Salsa",
+                    calories: 519,
+                    protein: "22.5g",
+                    carbs: "34.9g",
+                    fats: "31.9g"
+                },
+                {
+                    title: "Greek Salad",
+                    category: "Healthy Salad",
+                    highlight: "Kalamata Olives & Light Feta",
+                    calories: 308,
+                    protein: "7.3g",
+                    carbs: "18.9g",
+                    fats: "22.4g"
+                },
+                {
+                    title: "Peri Peri Chickpea",
+                    category: "Healthy Salad",
+                    highlight: "Fiery Plant Protein Crunch",
+                    calories: 422,
+                    protein: "20.5g",
+                    carbs: "41.4g",
+                    fats: "18.9g"
+                },
+                {
+                    title: "Strawberry Power Oats",
+                    category: "Overnight Oats",
+                    highlight: "Slow-Release Rolled Oats",
+                    calories: 748,
+                    protein: "33.5g",
+                    carbs: "110.0g",
+                    fats: "18.4g"
+                }
+            ];
+
+            // Preload bowl images for smooth transition at 2s intervals
+            slides.forEach(img => {
+                if (img.complete) return;
+                const preload = new Image();
+                preload.src = img.src;
+            });
+
+            let currentSlide = 0;
+            let intervalId = null;
+
+            function updateMetadata(idx) {
+                const data = BOWL_DATA[idx];
+                if (!data) return;
+
+                if (metaLeft) metaLeft.classList.add('updating');
+                if (metaRight) metaRight.classList.add('updating');
+
+                setTimeout(() => {
+                    if (kickerEl) kickerEl.textContent = data.category;
+                    if (titleEl) titleEl.textContent = data.title;
+                    if (highlightEl) highlightEl.textContent = data.highlight;
+                    if (caloriesEl) caloriesEl.textContent = data.calories;
+                    if (proteinEl) proteinEl.textContent = data.protein;
+                    if (carbsEl) carbsEl.textContent = data.carbs;
+                    if (fatsEl) fatsEl.textContent = data.fats;
+
+                    if (metaLeft) metaLeft.classList.remove('updating');
+                    if (metaRight) metaRight.classList.remove('updating');
+                }, 130);
+            }
+
+            function nextSlide() {
+                const prev = slides[currentSlide];
+                currentSlide = (currentSlide + 1) % slides.length;
+                const next = slides[currentSlide];
+
+                prev.classList.remove('active');
+                prev.classList.add('exiting');
+                setTimeout(() => {
+                    prev.classList.remove('exiting');
+                }, 580);
+
+                next.classList.remove('exiting');
+                next.classList.add('active');
+
+                updateMetadata(currentSlide);
+            }
+
+            function startTimer() {
+                stopTimer();
+                intervalId = setInterval(nextSlide, 2000);
+            }
+
+            function stopTimer() {
+                if (intervalId) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            }
+
+            bowlContainer.addEventListener('click', () => {
+                nextSlide();
+                startTimer();
+            });
+
+            bowlContainer.addEventListener('mouseenter', stopTimer);
+            bowlContainer.addEventListener('mouseleave', startTimer);
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopTimer();
+                else startTimer();
+            });
+
+            startTimer();
+        })();
+
         // Drawer Toggle Script
         (function () {
             const toggleBtn = document.getElementById('menuToggleBtn');
@@ -4777,47 +5352,87 @@
             }
         })();
 
-        // Pricing Portion Switcher & Accordion Script
+        // 3-Plan Pricing Interactivity
         (function () {
-            const lightBtn = document.getElementById('portion-light');
-            const classicBtn = document.getElementById('portion-classic');
-            const summaryEl = document.getElementById('selectedPlanSummary');
-            const ctaBtn = document.getElementById('pricingCtaBtn');
-            const includedToggle = document.getElementById('includedToggle');
-            const includedDrawer = document.getElementById('includedDrawer');
+            const PRICING_CONFIG = {
+                sips: {
+                    coffee: { price: "₹158", cta: "Get Sips with ₹158/day" },
+                    all: { price: "₹188", cta: "Get Sips with ₹188/day" },
+                    blend: { price: "₹188", cta: "Get Sips with ₹188/day" }
+                },
+                daily: {
+                    light: { price: "₹167", cta: "Get Daily with ₹167/day" },
+                    classic: { price: "₹188", cta: "Get Daily with ₹188/day" }
+                },
+                complete: {
+                    "light_coffee": { price: "₹308", cta: "Get Complete with ₹308/day" },
+                    "classic_coffee": { price: "₹338", cta: "Get Complete with ₹338/day" },
+                    "light_all": { price: "₹338", cta: "Get Complete with ₹338/day" },
+                    "classic_all": { price: "₹368", cta: "Get Complete with ₹368/day" }
+                }
+            };
 
-            if (lightBtn && classicBtn) {
-                lightBtn.addEventListener('click', () => {
-                    lightBtn.classList.add('active');
-                    lightBtn.setAttribute('aria-checked', 'true');
-                    classicBtn.classList.remove('active');
-                    classicBtn.setAttribute('aria-checked', 'false');
-                    if (summaryEl) summaryEl.innerHTML = '<strong>Light portion</strong> · Lighter portions, balanced nutrition';
-                    if (ctaBtn) {
-                        ctaBtn.innerHTML = '<span>Get started with ₹167/day</span> <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            const completeState = { meal: 'light', drink: 'coffee' };
+
+            document.querySelectorAll('.mini-chip').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const completeParam = btn.getAttribute('data-complete-param');
+                    const completeVal = btn.getAttribute('data-val');
+
+                    if (completeParam && completeVal) {
+                        // Kinnow Complete Dual Selector
+                        const parent = btn.closest('.plan-mini-selector');
+                        if (parent) {
+                            parent.querySelectorAll('.mini-chip').forEach(b => {
+                                b.classList.remove('active');
+                                b.setAttribute('aria-checked', 'false');
+                            });
+                        }
+                        btn.classList.add('active');
+                        btn.setAttribute('aria-checked', 'true');
+
+                        completeState[completeParam] = completeVal;
+                        const comboKey = `${completeState.meal}_${completeState.drink}`;
+                        const conf = PRICING_CONFIG.complete[comboKey];
+                        if (conf) {
+                            const priceEl = document.getElementById('price-complete');
+                            const ctaEl = document.getElementById('cta-complete');
+                            if (priceEl) priceEl.textContent = conf.price;
+                            if (ctaEl) {
+                                const span = ctaEl.querySelector('span');
+                                if (span) span.textContent = conf.cta;
+                            }
+                        }
+                        return;
+                    }
+
+                    // Sips or Daily
+                    const plan = btn.getAttribute('data-plan');
+                    const tier = btn.getAttribute('data-tier') || btn.getAttribute('data-portion');
+                    if (!plan || !tier || !PRICING_CONFIG[plan] || !PRICING_CONFIG[plan][tier]) return;
+
+                    const parent = btn.closest('.plan-mini-selector');
+                    if (parent) {
+                        parent.querySelectorAll('.mini-chip').forEach(b => {
+                            b.classList.remove('active');
+                            b.setAttribute('aria-checked', 'false');
+                        });
+                    }
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-checked', 'true');
+
+                    const conf = PRICING_CONFIG[plan][tier];
+                    const priceEl = document.getElementById(`price-${plan}`);
+                    const ctaEl = document.getElementById(`cta-${plan}`);
+
+                    if (priceEl) priceEl.textContent = conf.price;
+                    if (ctaEl) {
+                        const span = ctaEl.querySelector('span');
+                        if (span) span.textContent = conf.cta;
                     }
                 });
-
-                classicBtn.addEventListener('click', () => {
-                    classicBtn.classList.add('active');
-                    classicBtn.setAttribute('aria-checked', 'true');
-                    lightBtn.classList.remove('active');
-                    lightBtn.setAttribute('aria-checked', 'false');
-                    if (summaryEl) summaryEl.innerHTML = '<strong>Classic portion</strong> · Full & hearty portions, high protein';
-                    if (ctaBtn) {
-                        ctaBtn.innerHTML = '<span>Get started with ₹188/day</span> <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-                    }
-                });
-            }
-
-            if (includedToggle && includedDrawer) {
-                includedToggle.addEventListener('click', () => {
-                    const isOpen = includedDrawer.classList.toggle('open');
-                    includedToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                });
-            }
+            });
         })();
-
     </script>
 </body>
 
