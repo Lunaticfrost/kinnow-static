@@ -623,7 +623,7 @@
             display: grid;
             place-items: center;
             z-index: 1;
-            transform: translate(4px, -90px);
+            transform: translate(4px, -45px);
         }
 
         .hero-bowl-shell {
@@ -638,12 +638,102 @@
             display: none;
         }
 
-        .hero-bowl-shell img {
+        .hero-bowl-stage {
+            position: relative;
             width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            display: grid;
+            place-items: center;
+        }
+
+        .hero-bowl-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             aspect-ratio: 1 / 1;
             object-fit: contain;
-            position: relative;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            opacity: 0;
+            transform: translate3d(120%, 0, 0) rotate(14deg);
+            will-change: transform, opacity;
             z-index: 1;
+        }
+
+        .hero-bowl-slide.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) rotate(0deg);
+            transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            z-index: 2;
+        }
+
+        .hero-bowl-slide.prev {
+            opacity: 0;
+            transform: translate3d(-120%, 0, 0) rotate(-14deg);
+            transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .hero-pricing-star {
+            position: absolute;
+            left: 8.1%;
+            top: 2.5%;
+            width: 30.6%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            z-index: 4;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.08));
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-pricing-star.star-pop {
+            transform: scale(1.08) rotate(-2deg);
+        }
+
+        .hero-poly-right {
+            position: absolute;
+            left: 77.8%;
+            top: 11.8%;
+            width: 10.7%;
+            height: auto;
+            aspect-ratio: 99 / 105;
+            object-fit: contain;
+            z-index: 3;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-poly-right.poly-pop {
+            transform: scale(1.1) translate(4px, -2px);
+        }
+
+        .hero-poly-top {
+            position: absolute;
+            left: 46.5%;
+            top: 0.5%;
+            width: 10.7%;
+            height: auto;
+            aspect-ratio: 99 / 105;
+            object-fit: contain;
+            transform: rotate(-45deg);
+            z-index: 3;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-poly-top.poly-pop {
+            transform: rotate(-45deg) scale(1.1) translateY(-4px);
         }
 
         .hero-badge {
@@ -3780,7 +3870,22 @@
                         </div> -->
                         <div class="hero-bowl">
                             <div class="hero-bowl-shell">
-                                <img src="images/hero-bowl-custom.png" alt="Kinnow breakfast bowl">
+                                <div class="hero-bowl-stage" id="heroBowlStage">
+                                    <img src="images/hero-carousel/00-yogurt-fruit-bowl.png" alt="Kinnow Yogurt Fruit Bowl" class="hero-bowl-slide active" fetchpriority="high">
+                                    <img src="images/hero-carousel/01-caesar-salad.png" alt="Caesar Salad" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/02-beetroot-yogurt-bowl.png" alt="Beetroot Yogurt Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/03-avocado-smoothie-bowl.png" alt="Avocado Smoothie Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/04-falafel-hummus-bowl.png" alt="Falafel Hummus Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/05-mango-yogurt-bowl.png" alt="Mango Yogurt Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/06-warm-grain-bowl.png" alt="Warm Grain Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/07-paneer-tikka-bowl.png" alt="Paneer Tikka Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/08-greek-salad.png" alt="Greek Salad" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/09-peri-peri-bowl.png" alt="Peri Peri Bowl" class="hero-bowl-slide">
+                                    <img src="images/hero-carousel/10-strawberry-power-oats.png" alt="Strawberry Power Oats" class="hero-bowl-slide">
+                                </div>
+                                <img src="images/pricing-star.png" alt="Starts FROM ₹178" class="hero-pricing-star">
+                                <img src="images/exclamation-polygons.png" alt="" class="hero-poly-top" aria-hidden="true">
+                                <img src="images/exclamation-polygons.png" alt="" class="hero-poly-right" aria-hidden="true">
                             </div>
                         </div>
                     </div>
@@ -5431,6 +5536,67 @@
                         if (span) span.textContent = conf.cta;
                     }
                 });
+            });
+        })();
+
+        // Top Hero Bowl Slide Carousel (Every 2 seconds from the right)
+        (function () {
+            const stage = document.getElementById('heroBowlStage');
+            if (!stage) return;
+
+            const slides = stage.querySelectorAll('.hero-bowl-slide');
+            if (slides.length <= 1) return;
+
+            const star = document.querySelector('.hero-pricing-star');
+            const polyTop = document.querySelector('.hero-poly-top');
+            const polyRight = document.querySelector('.hero-poly-right');
+
+            let currentIndex = 0;
+            const INTERVAL_MS = 2000;
+
+            function nextBowl() {
+                const prevSlide = slides[currentIndex];
+                currentIndex = (currentIndex + 1) % slides.length;
+                const nextSlide = slides[currentIndex];
+
+                // Remove .prev from nextSlide just in case
+                nextSlide.classList.remove('prev');
+
+                // Transition: prevSlide moves out to left, nextSlide sweeps in from right
+                prevSlide.classList.remove('active');
+                prevSlide.classList.add('prev');
+                nextSlide.classList.add('active');
+
+                // Trigger lively pop on star and polygons
+                if (star) {
+                    star.classList.add('star-pop');
+                    setTimeout(() => star.classList.remove('star-pop'), 400);
+                }
+                if (polyTop) {
+                    polyTop.classList.add('poly-pop');
+                    setTimeout(() => polyTop.classList.remove('poly-pop'), 400);
+                }
+                if (polyRight) {
+                    polyRight.classList.add('poly-pop');
+                    setTimeout(() => polyRight.classList.remove('poly-pop'), 400);
+                }
+
+                // Clean up prev slide after transition finishes so it resets to default offscreen right
+                setTimeout(() => {
+                    prevSlide.classList.remove('prev');
+                }, 750);
+            }
+
+            let timer = setInterval(nextBowl, INTERVAL_MS);
+
+            // Pause when tab is not visible to prevent animation stacking
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    clearInterval(timer);
+                } else {
+                    clearInterval(timer);
+                    timer = setInterval(nextBowl, INTERVAL_MS);
+                }
             });
         })();
     </script>
