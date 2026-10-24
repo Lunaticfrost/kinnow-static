@@ -146,6 +146,23 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #why-kinnow,
+        #menu,
+        #pricing,
+        #reviews {
+            scroll-margin-top: 24px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
         html,
         body {
             overflow-x: hidden;
@@ -267,7 +284,7 @@
             transform: translateY(-1px);
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
             .nav-links {
                 display: none !important;
             }
@@ -2039,6 +2056,13 @@
             -webkit-user-select: none;
         }
 
+        .portion-calorie-average {
+            display: block;
+            margin-top: 4px;
+            font-size: 10.5px;
+            font-weight: 500;
+        }
+
         .mini-chip:hover {
             color: #2e1a0e;
         }
@@ -3781,9 +3805,25 @@
             <div class="drawer-header" style="justify-content: flex-end;">
                 <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
             </div>
-            <nav class="drawer-nav">
+            <nav class="drawer-nav" aria-label="Sidebar navigation">
                 <a href="/how-it-works/" class="drawer-link">
                     <span>How it Works</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="#why-kinnow" class="drawer-link">
+                    <span>Why Kinnow</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="#menu" class="drawer-link">
+                    <span>Meals</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="#pricing" class="drawer-link">
+                    <span>Plans</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="#reviews" class="drawer-link">
+                    <span>Reviews</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
                 <a href="/bangalore/" class="drawer-link">
@@ -3892,7 +3932,7 @@
                 </div>
             </section>
 
-            <section class="why-section">
+            <section class="why-section" id="why-kinnow">
                 <div class="container">
                     <span class="section-label">Why Choose Us</span>
                     <!-- <h2 class="section-title">Thoughtful breakfasts built for real mornings.</h2>
@@ -4479,10 +4519,12 @@
                             <!-- Interactive Portion Selector -->
                             <div class="plan-mini-selector" role="radiogroup" aria-label="Daily portion size">
                                 <button type="button" class="mini-chip active" data-plan="daily" data-portion="light" aria-checked="true">
-                                    <span>Light (350–500 kcal)</span>
+                                    <span>Light</span>
+                                    <span class="portion-calorie-average">340 avg kcal/meal</span>
                                 </button>
                                 <button type="button" class="mini-chip" data-plan="daily" data-portion="classic" aria-checked="false">
-                                    <span>Classic (500–650 kcal)</span>
+                                    <span>Classic</span>
+                                    <span class="portion-calorie-average">540 avg kcal/meal</span>
                                 </button>
                             </div>
 
@@ -4527,9 +4569,11 @@
                                     <div class="plan-mini-selector" role="radiogroup" aria-label="Meal portion size">
                                         <button type="button" class="mini-chip active" data-complete-param="meal" data-val="light" aria-checked="true">
                                             <span>Light</span>
+                                            <span class="portion-calorie-average">340 avg kcal/meal</span>
                                         </button>
                                         <button type="button" class="mini-chip" data-complete-param="meal" data-val="classic" aria-checked="false">
                                             <span>Classic</span>
+                                            <span class="portion-calorie-average">540 avg kcal/meal</span>
                                         </button>
                                     </div>
                                 </div>
@@ -4596,7 +4640,7 @@
                 </div>
             </section>
 
-            <section class="stories-section">
+            <section class="stories-section" id="reviews">
                 <div class="container" style="width: 100%;">
                     <span class="section-label"> What Our Customers Say </span>
                     <div class="stories-slider">
@@ -5452,7 +5496,7 @@
             if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
             if (overlay) {
                 overlay.addEventListener('click', (e) => {
-                    if (e.target === overlay) closeDrawer();
+                    if (e.target === overlay || e.target.closest('.drawer-link')) closeDrawer();
                 });
             }
         })();
