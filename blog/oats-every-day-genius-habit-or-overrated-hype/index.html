@@ -886,9 +886,25 @@
             <div class="drawer-header" style="justify-content: flex-end;">
                 <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
             </div>
-            <nav class="drawer-nav">
+            <nav class="drawer-nav" aria-label="Sidebar navigation">
                 <a href="/how-it-works/" class="drawer-link">
                     <span>How it Works</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/#why-kinnow" class="drawer-link">
+                    <span>Why Kinnow</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/#menu" class="drawer-link">
+                    <span>Meals</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/#pricing" class="drawer-link">
+                    <span>Plans</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <a href="/#reviews" class="drawer-link">
+                    <span>Reviews</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
                 <a href="/bangalore/" class="drawer-link">
@@ -1094,7 +1110,7 @@
             if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
             if (overlay) {
                 overlay.addEventListener('click', (e) => {
-                    if (e.target === overlay) closeDrawer();
+                    if (e.target === overlay || e.target.closest('.drawer-link')) closeDrawer();
                 });
             }
 
